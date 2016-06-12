@@ -30,7 +30,9 @@
 			<div class="mod" id="mCenter">
 				<div id="modHistory" class="col1 mod_history">
 					<div class="h" style="height: 36px; ">
-							<h2><a href="f-3517-1.html" target="_blank">城市<i style="color:#000">音乐会</i></a>
+							<!--<h2 style="padding-right: 0px;"><a style="font-size:24px" title="家有琴童·城市秀场"  href="forum-3517-1.html">十大<i style="color:#000">小演奏家评选</i></a> <i style="color:#000;float: right; margin-right: 17px;line-height: 26px;font-size: 24px;">音乐会</i></h2>
+							<h2 style="padding-right: 0px;"><a title="家有琴童·城市秀场"  href="forum-3517-1.html"><img width="123" height="27" src="/ayfile/v5/images/city_concert.png" alt="家有琴童·城市音乐会"></a></h2>-->
+							<h2><a href="f-3517-1.html" target="_blank">十大<i style="color:#000">小演奏家</i></a>
 						</h2>
 					</div>
 					<div class="c">
