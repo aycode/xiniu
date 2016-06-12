@@ -218,12 +218,15 @@
 		</div>
 		<div style= "width:100%;height:40px;line-height:40px;background-color:#F4592C;" >
 			<div class="head-bd layout">
-				<div class="menu"> <!--好店导航-->
+				<div class="menu"> 
 					<a style="padding-left: 0;" href="http://www.123aiyue.cn" title="家有琴童网首页">首页</a>
-					<a href="forum.php?mod=forumdisplay&fid=3517&filter=typeid&typeid=13413" title="城市秀场">城市秀场</a>
-					<a class="cur" href="/area/shopip.php" title="琴行培训">琴行培训</a>
-					<a href="/forum.php?mod=forumdisplay&fid=3521&filter=typeid&typeid=13444" title="名家访谈">名家访谈</a>
-					<a  href="http://www.123aiyue.com" title="中国爱乐网">新闻频道</a>
+					<a {if $_G[fid] == 3517}class="cur"{/if} href="forum.php?mod=forumdisplay&fid=3517&filter=typeid&typeid=13413">城市秀场</a>
+					<a href="/area/shopip.php">琴行培训</a>
+					<!--<a {if $_GET['catid'] == 132} class="cur"{/if} href="haodian.php?mod=list&catid=132&did=1">推荐培训 </a>
+					<a {if $_GET['catid'] == 133} class="cur"{/if} href="plugin.php?id=xn_haodian&mod=list&catid=133&style=list">品牌琴行</a>-->
+					<a {if $thread['typeid'] == 13444} class="cur"{/if} href="/forum.php?mod=forumdisplay&fid=3521&filter=typeid&typeid=13444" title="名家访谈">名家访谈</a>
+					<!--<a {if $_G[fid] == 2313}class="cur"{/if} href="forum.php?mod=forumdisplay&fid=2313">活动新闻</a>-->
+					<a  href="http://www.123aiyue.com">新闻频道</a>
 				</div>
 				<div  class="menu fr">
 					<!--<i style="color:#fff">热线：400-044-9188</i>-->
