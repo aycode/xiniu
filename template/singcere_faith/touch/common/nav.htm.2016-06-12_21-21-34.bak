@@ -1,0 +1,5 @@
+<ul class="right-channel clear">
+	<li class="{if $_G[fid] == 2313 && $_GET['typeid'] == 0 || $_G[fid] == 3999 }cur{/if}" bclass="style-es"><a href="forum.php?mod=forumdisplay&fid=2313">活动新闻</a></li>
+	<li class="{if $_G[fid] == 3517}cur{/if}" bclass="style-es"><a href="forum.php?mod=forumdisplay&fid=3517&filter=typeid&typeid=13413">城市秀场</a></li>	
+	<li class="{if $mod == 'list' || $mod == 'shop'}cur{/if}" bclass="style-es"><a href="/area/shopip.php">琴行培训</a></li>
+</ul>
