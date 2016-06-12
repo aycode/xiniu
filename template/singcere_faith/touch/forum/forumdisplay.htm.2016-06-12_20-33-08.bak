@@ -77,7 +77,7 @@
 				<li class="{if $thread['typeid'] == 13430}active{/if}"><a href="forum.php?mod=forumdisplay&fid=3517&filter=typeid&typeid=13430">演唱</a></li>
 				<li class="{if $thread['typeid'] == 13417}active{/if}"><a href="forum.php?mod=forumdisplay&fid=3517&filter=typeid&typeid=13417">电子琴</a></li>
 				<li class="{if $thread['typeid'] == 13418}active{/if}"><a href="forum.php?mod=forumdisplay&fid=3517&filter=typeid&typeid=13418">提琴</a></li>
-				<li><a style="font-weight: 800;" href="http://mp.weixin.qq.com/s?__biz=MzAwOTQ4NDY0Ng==&mid=503580142&idx=1&sn=74cd1ade5a9fc8dbef3d5c6ed509bec3#rd">活动简介</a></li>
+				<li><a style="font-weight: 800;" href="http://www.123aiyue.cn/forum.php?mod=viewthread&tid=292796&highlight=%D5%C2%B3%CC&mobile=2">活动章程</a></li>
 			</ul>
 			<ul class="right-channel-s clear" style="margin-top:5px">
 				<li class="{if $thread['typeid'] == 13415}active{/if}"><a href="forum.php?mod=forumdisplay&fid=3517&filter=typeid&typeid=13415">吉他</a></li>
@@ -85,7 +85,7 @@
 				<li class="l1 {if $thread['typeid'] == 13420}active{/if}"><a href="forum.php?mod=forumdisplay&fid=3517&filter=typeid&typeid=13420">管乐</a></li>
 				<li class="{if $thread['typeid'] == 13429}active{/if}"><a href="forum.php?mod=forumdisplay&fid=3517&filter=typeid&typeid=13429">打击乐</a></li>
 				<li class="{if $thread['typeid'] == 13431}active{/if}"><a href="forum.php?mod=forumdisplay&fid=3517&filter=typeid&typeid=13431">其他</a></li>
-				<li style="background-color: #70AD49;"><a style="color:#fff"  href="http://form.mikecrm.com/XGoRYT">报名参加</a></li>
+				<li style="background-color: #70AD49;"><a style="color:#fff"  href="http://form.mikecrm.com/MHhJVe">报名参加</a></li>
 				
 			</ul>
 		</div>
