@@ -63,9 +63,9 @@
 	<!--{if $_G[fid] == 3517}-->
 
 		<div> <!--名家祝贺视频-->
-			<iframe id="txvideo" width="100%"  class="video_iframe" frameborder="0" allowfullscreen="" style=" overflow: hidden;" data-src="http://v.qq.com/iframe/player.html?vid=y01624g8z9e&amp;auto=0" src="http://v.qq.com/iframe/player.html?vid=x0153ia78m7&amp;auto=0" scrolling="no"></iframe>
+			<iframe id="txvideo" width="100%"  class="video_iframe" frameborder="0" allowfullscreen="" style=" overflow: hidden;" data-src="http://v.qq.com/iframe/player.html?vid=y01624g8z9e&amp;auto=0" src="http://v.qq.com/iframe/player.html?vid=y01624g8z9e&amp;auto=0" scrolling="no"></iframe>
 			<script type="text/javascript">document.getElementById("txvideo").style.height=document.getElementById("txvideo").scrollWidth*0.563+"px"</script>
-			<p style="font-size: 12px;text-align:center;line-height:24px;height:24px;color:#FF6600;padding-top:3px">名家祝贺家有琴童·城市音乐会</p>
+			<p style="font-size: 12px;text-align:center;line-height:24px;height:24px;color:#FF6600;padding-top:3px">家有琴童·2016城市十大小演奏家评选音乐会</p>
 		</div>
 
 		<!--秀场主题分类-->
