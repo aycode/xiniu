@@ -1,0 +1,479 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" class="hairlines">
+<head>
+<title>$navtitle</title>
+<meta http-equiv="Content-Type" content="text/html;charset={CHARSET}">
+<meta http-equiv="Cache-control" content="{if $_G['setting']['mobile'][mobilecachetime] > 0}{$_G['setting']['mobile'][mobilecachetime]}{else}no-cache{/if}" />
+<meta name="MobileOptimized" content="320"/>
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta content="telephone=no" name="format-detection" />
+<!--<meta http-equiv="Cache-Control" content="no-transform " />-->
+<meta http-equiv="Page-Enter" contect="revealTrans(duration=10,transtion= 50)">
+<meta http-equiv="Page-Exit" contect="revealTrans(duration=20，transtion=6)">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<base href="{$_G['siteurl']}" />
+<link rel="stylesheet" type="text/css" href="{$_G[siteurl]}template/singcere_faith/src/css/global.css?20160601"/>
+<link rel="stylesheet" type="text/css" href="http://apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="{$_G[siteurl]}template/singcere_faith/src/css/weui.min.css">
+<script src="http://cdn.staticfile.org/jquery/1.8.3/jquery.min.js" charset="utf-8"></script>
+<script src="template/singcere_faith/src/js/JTcache.js" charset="utf-8"></script>
+<script type="text/javascript">var STYLEID = '{STYLEID}', STATICURL = '{STATICURL}', IMGDIR = '{IMGDIR}', VERHASH = '{VERHASH}', charset = '{CHARSET}', discuz_uid = '$_G[uid]', cookiepre = '{$_G[config][cookie][cookiepre]}', cookiedomain = '{$_G[config][cookie][cookiedomain]}', cookiepath = '{$_G[config][cookie][cookiepath]}', showusercard = '{$_G[setting][showusercard]}', attackevasive = '{$_G[config][security][attackevasive]}', disallowfloat = '{$_G[setting][disallowfloat]}', creditnotice = '<!--{if $_G['setting']['creditnotice']}-->$_G['setting']['creditnames']<!--{/if}-->', defaultstyle = '$_G[style][defaultextstyle]', REPORTURL = '$_G[currenturl_encode]', SITEURL = '$_G[siteurl]', JSPATH = '$_G[setting][jspath]', CURMODULE = '{CURMODULE}', TMPLPATH = 'template/singcere_faith/', IMAGE_PROCESSOR = '{$_G[config][extend][storage][qiniu][imgprocessor]}', MIRROR_CDN='{$_G[config][mirror_cdn]}';
+    JC.load(TMPLPATH + "src/js/common.js", "20151032");
+    //JC.load(TMPLPATH + "src/js/fastclick.js", "20150526");    底部加载过, 尚未处理
+    JC.load(TMPLPATH + "src/js/jquery.scrollLoading.js", "20151026");
+    JC.load(TMPLPATH + "src/js/arttemplate.js", "20150526");
+</script>
+<script src="template/singcere_faith/src/js/TouchSlide.1.1.js" charset="utf-8"></script>
+<!--{if $_G['setting']['statcode']}-->$_G['setting']['statcode']<!--{/if}-->
+</head>
+<body class="style-es 
+{if CURMODULE == 'xn_activity' || $_G[forum_thread][special] == 4 ||  CURMODULE == 'singcere_poll'}
+style-hd
+{elseif $_G['basescript'] == 'forum' && CURMODULE == 'index' || (CURMODULE == 'xn_sort' && $_GET[mod] != 'my') || CURMODULE == 'xn_job' && $mod !='cpanel' || CURMODULE == 'xn_house' || (CURMODULE == 'xn_haodian' && $mod !=usercenter) || CURMODULE == 'xn_promo' || CURMODULE == 'xn_tuan' && $_GET[types]!='mall_home'}
+style-es
+{elseif CURMODULE == 'xn_mall' && $_GET[types]!='mall_home'}
+style-sc
+{elseif CURMODULE == 'xn_raise'}
+style-zc
+{elseif CURMODULE == 'xn_indiana'}
+style-db
+{elseif CURMODULE == 'xn_activity1'}
+style-hd1
+{elseif CURMODULE == 'xn_auction' && $_GET[types]!='mall_home'}
+style-fl
+{elseif $_G['basescript'] == 'portal' || CURMODULE == 'xn_topic' || CURMODULE == 'xn_interview'}
+style-xw
+{/if}" {if $_G['basescript'] == 'forum' && CURMODULE == 'index'}onload="loaded()"{/if}>
+
+<!--{hook/global_header_mobile}-->
+
+<div id="loading"></div>
+
+<script>
+function getQueryString(name) {
+var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+var r = window.location.search.substr(1).match(reg);
+if (r != null) return unescape(r[2]); return null;
+}
+
+$(document).ready(function(){
+	var c=getQueryString("catid");
+	var m=getQueryString("mod");
+	var d=getQueryString("did");
+	if (d==2){
+		$(".xcity").html("上海");
+		//$("#city-px").css('display','block');
+		//$("#m-index").css('border-bottom','1px solid #e1e1e1');
+		//$("#px").css('border-bottom','2px solid #FF6A22');
+	}//else if(c==132){
+		//$("#m-index").css('border-bottom','1px solid #e1e1e1');
+		//$("#px").css('border-bottom','2px solid #FF6A22');
+		//$("#city-px").css('display','block');
+	//} else if (c==133){
+		//$("#m-index").css('border-bottom','1px solid #e1e1e1');
+		//$("#qh").css('border-bottom','2px solid #FF6A22');
+		//$("#city-qh").css('display','block');
+	//} 
+})  
+</script>
+	<div class="header">
+		<span class="logo-dq city_menu">{$_G[cache][plugin][xn_mobile][pt]}</span>
+	    <h1 class="logo">
+			<!--{if $_G[fid] == 2313 || $_G[fid] == 3999}-->
+				中国爱乐网
+			<!--{else}-->
+			    家有琴童网
+			<!--{/if}-->
+	    </h1>
+	    <!--<a class="gohouse {if $_G['basescript'] == 'home' && $_G[uid] == $space[uid] || $_GET[types]=='mall_home'}current{/if}" href="home.php?mod=space&do=profile"><i class="fa fa-user"></i>-->
+	    <a class="gohouse {if $_G['basescript'] == 'home' && $_G[uid] == $space[uid] || $_GET[types]=='mall_home'}current{/if}" href="{$_G[siteurl]}home.php?mod=space&uid={$space[uid]}&do=thread&view=me&type=thread"><i class="fa fa-user"></i>
+	    <!--{if $_G[member][newprompt] || $_G[member][newpm]}--><i class="new-prompt twinkling" style="display:none">{echo ($_G[member][newprompt] + $_G[member][newpm])}</i><!--{/if}-->
+	    </a>
+
+	    <span class="sochannels" {if $_G[fid] == 3517 ||  CURMODULE == 'xn_haodian' || $_G[fid] == 3999 ||$_G[fid] == 3521}style="display:none"{/if}><i class="fa fa-search"></i></span>
+	    <span style="display:none" class="gochannels {if $_G['basescript'] != 'home' &&  $_GET[types]!='mall_home'}current{/if}"><i class="fa fa-bars"></i></span><!-- //@ff是否显示顶部搜索图标-->
+		<!--{if CURMODULE == 'xn_haodian'}--> 
+	    <a href="/pxlist.html" id="city-px" class="xcity" style="display:none;">北京</a>
+	    <a href="/qhlist.html" id="city-qh" class="xcity" style="display:none;">北京</a>
+		<!--{/if}-->
+
+		<!--{if $mod == 'viewthread' || $mod == 'viewthread' && $_G[fid] == 2313}-->
+	    <a class="re" onclick="history.go(-1)" style="display:none"><i class="fa fa-reply"></i></a>
+		<!--{/if}-->
+
+		<!--{if $_G[fid] == 2 || $_G[fid] == 4000 || $_G[fid] == 37 || $_G[fid] == 38 || $_G[fid] == 39 || $_G[fid] == 40 || $_G[fid] == 41 || $_G[fid] == 42 || $_G[fid] == 53 || $_G[fid] == 50 || $_G[fid] == 51 || $_G[fid] == 52 || $_G[fid] == 44 || $_G[fid] == 43 || $_G[fid] == 46 || $_G[fid] == 45 || $_G[fid] == 48 || $_G[fid] == 49 || $_G[fid] == 47 || $_G[fid] == 54 || $_G[fid] == 55 || $_G[fid] == 56 || $_G[fid] == 57 || $_G[fid] == 58 || $_G[fid] == 59 || $_G[fid] == 60 || $_G[fid] == 61 || $_G[fid] == 62 || $_G[fid] == 63 || $_G[fid] == 64 || $_G[fid] == 65 || $_G[fid] == 74 || $_G[fid] == 75 || $_G[fid] == 76 || $_G[fid] == 77 || $_G[fid] == 78 || $_G[fid] == 79 || $_G[fid] == 80 || $_G[fid] == 81 || $_G[fid] == 82 || $_G[fid] == 83 || $_G[fid] == 84 || $_G[fid] == 72 || $_G[fid] == 73 || $_G[fid] == 85 || $_G[fid] == 86 || $_G[fid] == 87 || $_G[fid] == 88 || $_G[fid] == 89 || $_G[fid] == 90 || $_G[fid] == 91 || $_G[fid] == 92 || $_G[fid] == 93 || $_G[fid] == 94 || $_G[fid] == 95 || $_G[fid] == 96 || $_G[fid] == 97 || $_G[fid] == 98 || $_G[fid] == 99 || $_G[fid] == 100 || $_G[fid] == 101 || $_G[fid] == 102 || $_G[fid] == 103 || $_G[fid] == 104 || $_G[fid] == 105 || $_G[fid] == 106 || $_G[fid] == 107 || $_G[fid] == 108 || $_G[fid] == 109 || $_G[fid] == 110 || $_G[fid] == 111 || $_G[fid] == 112 || $_G[fid] == 113 || $_G[fid] == 114 || $_G[fid] == 115 || $_G[fid] == 116 || $_G[fid] == 117 || $_G[fid] == 118 || $_G[fid] == 119 || $_G[fid] == 120 || $_G[fid] == 121 || $_G[fid] == 122 || $_G[fid] == 123 || $_G[fid] == 124 || $_G[fid] == 191 || $_G[fid] == 192 || $_G[fid] == 193 || $_G[fid] == 194 || $_G[fid] == 195 || $_G[fid] == 196 || $_G[fid] == 197 || $_G[fid] == 198 || $_G[fid] == 199 || $_G[fid] == 200 || $_G[fid] == 201 || $_G[fid] == 202 || $_G[fid] == 203 || $_G[fid] == 204 || $_G[fid] == 175 || $_G[fid] == 176 || $_G[fid] == 177 || $_G[fid] == 178 || $_G[fid] == 179 || $_G[fid] == 180 || $_G[fid] == 181 || $_G[fid] == 182 || $_G[fid] == 183 || $_G[fid] == 184 || $_G[fid] == 185 || $_G[fid] == 186 || $_G[fid] == 187 || $_G[fid] == 213 || $_G[fid] == 214 || $_G[fid] == 215 || $_G[fid] == 216 || $_G[fid] == 217 || $_G[fid] == 218 || $_G[fid] == 219 || $_G[fid] == 220 || $_G[fid] == 221 || $_G[fid] == 222 || $_G[fid] == 223 || $_G[fid] == 224 || $_G[fid] == 225 || $_G[fid] == 205 || $_G[fid] == 206 || $_G[fid] == 259 || $_G[fid] == 260 || $_G[fid] == 261 || $_G[fid] == 262 || $_G[fid] == 263 || $_G[fid] == 264 || $_G[fid] == 265 || $_G[fid] == 266 || $_G[fid] == 267 || $_G[fid] == 268 || $_G[fid] == 269 || $_G[fid] == 270 || $_G[fid] == 271 || $_G[fid] == 272 || $_G[fid] == 226 || $_G[fid] == 227 || $_G[fid] == 228 || $_G[fid] == 229 || $_G[fid] == 230 || $_G[fid] == 231 || $_G[fid] == 232 || $_G[fid] == 233 || $_G[fid] == 234 || $_G[fid] == 235 || $_G[fid] == 236 || $_G[fid] == 237 || $_G[fid] == 238 || $_G[fid] == 239 || $_G[fid] == 240 || $_G[fid] == 241 || $_G[fid] == 242 || $_G[fid] == 243 || $_G[fid] == 244 || $_G[fid] == 245 || $_G[fid] == 246 || $_G[fid] == 247 || $_G[fid] == 248 || $_G[fid] == 249 || $_G[fid] == 250 || $_G[fid] == 251 || $_G[fid] == 252 || $_G[fid] == 253 || $_G[fid] == 254 || $_G[fid] == 255 || $_G[fid] == 256 || $_G[fid] == 257 || $_G[fid] == 136 || $_G[fid] == 137 || $_G[fid] == 138 || $_G[fid] == 139 || $_G[fid] == 140 || $_G[fid] == 141 || $_G[fid] == 142 || $_G[fid] == 143 || $_G[fid] == 144 || $_G[fid] == 145 || $_G[fid] == 146 || $_G[fid] == 147 || $_G[fid] == 148 || $_G[fid] == 149 || $_G[fid] == 150 || $_G[fid] == 151 || $_G[fid] == 152 || $_G[fid] == 153 || $_G[fid] == 154 || $_G[fid] == 155 || $_G[fid] == 156 || $_G[fid] == 157 || $_G[fid] == 158 || $_G[fid] == 159 || $_G[fid] == 160 || $_G[fid] == 161 || $_G[fid] == 162 || $_G[fid] == 163 || $_G[fid] == 164 || $_G[fid] == 165 || $_G[fid] == 166 || $_G[fid] == 167 || $_G[fid] == 168 || $_G[fid] == 169 || $_G[fid] == 170 || $_G[fid] == 171 || $_G[fid] == 172 || $_G[fid] == 173 || $_G[fid] == 174 || $_G[fid] == 125 || $_G[fid] == 126 || $_G[fid] == 127 || $_G[fid] == 128 || $_G[fid] == 129 || $_G[fid] == 130 || $_G[fid] == 131 || $_G[fid] == 132 || $_G[fid] == 133 || $_G[fid] == 134 || $_G[fid] == 135 || $_G[fid] == 273 || $_G[fid] == 274 || $_G[fid] == 275 || $_G[fid] == 276 || $_G[fid] == 277 || $_G[fid] == 278 || $_G[fid] == 279 || $_G[fid] == 280 || $_G[fid] == 281 || $_G[fid] == 282 || $_G[fid] == 283 || $_G[fid] == 284 || $_G[fid] == 285 || $_G[fid] == 286 || $_G[fid] == 287 || $_G[fid] == 288 || $_G[fid] == 289 || $_G[fid] == 290 || $_G[fid] == 291 || $_G[fid] == 292 || $_G[fid] == 293 || $_G[fid] == 294 || $_G[fid] == 295 || $_G[fid] == 296 || $_G[fid] == 297 || $_G[fid] == 298 || $_G[fid] == 299 || $_G[fid] == 300 || $_G[fid] == 301 || $_G[fid] == 302 || $_G[fid] == 303 || $_G[fid] == 304 || $_G[fid] == 305 || $_G[fid] == 306 || $_G[fid] == 307 || $_G[fid] == 308 || $_G[fid] == 309 || $_G[fid] == 310 || $_G[fid] == 311 || $_G[fid] == 312 || $_G[fid] == 313 || $_G[fid] == 314 || $_G[fid] == 315 || $_G[fid] == 316 || $_G[fid] == 317 || $_G[fid] == 318 || $_G[fid] == 319 || $_G[fid] == 320 || $_G[fid] == 321 || $_G[fid] == 322 || $_G[fid] == 323 || $_G[fid] == 324 || $_G[fid] == 325 || $_G[fid] == 326 || $_G[fid] == 327 || $_G[fid] == 329 || $_G[fid] == 330 || $_G[fid] == 331 || $_G[fid] == 332 || $_G[fid] == 333 || $_G[fid] == 334 || $_G[fid] == 335 || $_G[fid] == 2664 || $_G[fid] == 2665 || $_G[fid] == 2666 || $_G[fid] == 2667 || $_G[fid] == 336 || $_G[fid] == 337 || $_G[fid] == 338 || $_G[fid] == 339 || $_G[fid] == 340 || $_G[fid] == 341 || $_G[fid] == 342 || $_G[fid] == 343 || $_G[fid] == 344 || $_G[fid] == 345 || $_G[fid] == 346 || $_G[fid] == 347 || $_G[fid] == 348 || $_G[fid] == 349 || $_G[fid] == 350 || $_G[fid] == 351 || $_G[fid] == 352 || $_G[fid] == 353 || $_G[fid] == 354 || $_G[fid] == 355 || $_G[fid] == 356 || $_G[fid] == 357 || $_G[fid] == 358 || $_G[fid] == 359 || $_G[fid] == 360 || $_G[fid] == 361 || $_G[fid] == 362 || $_G[fid] == 363 || $_G[fid] == 364 || $_G[fid] == 365 || $_G[fid] == 366 || $_G[fid] == 367 || $_G[fid] == 368 || $_G[fid] == 369 || $_G[fid] == 370 || $_G[fid] == 371 || $_G[fid] == 372 || $_G[fid] == 374 || $_G[fid] == 375 || $_G[fid] == 376 || $_G[fid] == 377 || $_G[fid] == 378 || $_G[fid] == 383 || $_G[fid] == 384 || $_G[fid] == 385 || $_G[fid] == 386 || $_G[fid] == 387 || $_G[fid] == 388 || $_G[fid] == 389 || $_G[fid] == 390 || $_G[fid] == 391 || $_G[fid] == 392 || $_G[fid] == 393 || $_G[fid] == 394 || $_G[fid] == 395 || $_G[fid] == 396 || $_G[fid] == 397 || $_G[fid] == 398 || $_G[fid] == 399 || $_G[fid] == 400 || $_G[fid] == 401 || $_G[fid] == 402 || $_G[fid] == 403 || $_G[fid] == 404 || $_G[fid] == 405 || $_G[fid] == 406 || $_G[fid] == 407 || $_G[fid] == 408 || $_G[fid] == 409 || $_G[fid] == 410 || $_G[fid] == 411 || $_G[fid] == 412 || $_G[fid] == 413 || $_G[fid] == 414 || $_G[fid] == 415 || $_G[fid] == 416 || $_G[fid] == 417 || $_G[fid] == 418 || $_G[fid] == 419 || $_G[fid] == 420 || $_G[fid] == 421 || $_G[fid] == 422 || $_G[fid] == 423 || $_G[fid] == 424 || $_G[fid] == 425 || $_G[fid] == 426}-->
+		<a href="/area/pxlist.html?v=2016060301"  class="xcity" style="font-weight:800">
+			<!--{if $_G[fid] == 2}-->北京
+			<!--{elseif $_G[fid] == 4000}-->上海
+			<!--{elseif $_G[fid] == 37}-->天津
+			<!--{elseif $_G[fid] == 38}-->重庆
+			<!--{elseif $_G[fid] == 74}-->哈尔滨
+			<!--{elseif $_G[fid] == 75}-->齐齐哈尔
+			<!--{elseif $_G[fid] == 76}-->鸡西
+			<!--{elseif $_G[fid] == 77}-->鹤岗
+			<!--{elseif $_G[fid] == 78}-->双鸭山
+			<!--{elseif $_G[fid] == 79}-->大庆
+			<!--{elseif $_G[fid] == 80}-->伊春
+			<!--{elseif $_G[fid] == 81}-->佳木斯
+			<!--{elseif $_G[fid] == 82}-->七台河
+			<!--{elseif $_G[fid] == 83}-->牡丹江
+			<!--{elseif $_G[fid] == 84}-->黑河
+			<!--{elseif $_G[fid] == 72}-->绥化
+			<!--{elseif $_G[fid] == 73}-->大兴安岭
+			<!--{elseif $_G[fid] == 85}-->长春
+			<!--{elseif $_G[fid] == 86}-->吉林
+			<!--{elseif $_G[fid] == 87}-->四平
+			<!--{elseif $_G[fid] == 88}-->辽源
+			<!--{elseif $_G[fid] == 89}-->通化
+			<!--{elseif $_G[fid] == 90}-->白山
+			<!--{elseif $_G[fid] == 91}-->松原
+			<!--{elseif $_G[fid] == 92}-->白城
+			<!--{elseif $_G[fid] == 93}-->延边
+			<!--{elseif $_G[fid] == 94}-->沈阳
+			<!--{elseif $_G[fid] == 95}-->大连
+			<!--{elseif $_G[fid] == 96}-->鞍山
+			<!--{elseif $_G[fid] == 97}-->抚顺
+			<!--{elseif $_G[fid] == 98}-->本溪
+			<!--{elseif $_G[fid] == 99}-->丹东
+			<!--{elseif $_G[fid] == 100}-->锦州
+			<!--{elseif $_G[fid] == 101}-->营口
+			<!--{elseif $_G[fid] == 102}-->阜新
+			<!--{elseif $_G[fid] == 103}-->辽阳
+			<!--{elseif $_G[fid] == 104}-->盘锦
+			<!--{elseif $_G[fid] == 105}-->铁岭
+			<!--{elseif $_G[fid] == 106}-->朝阳
+			<!--{elseif $_G[fid] == 107}-->葫芦岛
+			<!--{elseif $_G[fid] == 108}-->济南
+			<!--{elseif $_G[fid] == 109}-->青岛
+			<!--{elseif $_G[fid] == 110}-->淄博
+			<!--{elseif $_G[fid] == 111}-->枣庄
+			<!--{elseif $_G[fid] == 112}-->东营
+			<!--{elseif $_G[fid] == 113}-->烟台
+			<!--{elseif $_G[fid] == 114}-->潍坊
+			<!--{elseif $_G[fid] == 115}-->济宁
+			<!--{elseif $_G[fid] == 116}-->泰安
+			<!--{elseif $_G[fid] == 117}-->威海
+			<!--{elseif $_G[fid] == 118}-->日照
+			<!--{elseif $_G[fid] == 119}-->莱芜
+			<!--{elseif $_G[fid] == 120}-->临沂
+			<!--{elseif $_G[fid] == 121}-->德州
+			<!--{elseif $_G[fid] == 122}-->聊城
+			<!--{elseif $_G[fid] == 123}-->滨州
+			<!--{elseif $_G[fid] == 124}-->菏泽
+			<!--{elseif $_G[fid] == 191}-->长沙
+			<!--{elseif $_G[fid] == 192}-->株洲
+			<!--{elseif $_G[fid] == 193}-->湘潭
+			<!--{elseif $_G[fid] == 194}-->衡阳
+			<!--{elseif $_G[fid] == 195}-->邵阳
+			<!--{elseif $_G[fid] == 196}-->岳阳
+			<!--{elseif $_G[fid] == 197}-->常德
+			<!--{elseif $_G[fid] == 198}-->张家界
+			<!--{elseif $_G[fid] == 199}-->益阳
+			<!--{elseif $_G[fid] == 200}-->郴州
+			<!--{elseif $_G[fid] == 201}-->永州
+			<!--{elseif $_G[fid] == 202}-->怀化
+			<!--{elseif $_G[fid] == 203}-->娄底
+			<!--{elseif $_G[fid] == 204}-->湘西
+			<!--{elseif $_G[fid] == 175}-->武汉
+			<!--{elseif $_G[fid] == 176}-->黄石
+			<!--{elseif $_G[fid] == 177}-->十堰
+			<!--{elseif $_G[fid] == 178}-->宜昌
+			<!--{elseif $_G[fid] == 179}-->襄樊
+			<!--{elseif $_G[fid] == 180}-->鄂州
+			<!--{elseif $_G[fid] == 181}-->荆门
+			<!--{elseif $_G[fid] == 182}-->孝感
+			<!--{elseif $_G[fid] == 183}-->荆州
+			<!--{elseif $_G[fid] == 184}-->黄冈
+			<!--{elseif $_G[fid] == 185}-->咸宁
+			<!--{elseif $_G[fid] == 186}-->随州
+			<!--{elseif $_G[fid] == 187}-->恩施
+			<!--{elseif $_G[fid] == 213}-->南京
+			<!--{elseif $_G[fid] == 214}-->无锡
+			<!--{elseif $_G[fid] == 215}-->徐州
+			<!--{elseif $_G[fid] == 216}-->常州
+			<!--{elseif $_G[fid] == 217}-->苏州
+			<!--{elseif $_G[fid] == 218}-->南通
+			<!--{elseif $_G[fid] == 219}-->连云港
+			<!--{elseif $_G[fid] == 220}-->淮安
+			<!--{elseif $_G[fid] == 221}-->盐城
+			<!--{elseif $_G[fid] == 222}-->扬州
+			<!--{elseif $_G[fid] == 223}-->镇江
+			<!--{elseif $_G[fid] == 224}-->泰州
+			<!--{elseif $_G[fid] == 225}-->宿迁
+			<!--{elseif $_G[fid] == 205}-->海口
+			<!--{elseif $_G[fid] == 206}-->三亚
+			<!--{elseif $_G[fid] == 259}-->南宁
+			<!--{elseif $_G[fid] == 260}-->柳州
+			<!--{elseif $_G[fid] == 261}-->桂林
+			<!--{elseif $_G[fid] == 262}-->梧州
+			<!--{elseif $_G[fid] == 263}-->北海
+			<!--{elseif $_G[fid] == 264}-->防城港
+			<!--{elseif $_G[fid] == 265}-->钦州
+			<!--{elseif $_G[fid] == 266}-->贵港
+			<!--{elseif $_G[fid] == 267}-->玉林
+			<!--{elseif $_G[fid] == 268}-->百色
+			<!--{elseif $_G[fid] == 269}-->贺州
+			<!--{elseif $_G[fid] == 270}-->河池
+			<!--{elseif $_G[fid] == 271}-->来宾
+			<!--{elseif $_G[fid] == 272}-->崇左
+			<!--{elseif $_G[fid] == 226}-->南昌
+			<!--{elseif $_G[fid] == 227}-->景德镇
+			<!--{elseif $_G[fid] == 228}-->萍乡
+			<!--{elseif $_G[fid] == 229}-->九江
+			<!--{elseif $_G[fid] == 230}-->新余
+			<!--{elseif $_G[fid] == 231}-->鹰潭
+			<!--{elseif $_G[fid] == 232}-->赣州
+			<!--{elseif $_G[fid] == 233}-->吉安
+			<!--{elseif $_G[fid] == 234}-->宜春
+			<!--{elseif $_G[fid] == 235}-->抚州
+			<!--{elseif $_G[fid] == 236}-->上饶
+			<!--{elseif $_G[fid] == 237}-->广州
+			<!--{elseif $_G[fid] == 238}-->韶关
+			<!--{elseif $_G[fid] == 239}-->深圳
+			<!--{elseif $_G[fid] == 240}-->珠海
+			<!--{elseif $_G[fid] == 241}-->汕头
+			<!--{elseif $_G[fid] == 242}-->佛山
+			<!--{elseif $_G[fid] == 243}-->江门
+			<!--{elseif $_G[fid] == 244}-->湛江
+			<!--{elseif $_G[fid] == 245}-->茂名
+			<!--{elseif $_G[fid] == 246}-->肇庆
+			<!--{elseif $_G[fid] == 247}-->惠州
+			<!--{elseif $_G[fid] == 248}-->梅州
+			<!--{elseif $_G[fid] == 249}-->汕尾
+			<!--{elseif $_G[fid] == 250}-->河源
+			<!--{elseif $_G[fid] == 251}-->阳江
+			<!--{elseif $_G[fid] == 252}-->清远
+			<!--{elseif $_G[fid] == 253}-->东莞
+			<!--{elseif $_G[fid] == 254}-->中山
+			<!--{elseif $_G[fid] == 255}-->潮州
+			<!--{elseif $_G[fid] == 256}-->揭阳
+			<!--{elseif $_G[fid] == 257}-->云浮
+			<!--{elseif $_G[fid] == 136}-->西安
+			<!--{elseif $_G[fid] == 137}-->铜川
+			<!--{elseif $_G[fid] == 138}-->宝鸡
+			<!--{elseif $_G[fid] == 139}-->咸阳
+			<!--{elseif $_G[fid] == 140}-->渭南
+			<!--{elseif $_G[fid] == 141}-->延安
+			<!--{elseif $_G[fid] == 142}-->汉中
+			<!--{elseif $_G[fid] == 143}-->榆林
+			<!--{elseif $_G[fid] == 144}-->安康
+			<!--{elseif $_G[fid] == 145}-->商洛
+			<!--{elseif $_G[fid] == 146}-->石家庄
+			<!--{elseif $_G[fid] == 147}-->唐山
+			<!--{elseif $_G[fid] == 148}-->秦皇岛
+			<!--{elseif $_G[fid] == 149}-->邯郸
+			<!--{elseif $_G[fid] == 150}-->邢台
+			<!--{elseif $_G[fid] == 151}-->保定
+			<!--{elseif $_G[fid] == 152}-->张家口
+			<!--{elseif $_G[fid] == 153}-->承德
+			<!--{elseif $_G[fid] == 154}-->沧州
+			<!--{elseif $_G[fid] == 155}-->廊坊
+			<!--{elseif $_G[fid] == 156}-->衡水
+			<!--{elseif $_G[fid] == 157}-->郑州
+			<!--{elseif $_G[fid] == 158}-->开封
+			<!--{elseif $_G[fid] == 159}-->洛阳
+			<!--{elseif $_G[fid] == 160}-->平顶山
+			<!--{elseif $_G[fid] == 161}-->安阳
+			<!--{elseif $_G[fid] == 162}-->鹤壁
+			<!--{elseif $_G[fid] == 163}-->新乡
+			<!--{elseif $_G[fid] == 164}-->焦作
+			<!--{elseif $_G[fid] == 165}-->济源
+			<!--{elseif $_G[fid] == 166}-->濮阳
+			<!--{elseif $_G[fid] == 167}-->许昌
+			<!--{elseif $_G[fid] == 168}-->漯河
+			<!--{elseif $_G[fid] == 169}-->三门峡
+			<!--{elseif $_G[fid] == 170}-->南阳
+			<!--{elseif $_G[fid] == 171}-->商丘
+			<!--{elseif $_G[fid] == 172}-->信阳
+			<!--{elseif $_G[fid] == 173}-->周口
+			<!--{elseif $_G[fid] == 174}-->驻马店
+			<!--{elseif $_G[fid] == 125}-->太原
+			<!--{elseif $_G[fid] == 126}-->大同
+			<!--{elseif $_G[fid] == 127}-->阳泉
+			<!--{elseif $_G[fid] == 128}-->长治
+			<!--{elseif $_G[fid] == 129}-->晋城
+			<!--{elseif $_G[fid] == 130}-->朔州
+			<!--{elseif $_G[fid] == 131}-->晋中
+			<!--{elseif $_G[fid] == 132}-->运城
+			<!--{elseif $_G[fid] == 133}-->忻州
+			<!--{elseif $_G[fid] == 134}-->临汾
+			<!--{elseif $_G[fid] == 135}-->吕梁
+			<!--{elseif $_G[fid] == 273}-->昆明
+			<!--{elseif $_G[fid] == 274}-->曲靖
+			<!--{elseif $_G[fid] == 275}-->玉溪
+			<!--{elseif $_G[fid] == 276}-->保山
+			<!--{elseif $_G[fid] == 277}-->邵通
+			<!--{elseif $_G[fid] == 278}-->丽江
+			<!--{elseif $_G[fid] == 279}-->普洱
+			<!--{elseif $_G[fid] == 280}-->临沧
+			<!--{elseif $_G[fid] == 281}-->楚雄
+			<!--{elseif $_G[fid] == 282}-->红河
+			<!--{elseif $_G[fid] == 283}-->文山
+			<!--{elseif $_G[fid] == 284}-->西双版纳
+			<!--{elseif $_G[fid] == 285}-->大理
+			<!--{elseif $_G[fid] == 286}-->德宏
+			<!--{elseif $_G[fid] == 287}-->怒江
+			<!--{elseif $_G[fid] == 288}-->迪庆
+			<!--{elseif $_G[fid] == 289}-->贵阳
+			<!--{elseif $_G[fid] == 290}-->六盘水
+			<!--{elseif $_G[fid] == 291}-->遵义
+			<!--{elseif $_G[fid] == 292}-->安顺
+			<!--{elseif $_G[fid] == 293}-->铜仁
+			<!--{elseif $_G[fid] == 294}-->黔西南
+			<!--{elseif $_G[fid] == 295}-->毕节
+			<!--{elseif $_G[fid] == 296}-->黔东南
+			<!--{elseif $_G[fid] == 297}-->黔南
+			<!--{elseif $_G[fid] == 298}-->成都
+			<!--{elseif $_G[fid] == 299}-->自贡
+			<!--{elseif $_G[fid] == 300}-->攀枝花
+			<!--{elseif $_G[fid] == 301}-->泸州
+			<!--{elseif $_G[fid] == 302}-->德阳
+			<!--{elseif $_G[fid] == 303}-->绵阳
+			<!--{elseif $_G[fid] == 304}-->广元
+			<!--{elseif $_G[fid] == 305}-->遂宁
+			<!--{elseif $_G[fid] == 306}-->内江
+			<!--{elseif $_G[fid] == 307}-->乐山
+			<!--{elseif $_G[fid] == 308}-->南充
+			<!--{elseif $_G[fid] == 309}-->眉山
+			<!--{elseif $_G[fid] == 310}-->宜宾
+			<!--{elseif $_G[fid] == 311}-->广安
+			<!--{elseif $_G[fid] == 312}-->达州
+			<!--{elseif $_G[fid] == 313}-->雅安
+			<!--{elseif $_G[fid] == 314}-->巴中
+			<!--{elseif $_G[fid] == 315}-->资阳
+			<!--{elseif $_G[fid] == 316}-->阿坝
+			<!--{elseif $_G[fid] == 317}-->甘孜
+			<!--{elseif $_G[fid] == 318}-->凉山
+			<!--{elseif $_G[fid] == 319}-->呼和浩特
+			<!--{elseif $_G[fid] == 320}-->包头
+			<!--{elseif $_G[fid] == 321}-->乌海
+			<!--{elseif $_G[fid] == 322}-->赤峰
+			<!--{elseif $_G[fid] == 323}-->通辽
+			<!--{elseif $_G[fid] == 324}-->鄂尔多斯
+			<!--{elseif $_G[fid] == 325}-->呼伦贝尔
+			<!--{elseif $_G[fid] == 326}-->巴彦淖尔
+			<!--{elseif $_G[fid] == 327}-->乌兰察布
+			<!--{elseif $_G[fid] == 329}-->锡林郭勒
+			<!--{elseif $_G[fid] == 330}-->阿拉善
+			<!--{elseif $_G[fid] == 331}-->银川
+			<!--{elseif $_G[fid] == 332}-->石嘴山
+			<!--{elseif $_G[fid] == 333}-->吴忠
+			<!--{elseif $_G[fid] == 334}-->固原
+			<!--{elseif $_G[fid] == 335}-->中卫
+			<!--{elseif $_G[fid] == 2664}-->石嘴山
+			<!--{elseif $_G[fid] == 2665}-->吴忠
+			<!--{elseif $_G[fid] == 2666}-->固原
+			<!--{elseif $_G[fid] == 2667}-->中卫
+			<!--{elseif $_G[fid] == 336}-->兰州
+			<!--{elseif $_G[fid] == 337}-->嘉峪关
+			<!--{elseif $_G[fid] == 338}-->金昌
+			<!--{elseif $_G[fid] == 339}-->白银
+			<!--{elseif $_G[fid] == 340}-->天水
+			<!--{elseif $_G[fid] == 341}-->武威
+			<!--{elseif $_G[fid] == 342}-->张掖
+			<!--{elseif $_G[fid] == 343}-->平凉
+			<!--{elseif $_G[fid] == 344}-->酒泉
+			<!--{elseif $_G[fid] == 345}-->庆阳
+			<!--{elseif $_G[fid] == 346}-->定西
+			<!--{elseif $_G[fid] == 347}-->陇南
+			<!--{elseif $_G[fid] == 348}-->宁夏
+			<!--{elseif $_G[fid] == 349}-->甘南
+			<!--{elseif $_G[fid] == 350}-->西宁
+			<!--{elseif $_G[fid] == 351}-->海东
+			<!--{elseif $_G[fid] == 352}-->海北
+			<!--{elseif $_G[fid] == 353}-->黄南
+			<!--{elseif $_G[fid] == 354}-->海南
+			<!--{elseif $_G[fid] == 355}-->果洛
+			<!--{elseif $_G[fid] == 356}-->玉树
+			<!--{elseif $_G[fid] == 357}-->海西
+			<!--{elseif $_G[fid] == 358}-->拉萨
+			<!--{elseif $_G[fid] == 359}-->昌都
+			<!--{elseif $_G[fid] == 360}-->山南
+			<!--{elseif $_G[fid] == 361}-->日喀则
+			<!--{elseif $_G[fid] == 362}-->那曲
+			<!--{elseif $_G[fid] == 363}-->阿里
+			<!--{elseif $_G[fid] == 364}-->林芝
+			<!--{elseif $_G[fid] == 365}-->乌市
+			<!--{elseif $_G[fid] == 366}-->克拉玛依
+			<!--{elseif $_G[fid] == 367}-->吐鲁番
+			<!--{elseif $_G[fid] == 368}-->哈密
+			<!--{elseif $_G[fid] == 369}-->昌吉
+			<!--{elseif $_G[fid] == 370}-->博州
+			<!--{elseif $_G[fid] == 371}-->巴州
+			<!--{elseif $_G[fid] == 372}-->阿克苏
+			<!--{elseif $_G[fid] == 374}-->喀什
+			<!--{elseif $_G[fid] == 375}-->和田
+			<!--{elseif $_G[fid] == 376}-->伊犁
+			<!--{elseif $_G[fid] == 377}-->塔城
+			<!--{elseif $_G[fid] == 378}-->阿勒泰
+			<!--{elseif $_G[fid] == 383}-->合肥
+			<!--{elseif $_G[fid] == 384}-->芜湖
+			<!--{elseif $_G[fid] == 385}-->蚌埠
+			<!--{elseif $_G[fid] == 386}-->淮南
+			<!--{elseif $_G[fid] == 387}-->马鞍山
+			<!--{elseif $_G[fid] == 388}-->淮北
+			<!--{elseif $_G[fid] == 389}-->铜陵
+			<!--{elseif $_G[fid] == 390}-->安庆
+			<!--{elseif $_G[fid] == 391}-->黄山
+			<!--{elseif $_G[fid] == 392}-->滁州
+			<!--{elseif $_G[fid] == 393}-->阜阳
+			<!--{elseif $_G[fid] == 394}-->宿州
+			<!--{elseif $_G[fid] == 395}-->巢湖
+			<!--{elseif $_G[fid] == 396}-->六安
+			<!--{elseif $_G[fid] == 397}-->毫州
+			<!--{elseif $_G[fid] == 398}-->池州
+			<!--{elseif $_G[fid] == 399}-->宣城
+			<!--{elseif $_G[fid] == 400}-->杭州
+			<!--{elseif $_G[fid] == 401}-->宁波
+			<!--{elseif $_G[fid] == 402}-->温州
+			<!--{elseif $_G[fid] == 403}-->嘉兴
+			<!--{elseif $_G[fid] == 404}-->湖州
+			<!--{elseif $_G[fid] == 405}-->绍兴
+			<!--{elseif $_G[fid] == 406}-->金华
+			<!--{elseif $_G[fid] == 407}-->衢州
+			<!--{elseif $_G[fid] == 408}-->舟山
+			<!--{elseif $_G[fid] == 409}-->台州
+			<!--{elseif $_G[fid] == 410}-->丽水
+			<!--{elseif $_G[fid] == 411}-->福州
+			<!--{elseif $_G[fid] == 412}-->厦门
+			<!--{elseif $_G[fid] == 413}-->莆田
+			<!--{elseif $_G[fid] == 414}-->三明
+			<!--{elseif $_G[fid] == 415}-->泉州
+			<!--{elseif $_G[fid] == 416}-->漳州
+			<!--{elseif $_G[fid] == 417}-->南平
+			<!--{elseif $_G[fid] == 418}-->龙岩
+			<!--{elseif $_G[fid] == 419}-->宁德
+			<!--{elseif $_G[fid] == 420}-->台北
+			<!--{elseif $_G[fid] == 421}-->高雄
+			<!--{elseif $_G[fid] == 422}-->基隆
+			<!--{elseif $_G[fid] == 423}-->台中
+			<!--{elseif $_G[fid] == 424}-->台南
+			<!--{elseif $_G[fid] == 425}-->新竹
+			<!--{elseif $_G[fid] == 426}-->嘉义
+			<!--{else}-->
+			全国
+			<!--{/if}-->
+		</a>
+		<!--{/if}-->
+
+	</div>
+
+	<div class="channelsx channelstoggle" style="margin-bottom: 2px;"> <!--channels 改为 channelsx，纠正点击搜索图表使导航丢失-->
+	    <!--{subtemplate common/nav}-->
+	</div>
+
+	<div class="sopanel {if CURMODULE == 'xn_haodian' && $mod == 'index' || CURMODULE == 'xn_promo' || $_G['basescript'] == 'search'}channelstoggle{/if}">
+
+	<!--{if $_G[fid] == 3517 && $thread['typeid'] !== '13644' || CURMODULE == 'xn_haodian' || $_G[fid] == 3999 ||$_G[fid] == 3521}-->
+	<!--{else}-->
+	    <!--{subtemplate common/search}-->
+	<!--{/if}-->
+	<!-- //@ff 是否显示搜索代码，如果底部有搜索显示这里就不要显示了，否者会引起冲突-->
+	</div>
+
+
+	<div class="all-content {if $_G['basescript'] != 'home' &&  $_GET[types]!='mall_home' && CURMODULE != 'singcere_poll'}fadeIn animated{/if}">

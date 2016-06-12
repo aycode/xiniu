@@ -1,0 +1,779 @@
+{subtemplate common/header}-->
+<link rel="stylesheet" type="text/css" href="{$_G[siteurl]}template/singcere_faith/src/css/forumdisplay.css?0619"/>
+<link rel="stylesheet" type="text/css" href="{$_G[siteurl]}template/singcere_faith/src/css/swipe.css"/>
+<script type="text/javascript" src="{$_G[siteurl]}template/singcere_faith/src/js/swipe.js"></script>
+<!--{hook/forumdisplay_top_mobile}-->
+<div class="banner">
+	<div class="banner1">
+		<div id="mySwipe" class="swipe clear">
+			<div class='swipe-wrap clear'>
+			 <!--{loop $xn_adv[5] $key $value}-->
+				<div class="img-ad m0">
+					<a href="$value[link]">
+					<img src="$value[advnewimage]" alt="$value[title]"></a>
+					<span class="carousel_abs"><em></em></span>
+				</div>
+			<!--{/loop}-->
+			</div>
+		</div>
+		<div class="swipe-point clear">
+			<ul id='position'>
+		<!--{loop $xn_adv[5] $key $value}-->
+				<li {if $key==0}class='on'{/if}></li>
+		<!--{/loop}-->
+			</ul>
+		</div>
+	</div>
+	<script>
+		// 幻灯片
+		var elem = document.getElementById('mySwipe');
+		window.mySwipe = Swipe(elem, {
+			auto: 5000,
+			continuous: true,
+			callback: function(pos) {
+				var i = bullets.length;
+				pos = pos%i;
+				while (i--) {
+					bullets[i].className = ' ';
+				}
+				bullets[pos].className = 'on';
+			}
+		});
+		var bullets = document.getElementById('position').getElementsByTagName('li');
+	</script>
+</div>
+<div class="content forumdisplay-content">
+<div class="forum-nav clear" style="display:none"><!--移除帖子列表页副导航-->
+    <div class="forum-nav-list">
+        <ul>
+        <!--{loop $forumnav $fnav}-->
+            <li class="{if $_G[fid] == $fnav[fid]}active{/if}" data-fid="$fnav[fid]">
+                <a href="forum.php?mod=forumdisplay&fid={$fnav[fid]}" {if $_G[fid] == $fnav[fid]}style="color:{$fnav[style]}"{/if} bstyle="color:{$fnav[style]}">
+                <div class="forum-nav-a-ico"> <i class="fa {$fnav[css]}"></i> </div>
+                <p>$fnav[title]</p>
+                </a>
+            </li>
+        <!--{/loop}-->
+        </ul>
+    </div>
+    <!-- <div class="nav-list-shadow"></div> -->
+</div>
+<!--{if !$subforumonly}-->
+<!--{if $_G['forum_threadcount']}-->
+	<!--{if $_G[fid] == 3517}-->
+
+		<div> <!--名家祝贺视频-->
+			<iframe id="txvideo" width="100%"  class="video_iframe" frameborder="0" allowfullscreen="" style=" overflow: hidden;" data-src="http://v.qq.com/iframe/player.html?vid=y01624g8z9e&amp;auto=0" src="http://v.qq.com/iframe/player.html?vid=y01624g8z9e&amp;auto=0" scrolling="no"></iframe>
+			<script type="text/javascript">document.getElementById("txvideo").style.height=document.getElementById("txvideo").scrollWidth*0.563+"px"</script>
+			<p style="font-size: 12px;text-align:center;line-height:24px;height:24px;color:#FF6600;padding-top:3px">家有琴童·2016城市十大小演奏家评选音乐会</p>
+		</div>
+
+		<!--秀场主题分类-->
+		<div class="channels channelstoggle s-menu">
+			<ul class="right-channel-s clear">
+				<!--<li class="l1 {if $_GET['typeid'] == 0}active{/if}"><a href="forum.php?mod=forumdisplay&fid=3517">全部</a></li>-->
+				<li class="l1 {if $thread['typeid'] == 13413 && $_GET['typeid'] != 0}active{/if}"><a href="forum.php?mod=forumdisplay&fid=3517&filter=typeid&typeid=13413">钢琴</a></li>
+				<li class="{if $thread['typeid'] == 13414}active{/if}"><a href="forum.php?mod=forumdisplay&fid=3517&filter=typeid&typeid=13414">古筝</a></li>
+				<li class="{if $thread['typeid'] == 13430}active{/if}"><a href="forum.php?mod=forumdisplay&fid=3517&filter=typeid&typeid=13430">演唱</a></li>
+				<li class="{if $thread['typeid'] == 13417}active{/if}"><a href="forum.php?mod=forumdisplay&fid=3517&filter=typeid&typeid=13417">电子琴</a></li>
+				<li class="{if $thread['typeid'] == 13418}active{/if}"><a href="forum.php?mod=forumdisplay&fid=3517&filter=typeid&typeid=13418">提琴</a></li>
+				<li><a style="font-weight: 800;" href="http://www.123aiyue.cn/forum.php?mod=viewthread&tid=292796&highlight=%D5%C2%B3%CC&mobile=2">活动章程</a></li>
+			</ul>
+			<ul class="right-channel-s clear" style="margin-top:5px">
+				<li class="{if $thread['typeid'] == 13415}active{/if}"><a href="forum.php?mod=forumdisplay&fid=3517&filter=typeid&typeid=13415">吉他</a></li>
+				<li class="l1 {if $thread['typeid'] == 13416}active{/if}"><a href="forum.php?mod=forumdisplay&fid=3517&filter=typeid&typeid=13416">二胡</a></li>
+				<li class="l1 {if $thread['typeid'] == 13420}active{/if}"><a href="forum.php?mod=forumdisplay&fid=3517&filter=typeid&typeid=13420">管乐</a></li>
+				<li class="{if $thread['typeid'] == 13429}active{/if}"><a href="forum.php?mod=forumdisplay&fid=3517&filter=typeid&typeid=13429">打击乐</a></li>
+				<li class="{if $thread['typeid'] == 13431}active{/if}"><a href="forum.php?mod=forumdisplay&fid=3517&filter=typeid&typeid=13431">其他</a></li>
+				<li style="background-color: #70AD49;"><a style="color:#fff"  href="http://form.mikecrm.com/MHhJVe">报名参加</a></li>
+				
+			</ul>
+		</div>
+
+		<div class="forum-nav clear" style="display:none">
+		    <div class="forum-nav-list">
+		        <ul style="display:none">
+		            <li class="{if $thread['typeid'] == 13413}active{/if}"  >
+		                <a href="forum.php?mod=forumdisplay&fid=3517&filter=typeid&typeid=13413" {if $thread['typeid'] == 13413}style="color:#FF6A22"{/if} >
+		                <div class="forum-nav-a-ico"> <i class="fa fa-music"></i> </div>
+		                <p>钢琴</p>
+		                </a>
+		            </li>
+
+		            <li class="{if $thread['typeid'] == 13414}active{/if}" >
+		                <a href="forum.php?mod=forumdisplay&fid=3517&filter=typeid&typeid=13414" {if $thread['typeid'] == 13414}style="color:#FF6A22"{/if}>
+		                <div class="forum-nav-a-ico"> <i class="fa fa-pencil"></i> </div>
+		                <p>古筝</p>
+		                </a>
+		            </li>
+
+		            <li class="{if $thread['typeid'] == 13644}active{/if}" >
+		                <a href="forum.php?mod=forumdisplay&fid=3517&filter=typeid&typeid=13644" {if $thread['typeid'] == 13644}style="color:#FF6A22"{/if}>
+		                <div class="forum-nav-a-ico"> <i class="fa fa-photo"></i> </div>
+		                <p>合个影</p>
+		                </a>
+		            </li>
+		        </ul>
+		    </div>
+		</div>
+	<!--{/if}-->
+
+<!--合作活动调用-->
+<!--{if $_G[fid] == 3999}-->
+<!--{block/106508}--> 
+<!--{/if}-->
+
+<!--比赛2313：13520-->
+<!--{if $_GET['typeid'] == 13520}-->
+<!--{block/106510}-->
+<!--{/if}-->
+
+<!--音乐会2313：13518-->
+<!--{if $_GET['typeid'] == 13518}-->
+<!--{block/106511}-->
+<!--{/if}-->
+
+<!--大师班2313：13723-->
+<!--{if $_GET['typeid'] == 13723}-->
+<!--{block/106512}-->
+<!--{/if}-->
+
+<!--访谈3521：-->
+<!--{if $_GET['typeid'] == 13444}-->
+<!--{block/106513}-->
+<!--{/if}-->
+
+
+<!--{if $_G[fid] == 2313}-->
+<!--block/106541--> <!--新闻列表幻灯-->
+<!--{block/106549}-->
+<!--新闻主题分类-->
+<!--
+<div class="channelsx channelstoggle s-menu">
+	<ul class="right-channel-s clear">
+		--
+		<li class="l1 {if $thread['typeid'] == 13413 && $_GET['typeid'] != 0}active{/if}"><a href="forum.php?mod=forumdisplay&fid=2313&filter=typeid&typeid=13413"></a></li>
+		--
+		<li class="{if $thread['typeid'] == 13518}active{/if}"><a href="forum.php?mod=forumdisplay&fid=2313&filter=typeid&typeid=13518">音乐会</a></li>	
+		<li class="{if $thread['typeid'] == 13520}active{/if}"><a href="forum.php?mod=forumdisplay&fid=2313&filter=typeid&typeid=13520">比赛</a></li>
+		<li class="{if $thread['typeid'] == 13722}active{/if}" ><a href="forum.php?mod=forumdisplay&fid=2313&filter=typeid&typeid=13722">考级</a></li>
+		<li class="{if $thread['typeid'] == 13723}active{/if}"><a href="forum.php?mod=forumdisplay&fid=2313&filter=typeid&typeid=13723">大师班</a></li>
+		<li class="{if $thread['typeid'] == 13549}active{/if}"><a href="forum.php?mod=forumdisplay&fid=2313&filter=typeid&typeid=13549">活动</a></li>
+		<li class="{if $thread['typeid'] == 13724 && $_GET['typeid'] != 0}active{/if}"><a href="forum.php?mod=forumdisplay&fid=2313&filter=typeid&typeid=13724">招聘</a></li>
+	</ul>
+</div>
+-->
+<!--{/if}-->
+
+
+
+
+<!--城市站調用幻灯-->
+<!--{if $_G[fid] == '2' || $_G[fid] == '4000' || $_G[fid] == '37' || $_G[fid] == '38' || $_G[fid] == '39' || $_G[fid] == '40' || $_G[fid] == '41' || $_G[fid] == '42' || $_G[fid] == '53' || $_G[fid] == '50' || $_G[fid] == '51' || $_G[fid] == '52' || $_G[fid] == '44' || $_G[fid] == '43' || $_G[fid] == '46' || $_G[fid] == '45' || $_G[fid] == '48' || $_G[fid] == '49' || $_G[fid] == '47' || $_G[fid] == '54' || $_G[fid] == '55' || $_G[fid] == '56' || $_G[fid] == '57' || $_G[fid] == '58' || $_G[fid] == '59' || $_G[fid] == '60' || $_G[fid] == '61' || $_G[fid] == '62' || $_G[fid] == '63' || $_G[fid] == '64' || $_G[fid] == '65' || $_G[fid] == '74' || $_G[fid] == '75' || $_G[fid] == '76' || $_G[fid] == '77' || $_G[fid] == '78' || $_G[fid] == '79' || $_G[fid] == '80' || $_G[fid] == '81' || $_G[fid] == '82' || $_G[fid] == '83' || $_G[fid] == '84' || $_G[fid] == '72' || $_G[fid] == '73' || $_G[fid] == '85' || $_G[fid] == '86' || $_G[fid] == '87' || $_G[fid] == '88' || $_G[fid] == '89' || $_G[fid] == '90' || $_G[fid] == '91' || $_G[fid] == '92' || $_G[fid] == '93' || $_G[fid] == '94' || $_G[fid] == '95' || $_G[fid] == '96' || $_G[fid] == '97' || $_G[fid] == '98' || $_G[fid] == '99' || $_G[fid] == '100' || $_G[fid] == '101' || $_G[fid] == '102' || $_G[fid] == '103' || $_G[fid] == '104' || $_G[fid] == '105' || $_G[fid] == '106' || $_G[fid] == '107' || $_G[fid] == '108' || $_G[fid] == '109' || $_G[fid] == '110' || $_G[fid] == '111' || $_G[fid] == '112' || $_G[fid] == '113' || $_G[fid] == '114' || $_G[fid] == '115' || $_G[fid] == '116' || $_G[fid] == '117' || $_G[fid] == '118' || $_G[fid] == '119' || $_G[fid] == '120' || $_G[fid] == '121' || $_G[fid] == '122' || $_G[fid] == '123' || $_G[fid] == '124' || $_G[fid] == '191' || $_G[fid] == '192' || $_G[fid] == '193' || $_G[fid] == '194' || $_G[fid] == '195' || $_G[fid] == '196' || $_G[fid] == '197' || $_G[fid] == '198' || $_G[fid] == '199' || $_G[fid] == '200' || $_G[fid] == '201' || $_G[fid] == '202' || $_G[fid] == '203' || $_G[fid] == '204' || $_G[fid] == '175' || $_G[fid] == '176' || $_G[fid] == '177' || $_G[fid] == '178' || $_G[fid] == '179' || $_G[fid] == '180' || $_G[fid] == '181' || $_G[fid] == '182' || $_G[fid] == '183' || $_G[fid] == '184' || $_G[fid] == '185' || $_G[fid] == '186' || $_G[fid] == '187' || $_G[fid] == '213' || $_G[fid] == '214' || $_G[fid] == '215' || $_G[fid] == '216' || $_G[fid] == '217' || $_G[fid] == '218' || $_G[fid] == '219' || $_G[fid] == '220' || $_G[fid] == '221' || $_G[fid] == '222' || $_G[fid] == '223' || $_G[fid] == '224' || $_G[fid] == '225' || $_G[fid] == '205' || $_G[fid] == '206' || $_G[fid] == '259' || $_G[fid] == '260' || $_G[fid] == '261' || $_G[fid] == '262' || $_G[fid] == '263' || $_G[fid] == '264' || $_G[fid] == '265' || $_G[fid] == '266' || $_G[fid] == '267' || $_G[fid] == '268' || $_G[fid] == '269' || $_G[fid] == '270' || $_G[fid] == '271' || $_G[fid] == '272' || $_G[fid] == '226' || $_G[fid] == '227' || $_G[fid] == '228' || $_G[fid] == '229' || $_G[fid] == '230' || $_G[fid] == '231' || $_G[fid] == '232' || $_G[fid] == '233' || $_G[fid] == '234' || $_G[fid] == '235' || $_G[fid] == '236' || $_G[fid] == '237' || $_G[fid] == '238' || $_G[fid] == '239' || $_G[fid] == '240' || $_G[fid] == '241' || $_G[fid] == '242' || $_G[fid] == '243' || $_G[fid] == '244' || $_G[fid] == '245' || $_G[fid] == '246' || $_G[fid] == '247' || $_G[fid] == '248' || $_G[fid] == '249' || $_G[fid] == '250' || $_G[fid] == '251' || $_G[fid] == '252' || $_G[fid] == '253' || $_G[fid] == '254' || $_G[fid] == '255' || $_G[fid] == '256' || $_G[fid] == '257' || $_G[fid] == '136' || $_G[fid] == '137' || $_G[fid] == '138' || $_G[fid] == '139' || $_G[fid] == '140' || $_G[fid] == '141' || $_G[fid] == '142' || $_G[fid] == '143' || $_G[fid] == '144' || $_G[fid] == '145' || $_G[fid] == '146' || $_G[fid] == '147' || $_G[fid] == '148' || $_G[fid] == '149' || $_G[fid] == '150' || $_G[fid] == '151' || $_G[fid] == '152' || $_G[fid] == '153' || $_G[fid] == '154' || $_G[fid] == '155' || $_G[fid] == '156' || $_G[fid] == '157' || $_G[fid] == '158' || $_G[fid] == '159' || $_G[fid] == '160' || $_G[fid] == '161' || $_G[fid] == '162' || $_G[fid] == '163' || $_G[fid] == '164' || $_G[fid] == '165' || $_G[fid] == '166' || $_G[fid] == '167' || $_G[fid] == '168' || $_G[fid] == '169' || $_G[fid] == '170' || $_G[fid] == '171' || $_G[fid] == '172' || $_G[fid] == '173' || $_G[fid] == '174' || $_G[fid] == '125' || $_G[fid] == '126' || $_G[fid] == '127' || $_G[fid] == '128' || $_G[fid] == '129' || $_G[fid] == '130' || $_G[fid] == '131' || $_G[fid] == '132' || $_G[fid] == '133' || $_G[fid] == '134' || $_G[fid] == '135' || $_G[fid] == '273' || $_G[fid] == '274' || $_G[fid] == '275' || $_G[fid] == '276' || $_G[fid] == '277' || $_G[fid] == '278' || $_G[fid] == '279' || $_G[fid] == '280' || $_G[fid] == '281' || $_G[fid] == '282' || $_G[fid] == '283' || $_G[fid] == '284' || $_G[fid] == '285' || $_G[fid] == '286' || $_G[fid] == '287' || $_G[fid] == '288' || $_G[fid] == '289' || $_G[fid] == '290' || $_G[fid] == '291' || $_G[fid] == '292' || $_G[fid] == '293' || $_G[fid] == '294' || $_G[fid] == '295' || $_G[fid] == '296' || $_G[fid] == '297' || $_G[fid] == '298' || $_G[fid] == '299' || $_G[fid] == '300' || $_G[fid] == '301' || $_G[fid] == '302' || $_G[fid] == '303' || $_G[fid] == '304' || $_G[fid] == '305' || $_G[fid] == '306' || $_G[fid] == '307' || $_G[fid] == '308' || $_G[fid] == '309' || $_G[fid] == '310' || $_G[fid] == '311' || $_G[fid] == '312' || $_G[fid] == '313' || $_G[fid] == '314' || $_G[fid] == '315' || $_G[fid] == '316' || $_G[fid] == '317' || $_G[fid] == '318' || $_G[fid] == '319' || $_G[fid] == '320' || $_G[fid] == '321' || $_G[fid] == '322' || $_G[fid] == '323' || $_G[fid] == '324' || $_G[fid] == '325' || $_G[fid] == '326' || $_G[fid] == '327' || $_G[fid] == '329' || $_G[fid] == '330' || $_G[fid] == '331' || $_G[fid] == '332' || $_G[fid] == '333' || $_G[fid] == '334' || $_G[fid] == '335' || $_G[fid] == '2664' || $_G[fid] == '2665' || $_G[fid] == '2666' || $_G[fid] == '2667' || $_G[fid] == '336' || $_G[fid] == '337' || $_G[fid] == '338' || $_G[fid] == '339' || $_G[fid] == '340' || $_G[fid] == '341' || $_G[fid] == '342' || $_G[fid] == '343' || $_G[fid] == '344' || $_G[fid] == '345' || $_G[fid] == '346' || $_G[fid] == '347' || $_G[fid] == '348' || $_G[fid] == '349' || $_G[fid] == '350' || $_G[fid] == '351' || $_G[fid] == '352' || $_G[fid] == '353' || $_G[fid] == '354' || $_G[fid] == '355' || $_G[fid] == '356' || $_G[fid] == '357' || $_G[fid] == '358' || $_G[fid] == '359' || $_G[fid] == '360' || $_G[fid] == '361' || $_G[fid] == '362' || $_G[fid] == '363' || $_G[fid] == '364' || $_G[fid] == '365' || $_G[fid] == '366' || $_G[fid] == '367' || $_G[fid] == '368' || $_G[fid] == '369' || $_G[fid] == '370' || $_G[fid] == '371' || $_G[fid] == '372' || $_G[fid] == '374' || $_G[fid] == '375' || $_G[fid] == '376' || $_G[fid] == '377' || $_G[fid] == '378' || $_G[fid] == '383' || $_G[fid] == '384' || $_G[fid] == '385' || $_G[fid] == '386' || $_G[fid] == '387' || $_G[fid] == '388' || $_G[fid] == '389' || $_G[fid] == '390' || $_G[fid] == '391' || $_G[fid] == '392' || $_G[fid] == '393' || $_G[fid] == '394' || $_G[fid] == '395' || $_G[fid] == '396' || $_G[fid] == '397' || $_G[fid] == '398' || $_G[fid] == '399' || $_G[fid] == '400' || $_G[fid] == '401' || $_G[fid] == '402' || $_G[fid] == '403' || $_G[fid] == '404' || $_G[fid] == '405' || $_G[fid] == '406' || $_G[fid] == '407' || $_G[fid] == '408' || $_G[fid] == '409' || $_G[fid] == '410' || $_G[fid] == '411' || $_G[fid] == '412' || $_G[fid] == '413' || $_G[fid] == '414' || $_G[fid] == '415' || $_G[fid] == '416' || $_G[fid] == '417' || $_G[fid] == '418' || $_G[fid] == '419' || $_G[fid] == '420' || $_G[fid] == '421' || $_G[fid] == '422' || $_G[fid] == '423' || $_G[fid] == '424' || $_G[fid] == '425' || $_G[fid] == '426'}-->
+
+
+	<!--{if $_G['fid'] == 2}--><!--北京培训-->
+		<!--block/106527-->
+	<!--{elseif $_G['fid'] == 78}--><!--双鸭山培训-->
+		<!--block/106527--><!--block/106540-->
+	<!--{else}-->
+		<!--block/106527-->
+	<!--{/if}-->
+
+<!--{/if}-->
+
+<!--/培训帖子列表城市站-->
+<!--{if $_G[fid] == '2' || $_G[fid] == '4000' || $_G[fid] == '37' || $_G[fid] == '38' || $_G[fid] == '39' || $_G[fid] == '40' || $_G[fid] == '41' || $_G[fid] == '42' || $_G[fid] == '53' || $_G[fid] == '50' || $_G[fid] == '51' || $_G[fid] == '52' || $_G[fid] == '44' || $_G[fid] == '43' || $_G[fid] == '46' || $_G[fid] == '45' || $_G[fid] == '48' || $_G[fid] == '49' || $_G[fid] == '47' || $_G[fid] == '54' || $_G[fid] == '55' || $_G[fid] == '56' || $_G[fid] == '57' || $_G[fid] == '58' || $_G[fid] == '59' || $_G[fid] == '60' || $_G[fid] == '61' || $_G[fid] == '62' || $_G[fid] == '63' || $_G[fid] == '64' || $_G[fid] == '65' || $_G[fid] == '74' || $_G[fid] == '75' || $_G[fid] == '76' || $_G[fid] == '77' || $_G[fid] == '78' || $_G[fid] == '79' || $_G[fid] == '80' || $_G[fid] == '81' || $_G[fid] == '82' || $_G[fid] == '83' || $_G[fid] == '84' || $_G[fid] == '72' || $_G[fid] == '73' || $_G[fid] == '85' || $_G[fid] == '86' || $_G[fid] == '87' || $_G[fid] == '88' || $_G[fid] == '89' || $_G[fid] == '90' || $_G[fid] == '91' || $_G[fid] == '92' || $_G[fid] == '93' || $_G[fid] == '94' || $_G[fid] == '95' || $_G[fid] == '96' || $_G[fid] == '97' || $_G[fid] == '98' || $_G[fid] == '99' || $_G[fid] == '100' || $_G[fid] == '101' || $_G[fid] == '102' || $_G[fid] == '103' || $_G[fid] == '104' || $_G[fid] == '105' || $_G[fid] == '106' || $_G[fid] == '107' || $_G[fid] == '108' || $_G[fid] == '109' || $_G[fid] == '110' || $_G[fid] == '111' || $_G[fid] == '112' || $_G[fid] == '113' || $_G[fid] == '114' || $_G[fid] == '115' || $_G[fid] == '116' || $_G[fid] == '117' || $_G[fid] == '118' || $_G[fid] == '119' || $_G[fid] == '120' || $_G[fid] == '121' || $_G[fid] == '122' || $_G[fid] == '123' || $_G[fid] == '124' || $_G[fid] == '191' || $_G[fid] == '192' || $_G[fid] == '193' || $_G[fid] == '194' || $_G[fid] == '195' || $_G[fid] == '196' || $_G[fid] == '197' || $_G[fid] == '198' || $_G[fid] == '199' || $_G[fid] == '200' || $_G[fid] == '201' || $_G[fid] == '202' || $_G[fid] == '203' || $_G[fid] == '204' || $_G[fid] == '175' || $_G[fid] == '176' || $_G[fid] == '177' || $_G[fid] == '178' || $_G[fid] == '179' || $_G[fid] == '180' || $_G[fid] == '181' || $_G[fid] == '182' || $_G[fid] == '183' || $_G[fid] == '184' || $_G[fid] == '185' || $_G[fid] == '186' || $_G[fid] == '187' || $_G[fid] == '213' || $_G[fid] == '214' || $_G[fid] == '215' || $_G[fid] == '216' || $_G[fid] == '217' || $_G[fid] == '218' || $_G[fid] == '219' || $_G[fid] == '220' || $_G[fid] == '221' || $_G[fid] == '222' || $_G[fid] == '223' || $_G[fid] == '224' || $_G[fid] == '225' || $_G[fid] == '205' || $_G[fid] == '206' || $_G[fid] == '259' || $_G[fid] == '260' || $_G[fid] == '261' || $_G[fid] == '262' || $_G[fid] == '263' || $_G[fid] == '264' || $_G[fid] == '265' || $_G[fid] == '266' || $_G[fid] == '267' || $_G[fid] == '268' || $_G[fid] == '269' || $_G[fid] == '270' || $_G[fid] == '271' || $_G[fid] == '272' || $_G[fid] == '226' || $_G[fid] == '227' || $_G[fid] == '228' || $_G[fid] == '229' || $_G[fid] == '230' || $_G[fid] == '231' || $_G[fid] == '232' || $_G[fid] == '233' || $_G[fid] == '234' || $_G[fid] == '235' || $_G[fid] == '236' || $_G[fid] == '237' || $_G[fid] == '238' || $_G[fid] == '239' || $_G[fid] == '240' || $_G[fid] == '241' || $_G[fid] == '242' || $_G[fid] == '243' || $_G[fid] == '244' || $_G[fid] == '245' || $_G[fid] == '246' || $_G[fid] == '247' || $_G[fid] == '248' || $_G[fid] == '249' || $_G[fid] == '250' || $_G[fid] == '251' || $_G[fid] == '252' || $_G[fid] == '253' || $_G[fid] == '254' || $_G[fid] == '255' || $_G[fid] == '256' || $_G[fid] == '257' || $_G[fid] == '136' || $_G[fid] == '137' || $_G[fid] == '138' || $_G[fid] == '139' || $_G[fid] == '140' || $_G[fid] == '141' || $_G[fid] == '142' || $_G[fid] == '143' || $_G[fid] == '144' || $_G[fid] == '145' || $_G[fid] == '146' || $_G[fid] == '147' || $_G[fid] == '148' || $_G[fid] == '149' || $_G[fid] == '150' || $_G[fid] == '151' || $_G[fid] == '152' || $_G[fid] == '153' || $_G[fid] == '154' || $_G[fid] == '155' || $_G[fid] == '156' || $_G[fid] == '157' || $_G[fid] == '158' || $_G[fid] == '159' || $_G[fid] == '160' || $_G[fid] == '161' || $_G[fid] == '162' || $_G[fid] == '163' || $_G[fid] == '164' || $_G[fid] == '165' || $_G[fid] == '166' || $_G[fid] == '167' || $_G[fid] == '168' || $_G[fid] == '169' || $_G[fid] == '170' || $_G[fid] == '171' || $_G[fid] == '172' || $_G[fid] == '173' || $_G[fid] == '174' || $_G[fid] == '125' || $_G[fid] == '126' || $_G[fid] == '127' || $_G[fid] == '128' || $_G[fid] == '129' || $_G[fid] == '130' || $_G[fid] == '131' || $_G[fid] == '132' || $_G[fid] == '133' || $_G[fid] == '134' || $_G[fid] == '135' || $_G[fid] == '273' || $_G[fid] == '274' || $_G[fid] == '275' || $_G[fid] == '276' || $_G[fid] == '277' || $_G[fid] == '278' || $_G[fid] == '279' || $_G[fid] == '280' || $_G[fid] == '281' || $_G[fid] == '282' || $_G[fid] == '283' || $_G[fid] == '284' || $_G[fid] == '285' || $_G[fid] == '286' || $_G[fid] == '287' || $_G[fid] == '288' || $_G[fid] == '289' || $_G[fid] == '290' || $_G[fid] == '291' || $_G[fid] == '292' || $_G[fid] == '293' || $_G[fid] == '294' || $_G[fid] == '295' || $_G[fid] == '296' || $_G[fid] == '297' || $_G[fid] == '298' || $_G[fid] == '299' || $_G[fid] == '300' || $_G[fid] == '301' || $_G[fid] == '302' || $_G[fid] == '303' || $_G[fid] == '304' || $_G[fid] == '305' || $_G[fid] == '306' || $_G[fid] == '307' || $_G[fid] == '308' || $_G[fid] == '309' || $_G[fid] == '310' || $_G[fid] == '311' || $_G[fid] == '312' || $_G[fid] == '313' || $_G[fid] == '314' || $_G[fid] == '315' || $_G[fid] == '316' || $_G[fid] == '317' || $_G[fid] == '318' || $_G[fid] == '319' || $_G[fid] == '320' || $_G[fid] == '321' || $_G[fid] == '322' || $_G[fid] == '323' || $_G[fid] == '324' || $_G[fid] == '325' || $_G[fid] == '326' || $_G[fid] == '327' || $_G[fid] == '329' || $_G[fid] == '330' || $_G[fid] == '331' || $_G[fid] == '332' || $_G[fid] == '333' || $_G[fid] == '334' || $_G[fid] == '335' || $_G[fid] == '2664' || $_G[fid] == '2665' || $_G[fid] == '2666' || $_G[fid] == '2667' || $_G[fid] == '336' || $_G[fid] == '337' || $_G[fid] == '338' || $_G[fid] == '339' || $_G[fid] == '340' || $_G[fid] == '341' || $_G[fid] == '342' || $_G[fid] == '343' || $_G[fid] == '344' || $_G[fid] == '345' || $_G[fid] == '346' || $_G[fid] == '347' || $_G[fid] == '348' || $_G[fid] == '349' || $_G[fid] == '350' || $_G[fid] == '351' || $_G[fid] == '352' || $_G[fid] == '353' || $_G[fid] == '354' || $_G[fid] == '355' || $_G[fid] == '356' || $_G[fid] == '357' || $_G[fid] == '358' || $_G[fid] == '359' || $_G[fid] == '360' || $_G[fid] == '361' || $_G[fid] == '362' || $_G[fid] == '363' || $_G[fid] == '364' || $_G[fid] == '365' || $_G[fid] == '366' || $_G[fid] == '367' || $_G[fid] == '368' || $_G[fid] == '369' || $_G[fid] == '370' || $_G[fid] == '371' || $_G[fid] == '372' || $_G[fid] == '374' || $_G[fid] == '375' || $_G[fid] == '376' || $_G[fid] == '377' || $_G[fid] == '378' || $_G[fid] == '383' || $_G[fid] == '384' || $_G[fid] == '385' || $_G[fid] == '386' || $_G[fid] == '387' || $_G[fid] == '388' || $_G[fid] == '389' || $_G[fid] == '390' || $_G[fid] == '391' || $_G[fid] == '392' || $_G[fid] == '393' || $_G[fid] == '394' || $_G[fid] == '395' || $_G[fid] == '396' || $_G[fid] == '397' || $_G[fid] == '398' || $_G[fid] == '399' || $_G[fid] == '400' || $_G[fid] == '401' || $_G[fid] == '402' || $_G[fid] == '403' || $_G[fid] == '404' || $_G[fid] == '405' || $_G[fid] == '406' || $_G[fid] == '407' || $_G[fid] == '408' || $_G[fid] == '409' || $_G[fid] == '410' || $_G[fid] == '411' || $_G[fid] == '412' || $_G[fid] == '413' || $_G[fid] == '414' || $_G[fid] == '415' || $_G[fid] == '416' || $_G[fid] == '417' || $_G[fid] == '418' || $_G[fid] == '419' || $_G[fid] == '420' || $_G[fid] == '421' || $_G[fid] == '422' || $_G[fid] == '423' || $_G[fid] == '424' || $_G[fid] == '425' || $_G[fid] == '426'}-->
+<!-- block/106548统一图片显示 -->
+	<a href="http://www.123aiyue.cn/forum.php?mod=viewthread&amp;tid=292796">
+		<!--{if $_G['fid'] == 2}--><a href="http://www.123aiyue.cn/forum.php?mod=viewthread&tid=292996"><img src="/ayfile/public/shida/citylist/2.1.jpg" width="100%"></a>
+		<!--{elseif $_G['fid'] == 37}--><img src="/ayfile/public/shida/citylist/37.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 38}--><img src="/ayfile/public/shida/citylist/38.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 72}--><img src="/ayfile/public/shida/citylist/72.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 73}--><img src="/ayfile/public/shida/citylist/73.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 74}--><img src="/ayfile/public/shida/citylist/74.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 75}--><img src="/ayfile/public/shida/citylist/75.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 76}--><img src="/ayfile/public/shida/citylist/76.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 77}--><img src="/ayfile/public/shida/citylist/77.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 78}--><img src="/ayfile/public/shida/citylist/78.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 79}--><img src="/ayfile/public/shida/citylist/79.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 80}--><img src="/ayfile/public/shida/citylist/80.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 81}--><img src="/ayfile/public/shida/citylist/81.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 82}--><img src="/ayfile/public/shida/citylist/82.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 83}--><img src="/ayfile/public/shida/citylist/83.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 84}--><img src="/ayfile/public/shida/citylist/84.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 85}--><img src="/ayfile/public/shida/citylist/85.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 86}--><img src="/ayfile/public/shida/citylist/86.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 87}--><img src="/ayfile/public/shida/citylist/87.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 88}--><img src="/ayfile/public/shida/citylist/88.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 89}--><img src="/ayfile/public/shida/citylist/89.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 90}--><img src="/ayfile/public/shida/citylist/90.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 91}--><img src="/ayfile/public/shida/citylist/91.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 92}--><img src="/ayfile/public/shida/citylist/92.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 93}--><img src="/ayfile/public/shida/citylist/93.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 94}--><img src="/ayfile/public/shida/citylist/94.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 95}--><img src="/ayfile/public/shida/citylist/95.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 96}--><img src="/ayfile/public/shida/citylist/96.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 97}--><img src="/ayfile/public/shida/citylist/97.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 98}--><img src="/ayfile/public/shida/citylist/98.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 99}--><img src="/ayfile/public/shida/citylist/99.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 100}--><img src="/ayfile/public/shida/citylist/100.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 101}--><img src="/ayfile/public/shida/citylist/101.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 102}--><img src="/ayfile/public/shida/citylist/102.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 103}--><img src="/ayfile/public/shida/citylist/103.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 104}--><img src="/ayfile/public/shida/citylist/104.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 105}--><img src="/ayfile/public/shida/citylist/105.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 106}--><img src="/ayfile/public/shida/citylist/106.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 107}--><img src="/ayfile/public/shida/citylist/107.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 108}--><img src="/ayfile/public/shida/citylist/108.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 109}--><img src="/ayfile/public/shida/citylist/109.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 110}--><img src="/ayfile/public/shida/citylist/110.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 111}--><img src="/ayfile/public/shida/citylist/111.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 112}--><img src="/ayfile/public/shida/citylist/112.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 113}--><img src="/ayfile/public/shida/citylist/113.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 114}--><img src="/ayfile/public/shida/citylist/114.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 115}--><a href="http://www.123aiyue.cn/forum.php?mod=viewthread&tid=293005"><img src="/ayfile/public/shida/citylist/115.1.jpg" width="100%"></a>
+		<!--{elseif $_G['fid'] == 116}--><img src="/ayfile/public/shida/citylist/116.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 117}--><img src="/ayfile/public/shida/citylist/117.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 118}--><img src="/ayfile/public/shida/citylist/118.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 119}--><img src="/ayfile/public/shida/citylist/119.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 120}--><img src="/ayfile/public/shida/citylist/120.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 121}--><img src="/ayfile/public/shida/citylist/121.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 122}--><img src="/ayfile/public/shida/citylist/122.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 123}--><img src="/ayfile/public/shida/citylist/123.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 124}--><img src="/ayfile/public/shida/citylist/124.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 125}--><img src="/ayfile/public/shida/citylist/125.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 126}--><img src="/ayfile/public/shida/citylist/126.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 127}--><img src="/ayfile/public/shida/citylist/127.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 128}--><img src="/ayfile/public/shida/citylist/128.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 129}--><img src="/ayfile/public/shida/citylist/129.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 130}--><img src="/ayfile/public/shida/citylist/130.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 131}--><img src="/ayfile/public/shida/citylist/131.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 132}--><img src="/ayfile/public/shida/citylist/132.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 133}--><img src="/ayfile/public/shida/citylist/133.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 134}--><img src="/ayfile/public/shida/citylist/134.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 135}--><img src="/ayfile/public/shida/citylist/135.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 136}--><img src="/ayfile/public/shida/citylist/136.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 137}--><img src="/ayfile/public/shida/citylist/137.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 138}--><img src="/ayfile/public/shida/citylist/138.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 139}--><img src="/ayfile/public/shida/citylist/139.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 140}--><img src="/ayfile/public/shida/citylist/140.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 141}--><img src="/ayfile/public/shida/citylist/141.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 142}--><img src="/ayfile/public/shida/citylist/142.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 143}--><img src="/ayfile/public/shida/citylist/143.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 144}--><img src="/ayfile/public/shida/citylist/144.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 145}--><img src="/ayfile/public/shida/citylist/145.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 146}--><img src="/ayfile/public/shida/citylist/146.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 147}--><img src="/ayfile/public/shida/citylist/147.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 148}--><img src="/ayfile/public/shida/citylist/148.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 149}--><img src="/ayfile/public/shida/citylist/149.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 150}--><img src="/ayfile/public/shida/citylist/150.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 151}--><img src="/ayfile/public/shida/citylist/151.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 152}--><img src="/ayfile/public/shida/citylist/152.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 153}--><img src="/ayfile/public/shida/citylist/153.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 154}--><img src="/ayfile/public/shida/citylist/154.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 155}--><img src="/ayfile/public/shida/citylist/155.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 156}--><img src="/ayfile/public/shida/citylist/156.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 157}--><img src="/ayfile/public/shida/citylist/157.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 158}--><img src="/ayfile/public/shida/citylist/158.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 159}--><img src="/ayfile/public/shida/citylist/159.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 160}--><img src="/ayfile/public/shida/citylist/160.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 161}--><img src="/ayfile/public/shida/citylist/161.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 162}--><img src="/ayfile/public/shida/citylist/162.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 163}--><img src="/ayfile/public/shida/citylist/163.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 164}--><img src="/ayfile/public/shida/citylist/164.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 165}--><img src="/ayfile/public/shida/citylist/165.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 166}--><img src="/ayfile/public/shida/citylist/166.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 167}--><img src="/ayfile/public/shida/citylist/167.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 168}--><img src="/ayfile/public/shida/citylist/168.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 169}--><img src="/ayfile/public/shida/citylist/169.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 170}--><img src="/ayfile/public/shida/citylist/170.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 171}--><img src="/ayfile/public/shida/citylist/171.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 172}--><img src="/ayfile/public/shida/citylist/172.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 173}--><img src="/ayfile/public/shida/citylist/173.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 174}--><img src="/ayfile/public/shida/citylist/174.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 175}--><img src="/ayfile/public/shida/citylist/175.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 176}--><img src="/ayfile/public/shida/citylist/176.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 177}--><img src="/ayfile/public/shida/citylist/177.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 178}--><img src="/ayfile/public/shida/citylist/178.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 179}--><img src="/ayfile/public/shida/citylist/179.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 180}--><img src="/ayfile/public/shida/citylist/180.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 181}--><img src="/ayfile/public/shida/citylist/181.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 182}--><img src="/ayfile/public/shida/citylist/182.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 183}--><img src="/ayfile/public/shida/citylist/183.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 184}--><img src="/ayfile/public/shida/citylist/184.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 185}--><img src="/ayfile/public/shida/citylist/185.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 186}--><img src="/ayfile/public/shida/citylist/186.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 187}--><img src="/ayfile/public/shida/citylist/187.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 191}--><img src="/ayfile/public/shida/citylist/191.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 192}--><img src="/ayfile/public/shida/citylist/192.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 193}--><img src="/ayfile/public/shida/citylist/193.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 194}--><img src="/ayfile/public/shida/citylist/194.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 195}--><img src="/ayfile/public/shida/citylist/195.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 196}--><img src="/ayfile/public/shida/citylist/196.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 197}--><img src="/ayfile/public/shida/citylist/197.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 198}--><img src="/ayfile/public/shida/citylist/198.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 199}--><img src="/ayfile/public/shida/citylist/199.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 200}--><img src="/ayfile/public/shida/citylist/200.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 201}--><img src="/ayfile/public/shida/citylist/201.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 202}--><img src="/ayfile/public/shida/citylist/202.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 203}--><img src="/ayfile/public/shida/citylist/203.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 204}--><img src="/ayfile/public/shida/citylist/204.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 205}--><img src="/ayfile/public/shida/citylist/205.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 206}--><img src="/ayfile/public/shida/citylist/206.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 213}--><img src="/ayfile/public/shida/citylist/213.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 214}--><img src="/ayfile/public/shida/citylist/214.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 215}--><img src="/ayfile/public/shida/citylist/215.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 216}--><img src="/ayfile/public/shida/citylist/216.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 217}--><img src="/ayfile/public/shida/citylist/217.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 218}--><img src="/ayfile/public/shida/citylist/218.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 219}--><img src="/ayfile/public/shida/citylist/219.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 220}--><img src="/ayfile/public/shida/citylist/220.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 221}--><img src="/ayfile/public/shida/citylist/221.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 222}--><img src="/ayfile/public/shida/citylist/222.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 223}--><img src="/ayfile/public/shida/citylist/223.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 224}--><img src="/ayfile/public/shida/citylist/224.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 225}--><img src="/ayfile/public/shida/citylist/225.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 226}--><img src="/ayfile/public/shida/citylist/226.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 227}--><img src="/ayfile/public/shida/citylist/227.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 228}--><img src="/ayfile/public/shida/citylist/228.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 229}--><img src="/ayfile/public/shida/citylist/229.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 230}--><img src="/ayfile/public/shida/citylist/230.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 231}--><img src="/ayfile/public/shida/citylist/231.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 232}--><img src="/ayfile/public/shida/citylist/232.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 233}--><img src="/ayfile/public/shida/citylist/233.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 234}--><img src="/ayfile/public/shida/citylist/234.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 235}--><img src="/ayfile/public/shida/citylist/235.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 236}--><img src="/ayfile/public/shida/citylist/236.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 237}--><img src="/ayfile/public/shida/citylist/237.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 238}--><img src="/ayfile/public/shida/citylist/238.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 239}--><img src="/ayfile/public/shida/citylist/239.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 240}--><img src="/ayfile/public/shida/citylist/240.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 241}--><img src="/ayfile/public/shida/citylist/241.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 242}--><img src="/ayfile/public/shida/citylist/242.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 243}--><img src="/ayfile/public/shida/citylist/243.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 244}--><img src="/ayfile/public/shida/citylist/244.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 245}--><img src="/ayfile/public/shida/citylist/245.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 246}--><img src="/ayfile/public/shida/citylist/246.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 247}--><img src="/ayfile/public/shida/citylist/247.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 248}--><img src="/ayfile/public/shida/citylist/248.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 249}--><img src="/ayfile/public/shida/citylist/249.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 250}--><img src="/ayfile/public/shida/citylist/250.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 251}--><img src="/ayfile/public/shida/citylist/251.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 252}--><img src="/ayfile/public/shida/citylist/252.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 253}--><img src="/ayfile/public/shida/citylist/253.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 254}--><img src="/ayfile/public/shida/citylist/254.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 255}--><img src="/ayfile/public/shida/citylist/255.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 256}--><img src="/ayfile/public/shida/citylist/256.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 257}--><img src="/ayfile/public/shida/citylist/257.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 259}--><img src="/ayfile/public/shida/citylist/259.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 260}--><img src="/ayfile/public/shida/citylist/260.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 261}--><img src="/ayfile/public/shida/citylist/261.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 262}--><img src="/ayfile/public/shida/citylist/262.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 263}--><img src="/ayfile/public/shida/citylist/263.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 264}--><img src="/ayfile/public/shida/citylist/264.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 265}--><img src="/ayfile/public/shida/citylist/265.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 266}--><img src="/ayfile/public/shida/citylist/266.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 267}--><img src="/ayfile/public/shida/citylist/267.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 268}--><img src="/ayfile/public/shida/citylist/268.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 269}--><img src="/ayfile/public/shida/citylist/269.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 270}--><img src="/ayfile/public/shida/citylist/270.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 271}--><img src="/ayfile/public/shida/citylist/271.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 272}--><img src="/ayfile/public/shida/citylist/272.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 273}--><img src="/ayfile/public/shida/citylist/273.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 274}--><img src="/ayfile/public/shida/citylist/274.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 275}--><img src="/ayfile/public/shida/citylist/275.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 276}--><img src="/ayfile/public/shida/citylist/276.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 277}--><img src="/ayfile/public/shida/citylist/277.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 278}--><img src="/ayfile/public/shida/citylist/278.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 279}--><img src="/ayfile/public/shida/citylist/279.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 280}--><img src="/ayfile/public/shida/citylist/280.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 281}--><img src="/ayfile/public/shida/citylist/281.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 282}--><img src="/ayfile/public/shida/citylist/282.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 283}--><img src="/ayfile/public/shida/citylist/283.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 284}--><img src="/ayfile/public/shida/citylist/284.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 285}--><img src="/ayfile/public/shida/citylist/285.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 286}--><img src="/ayfile/public/shida/citylist/286.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 287}--><img src="/ayfile/public/shida/citylist/287.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 288}--><img src="/ayfile/public/shida/citylist/288.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 289}--><img src="/ayfile/public/shida/citylist/289.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 290}--><img src="/ayfile/public/shida/citylist/290.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 291}--><img src="/ayfile/public/shida/citylist/291.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 292}--><img src="/ayfile/public/shida/citylist/292.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 293}--><img src="/ayfile/public/shida/citylist/293.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 294}--><img src="/ayfile/public/shida/citylist/294.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 295}--><img src="/ayfile/public/shida/citylist/295.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 296}--><img src="/ayfile/public/shida/citylist/296.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 297}--><img src="/ayfile/public/shida/citylist/297.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 298}--><img src="/ayfile/public/shida/citylist/298.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 299}--><img src="/ayfile/public/shida/citylist/299.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 300}--><img src="/ayfile/public/shida/citylist/300.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 301}--><img src="/ayfile/public/shida/citylist/301.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 302}--><img src="/ayfile/public/shida/citylist/302.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 303}--><img src="/ayfile/public/shida/citylist/303.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 304}--><img src="/ayfile/public/shida/citylist/304.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 305}--><img src="/ayfile/public/shida/citylist/305.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 306}--><img src="/ayfile/public/shida/citylist/306.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 307}--><img src="/ayfile/public/shida/citylist/307.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 308}--><img src="/ayfile/public/shida/citylist/308.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 309}--><img src="/ayfile/public/shida/citylist/309.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 310}--><img src="/ayfile/public/shida/citylist/310.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 311}--><img src="/ayfile/public/shida/citylist/311.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 312}--><img src="/ayfile/public/shida/citylist/312.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 313}--><img src="/ayfile/public/shida/citylist/313.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 314}--><img src="/ayfile/public/shida/citylist/314.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 315}--><img src="/ayfile/public/shida/citylist/315.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 316}--><img src="/ayfile/public/shida/citylist/316.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 317}--><img src="/ayfile/public/shida/citylist/317.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 318}--><img src="/ayfile/public/shida/citylist/318.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 319}--><img src="/ayfile/public/shida/citylist/319.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 320}--><img src="/ayfile/public/shida/citylist/320.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 321}--><img src="/ayfile/public/shida/citylist/321.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 322}--><img src="/ayfile/public/shida/citylist/322.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 323}--><img src="/ayfile/public/shida/citylist/323.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 324}--><img src="/ayfile/public/shida/citylist/324.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 325}--><img src="/ayfile/public/shida/citylist/325.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 326}--><img src="/ayfile/public/shida/citylist/326.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 327}--><img src="/ayfile/public/shida/citylist/327.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 329}--><img src="/ayfile/public/shida/citylist/329.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 330}--><img src="/ayfile/public/shida/citylist/330.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 331}--><img src="/ayfile/public/shida/citylist/331.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 335}--><img src="/ayfile/public/shida/citylist/335.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 336}--><img src="/ayfile/public/shida/citylist/336.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 337}--><img src="/ayfile/public/shida/citylist/337.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 338}--><img src="/ayfile/public/shida/citylist/338.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 339}--><img src="/ayfile/public/shida/citylist/339.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 340}--><img src="/ayfile/public/shida/citylist/340.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 341}--><img src="/ayfile/public/shida/citylist/341.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 342}--><img src="/ayfile/public/shida/citylist/342.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 343}--><img src="/ayfile/public/shida/citylist/343.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 344}--><img src="/ayfile/public/shida/citylist/344.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 345}--><img src="/ayfile/public/shida/citylist/345.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 346}--><img src="/ayfile/public/shida/citylist/346.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 347}--><img src="/ayfile/public/shida/citylist/347.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 348}--><img src="/ayfile/public/shida/citylist/348.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 349}--><img src="/ayfile/public/shida/citylist/349.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 350}--><img src="/ayfile/public/shida/citylist/350.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 351}--><img src="/ayfile/public/shida/citylist/351.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 352}--><img src="/ayfile/public/shida/citylist/352.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 353}--><img src="/ayfile/public/shida/citylist/353.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 354}--><img src="/ayfile/public/shida/citylist/354.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 355}--><img src="/ayfile/public/shida/citylist/355.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 356}--><img src="/ayfile/public/shida/citylist/356.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 357}--><img src="/ayfile/public/shida/citylist/357.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 358}--><img src="/ayfile/public/shida/citylist/358.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 359}--><img src="/ayfile/public/shida/citylist/359.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 360}--><img src="/ayfile/public/shida/citylist/360.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 361}--><img src="/ayfile/public/shida/citylist/361.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 362}--><img src="/ayfile/public/shida/citylist/362.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 363}--><img src="/ayfile/public/shida/citylist/363.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 364}--><img src="/ayfile/public/shida/citylist/364.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 365}--><img src="/ayfile/public/shida/citylist/365.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 366}--><img src="/ayfile/public/shida/citylist/366.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 367}--><img src="/ayfile/public/shida/citylist/367.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 368}--><img src="/ayfile/public/shida/citylist/368.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 369}--><img src="/ayfile/public/shida/citylist/369.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 370}--><img src="/ayfile/public/shida/citylist/370.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 371}--><img src="/ayfile/public/shida/citylist/371.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 372}--><img src="/ayfile/public/shida/citylist/372.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 374}--><img src="/ayfile/public/shida/citylist/374.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 375}--><img src="/ayfile/public/shida/citylist/375.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 376}--><img src="/ayfile/public/shida/citylist/376.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 383}--><img src="/ayfile/public/shida/citylist/383.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 384}--><img src="/ayfile/public/shida/citylist/384.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 385}--><img src="/ayfile/public/shida/citylist/385.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 386}--><img src="/ayfile/public/shida/citylist/386.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 387}--><img src="/ayfile/public/shida/citylist/387.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 388}--><img src="/ayfile/public/shida/citylist/388.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 389}--><img src="/ayfile/public/shida/citylist/389.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 390}--><img src="/ayfile/public/shida/citylist/390.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 391}--><img src="/ayfile/public/shida/citylist/391.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 392}--><img src="/ayfile/public/shida/citylist/392.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 393}--><img src="/ayfile/public/shida/citylist/393.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 394}--><img src="/ayfile/public/shida/citylist/394.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 395}--><img src="/ayfile/public/shida/citylist/395.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 396}--><img src="/ayfile/public/shida/citylist/396.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 397}--><img src="/ayfile/public/shida/citylist/397.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 398}--><img src="/ayfile/public/shida/citylist/398.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 399}--><img src="/ayfile/public/shida/citylist/399.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 400}--><img src="/ayfile/public/shida/citylist/400.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 401}--><img src="/ayfile/public/shida/citylist/401.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 402}--><img src="/ayfile/public/shida/citylist/402.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 403}--><img src="/ayfile/public/shida/citylist/403.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 404}--><img src="/ayfile/public/shida/citylist/404.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 405}--><img src="/ayfile/public/shida/citylist/405.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 406}--><img src="/ayfile/public/shida/citylist/406.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 407}--><img src="/ayfile/public/shida/citylist/407.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 408}--><img src="/ayfile/public/shida/citylist/408.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 409}--><img src="/ayfile/public/shida/citylist/409.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 410}--><img src="/ayfile/public/shida/citylist/410.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 411}--><img src="/ayfile/public/shida/citylist/411.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 412}--><img src="/ayfile/public/shida/citylist/412.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 413}--><img src="/ayfile/public/shida/citylist/413.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 414}--><img src="/ayfile/public/shida/citylist/414.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 415}--><img src="/ayfile/public/shida/citylist/415.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 416}--><img src="/ayfile/public/shida/citylist/416.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 417}--><img src="/ayfile/public/shida/citylist/417.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 418}--><img src="/ayfile/public/shida/citylist/418.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 419}--><img src="/ayfile/public/shida/citylist/419.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 2664}--><img src="/ayfile/public/shida/citylist/2664.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 2665}--><img src="/ayfile/public/shida/citylist/2665.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 2666}--><img src="/ayfile/public/shida/citylist/2666.jpg" width="100%">
+		<!--{elseif $_G['fid'] == 4000}--><img src="/ayfile/public/shida/citylist/4000.jpg" width="100%">
+		<!--{else}-->
+		<img src="data/attachment/portal/201606/03/110649vt6oo2ozo6oxafuy.jpg" width="100%">
+		<!--{/if}-->	
+	</a>
+
+<div class="channels channelstoggle s-menu">
+	<ul class="right-channel-s clear">
+		<li style="margin:0;background-color: #DCDCDC;"><a href="http://form.mikecrm.com/nobIQQ">协办申请</a></li>
+		<li style="margin:0 10px 0 20px;background-color: #DCDCDC;"><a href="http://form.mikecrm.com/K8XkfP">琴行评选</a></li>
+		<li style="margin:0 0 0 10px;background-color: #DCDCDC;"><a href="http://form.mikecrm.com/XGoRYT">学员报名</a></li>
+	</ul>
+</div>
+<!--{/if}-->
+<!--培训帖子列表城市站/-->
+
+<!--{if $_G[fid] == '3947'}-->
+<div class="slideBox">
+	<!--{block/106545}--> 
+</div>
+<!--{/if}-->
+
+<!--{if $_G[fid] == '4006'}-->
+<div class="slideBox">
+	<!--{block/106546}-->
+</div>
+<!--{/if}-->
+
+
+<!--{if $_G[fid] == '4002'}-->
+<div class="slideBox">
+	<img src="/ayfile/touch/shida/shandong.jpg" width="100%" height="" alt="" />
+</div>
+<div class="channels channelstoggle s-menu">
+	<ul class="right-channel-s clear">
+		<li class="{if $thread['typeid'] == 13746}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4002&filter=typeid&typeid=13746">济南</a></li>
+		<li class="{if $thread['typeid'] == 13747}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4002&filter=typeid&typeid=13747">青岛</a></li>
+		<li class="{if $thread['typeid'] == 13748}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4002&filter=typeid&typeid=13748">淄博</a></li>
+		<li class="{if $thread['typeid'] == 13749}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4002&filter=typeid&typeid=13749">枣庄</a></li>
+		<li class="{if $thread['typeid'] == 13750}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4002&filter=typeid&typeid=13750">东营</a></li>
+		<li class="{if $thread['typeid'] == 13751}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4002&filter=typeid&typeid=13751">烟台</a></li>
+		<li class="{if $thread['typeid'] == 13752}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4002&filter=typeid&typeid=13752">潍坊</a></li>
+	</ul>
+	<ul class="right-channel-s clear" style="margin-top:5px">
+		<li class="{if $thread['typeid'] == 13753}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4002&filter=typeid&typeid=13753">济宁</a></li>
+		<li class="{if $thread['typeid'] == 13754}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4002&filter=typeid&typeid=13754">泰安</a></li>
+		<li class="{if $thread['typeid'] == 13755}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4002&filter=typeid&typeid=13755">威海</a></li>
+		<li class="{if $thread['typeid'] == 13756}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4002&filter=typeid&typeid=13756">日照</a></li>
+		<li class="{if $thread['typeid'] == 13757}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4002&filter=typeid&typeid=13757">滨州</a></li>
+		<li class="{if $thread['typeid'] == 13758}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4002&filter=typeid&typeid=13758">德州</a></li>
+		<li class="{if $thread['typeid'] == 13759}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4002&filter=typeid&typeid=13759">聊城</a></li>
+	</ul>
+	<ul class="right-channel-s clear" style="margin-top:5px">
+		<li class="{if $thread['typeid'] == 13760}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4002&filter=typeid&typeid=13760">临沂</a></li>
+		<li class="{if $thread['typeid'] == 13761}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4002&filter=typeid&typeid=13761">菏泽</a></li>
+		<li class="{if $thread['typeid'] == 13762}active{/if}" style="margin-right:57%"><a href="forum.php?mod=forumdisplay&fid=4002&filter=typeid&typeid=13762">莱芜</a></li>
+	</ul>
+</div>
+<!--{/if}-->
+
+<!--{if $_G[fid] == '4003'}-->
+<div class="slideBox">
+	<img src="/ayfile/touch/shida/heilongjiang.jpg" width="100%" height="" alt="" />
+</div>
+<div class="channels channelstoggle s-menu">
+	<ul class="right-channel-s clear">
+		<li class="{if $thread['typeid'] == 13763}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4003&filter=typeid&typeid=13763">哈尔滨</a></li>
+		<li class="{if $thread['typeid'] == 13764}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4003&filter=typeid&typeid=13764">齐齐哈尔</a></li>
+		<li class="{if $thread['typeid'] == 13765}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4003&filter=typeid&typeid=13765">鸡西</a></li>
+		<li class="{if $thread['typeid'] == 13766}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4003&filter=typeid&typeid=13766">鹤岗</a></li>
+		<li class="{if $thread['typeid'] == 13767}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4003&filter=typeid&typeid=13767">双鸭山</a></li>
+		<li class="{if $thread['typeid'] == 13768}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4003&filter=typeid&typeid=13768">大庆</a></li>
+	</ul>
+	<ul class="right-channel-s clear" style="margin-top:5px">
+		<li class="{if $thread['typeid'] == 13769}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4003&filter=typeid&typeid=13769">伊春</a></li>
+		<li class="{if $thread['typeid'] == 13770}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4003&filter=typeid&typeid=13770">佳木斯</a></li>
+		<li class="{if $thread['typeid'] == 13771}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4003&filter=typeid&typeid=13771">七台河</a></li>
+		<li class="{if $thread['typeid'] == 13772}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4003&filter=typeid&typeid=13772">牡丹江</a></li>
+		<li class="{if $thread['typeid'] == 13773}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4003&filter=typeid&typeid=13773">黑河</a></li>
+		<li class="{if $thread['typeid'] == 13774}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4003&filter=typeid&typeid=13774">绥化</a></li>
+		<li class="{if $thread['typeid'] == 13775}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4003&filter=typeid&typeid=13775">大兴安岭</a></li>
+	</ul>
+</div>
+<!--{/if}-->
+
+<!--{if $_G[fid] == '4004'}-->
+<div class="slideBox">
+	<img src="/ayfile/touch/shida/jilin.jpg" width="100%" height="" alt="" />
+</div>
+<div class="channels channelstoggle s-menu">
+	<ul class="right-channel-s clear">
+		<li class="{if $thread['typeid'] == 13776}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4004&filter=typeid&typeid=13776">长春</a></li>
+		<li class="{if $thread['typeid'] == 13777}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4004&filter=typeid&typeid=13777">吉林</a></li>
+		<li class="{if $thread['typeid'] == 13778}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4004&filter=typeid&typeid=13778">四平</a></li>
+		<li class="{if $thread['typeid'] == 13779}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4004&filter=typeid&typeid=13779">辽源</a></li>
+		<li class="{if $thread['typeid'] == 13780}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4004&filter=typeid&typeid=13780">通化</a></li>
+	</ul>
+	<ul class="right-channel-s clear" style="margin-top:5px">
+		<li class="{if $thread['typeid'] == 13781}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4004&filter=typeid&typeid=13781">白山</a></li>
+		<li class="{if $thread['typeid'] == 13782}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4004&filter=typeid&typeid=13882">松原</a></li>
+		<li class="{if $thread['typeid'] == 13783}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4004&filter=typeid&typeid=13783">白城</a></li>
+		<li class="{if $thread['typeid'] == 13784}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4004&filter=typeid&typeid=13784">延边</a></li>
+
+	</ul>
+</div>
+<!--{/if}-->
+<!--{if $_G[fid] == '4005'}-->
+<div class="slideBox">
+	<img src="/ayfile/touch/shida/liaoning.jpg" width="100%" height="" alt="" />
+</div>
+<div class="channels channelstoggle s-menu">
+	<ul class="right-channel-s clear">
+		<li class="{if $thread['typeid'] == 13785}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4005&filter=typeid&typeid=13785">沈阳</a></li>
+		<li class="{if $thread['typeid'] == 13786}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4005&filter=typeid&typeid=13786">大连</a></li>
+		<li class="{if $thread['typeid'] == 13787}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4005&filter=typeid&typeid=13787">鞍山</a></li>
+		<li class="{if $thread['typeid'] == 13788}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4005&filter=typeid&typeid=13788">抚顺</a></li>
+		<li class="{if $thread['typeid'] == 13789}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4005&filter=typeid&typeid=13789">本溪</a></li>
+		<li class="{if $thread['typeid'] == 13790}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4005&filter=typeid&typeid=13790">丹东</a></li>
+		<li class="{if $thread['typeid'] == 13791}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4005&filter=typeid&typeid=13791">锦州</a></li>
+	</ul>
+	<ul class="right-channel-s clear" style="margin-top:5px">
+		<li class="{if $thread['typeid'] == 13792}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4005&filter=typeid&typeid=13792">营口</a></li>
+		<li class="{if $thread['typeid'] == 13793}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4005&filter=typeid&typeid=13793">阜新</a></li>
+		<li class="{if $thread['typeid'] == 13794}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4005&filter=typeid&typeid=13794">辽阳</a></li>
+		<li class="{if $thread['typeid'] == 13795}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4005&filter=typeid&typeid=13795">盘锦</a></li>
+		<li class="{if $thread['typeid'] == 13796}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4005&filter=typeid&typeid=13796">铁岭</a></li>
+		<li class="{if $thread['typeid'] == 13797}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4005&filter=typeid&typeid=13797">朝阳</a></li>
+		<li class="{if $thread['typeid'] == 13798}active{/if}"><a href="forum.php?mod=forumdisplay&fid=4005&filter=typeid&typeid=13798">葫芦岛</a></li>
+	</ul>
+</div>
+<!--{/if}-->
+
+<ul class="post_list_wrapper post_forumdisplay clear" style="clear: both;">
+    <!--{loop $_G['forum_threadlist'] $key $thread}-->
+        <!--{if $thread['displayorder'] > 0}-->
+                <li class="form_post_list bottom_line clear">
+					<a href="forum.php?mod=viewthread&tid=$thread[tid]">
+						<span class="img">
+							<!--{if $thread['cover']}-->
+							<img src="$thread[coverpath]" alt="" swidth="auto" sheight="auto">
+							<!--{/if}-->
+						</span>
+						<dl>
+							<dt><span class="ding">推荐</span>{$thread[subject]}</dt>
+							<dd>
+								<span>
+									<!--{if $thread['authorid'] && $thread['author']}-->
+                                        $thread[author] 
+                                    <!--{else}-->
+                                        <!--{if $_G['forum']['ismoderator']}-->
+                                            {lang anonymous}
+                                        <!--{else}-->
+                                            $_G[setting][anonymoustext]
+                                        <!--{/if}-->
+                                    <!--{/if}-->
+								</span>
+								<span class="y">$thread[views]观看</span>
+							</dd>
+						</dl>
+					</a>
+				</li>
+            <!--{else}-->
+            <!--{if $thread['displayorder'] > 0 && !$displayorder_thread}-->
+                {eval $displayorder_thread = 1;}
+            <!--{/if}-->
+            <!--{if $thread['moved']}-->
+                <!--{eval $thread[tid]=$thread[closed];}-->
+            <!--{/if}-->
+			
+				<li class="form_post_list bottom_line clear">
+					<a href="forum.php?mod=viewthread&tid=$thread[tid]">
+						<span class="img">
+							<!--{if $thread['cover']}-->
+							<img src="$thread[coverpath]" alt="" swidth="auto" sheight="auto">
+							<!--{/if}-->
+						</span>
+						<dl>
+							<dt>{$thread[subject]}</dt>
+							<dd>
+								<span>
+									<!--{if $thread['authorid'] && $thread['author']}-->
+                                        $thread[author] 
+                                    <!--{else}-->
+                                        <!--{if $_G['forum']['ismoderator']}-->
+                                            {lang anonymous}
+                                        <!--{else}-->
+                                            $_G[setting][anonymoustext]
+                                        <!--{/if}-->
+                                    <!--{/if}-->
+								</span>
+								<span class="y">$thread[views]观看</span>
+							</dd>
+						</dl>
+					</a>
+				</li>
+        <!--{/if}-->
+    <!--{/loop}-->
+    <!-- 删除翻页 -->
+</ul>
+	<!--{else}-->
+	<div class="bm_c p10">{lang forum_nothreads}</div>
+	<!--{/if}-->
+<!--{/if}-->
+</div>
+
+<!-- loop $xn_adv[6] $key $value 底部广告条不用
+<div class="img-ad m0"><a href="$value[link]"><img src="$value[advnewimage]" alt=""></a><span class="img-ad-txt">AD</span></div>
+-->
+
+<div id="SC_loading" style="display: none;"><div class="mp_loading_clip"><div class="mp_loading_bar"></div></div></div>
+<!-- 发布按钮 -->
+<!--{if $_G[fid] == 3517 && $thread['typeid'] !== '13644' || $_G[fid] == 3999 ||$_G[fid] == 3521}-->
+<div id="bottombar">
+	<div class="select-cat cl sf_bo">
+    <!-- search/S -->
+	    <!--{subtemplate common/search_qt}-->
+	<!-- search/E -->
+	</div>
+</div>
+<!--{else}-->
+<div id="bottombar">
+	<div class="select-cat cl">
+		<!--{if $_G[fid] == '2' || $_G[fid] == '4000' || $_G[fid] == '37' || $_G[fid] == '38' || $_G[fid] == '39' || $_G[fid] == '40' || $_G[fid] == '41' || $_G[fid] == '42' || $_G[fid] == '53' || $_G[fid] == '50' || $_G[fid] == '51' || $_G[fid] == '52' || $_G[fid] == '44' || $_G[fid] == '43' || $_G[fid] == '46' || $_G[fid] == '45' || $_G[fid] == '48' || $_G[fid] == '49' || $_G[fid] == '47' || $_G[fid] == '54' || $_G[fid] == '55' || $_G[fid] == '56' || $_G[fid] == '57' || $_G[fid] == '58' || $_G[fid] == '59' || $_G[fid] == '60' || $_G[fid] == '61' || $_G[fid] == '62' || $_G[fid] == '63' || $_G[fid] == '64' || $_G[fid] == '65' || $_G[fid] == '74' || $_G[fid] == '75' || $_G[fid] == '76' || $_G[fid] == '77' || $_G[fid] == '78' || $_G[fid] == '79' || $_G[fid] == '80' || $_G[fid] == '81' || $_G[fid] == '82' || $_G[fid] == '83' || $_G[fid] == '84' || $_G[fid] == '72' || $_G[fid] == '73' || $_G[fid] == '85' || $_G[fid] == '86' || $_G[fid] == '87' || $_G[fid] == '88' || $_G[fid] == '89' || $_G[fid] == '90' || $_G[fid] == '91' || $_G[fid] == '92' || $_G[fid] == '93' || $_G[fid] == '94' || $_G[fid] == '95' || $_G[fid] == '96' || $_G[fid] == '97' || $_G[fid] == '98' || $_G[fid] == '99' || $_G[fid] == '100' || $_G[fid] == '101' || $_G[fid] == '102' || $_G[fid] == '103' || $_G[fid] == '104' || $_G[fid] == '105' || $_G[fid] == '106' || $_G[fid] == '107' || $_G[fid] == '108' || $_G[fid] == '109' || $_G[fid] == '110' || $_G[fid] == '111' || $_G[fid] == '112' || $_G[fid] == '113' || $_G[fid] == '114' || $_G[fid] == '115' || $_G[fid] == '116' || $_G[fid] == '117' || $_G[fid] == '118' || $_G[fid] == '119' || $_G[fid] == '120' || $_G[fid] == '121' || $_G[fid] == '122' || $_G[fid] == '123' || $_G[fid] == '124' || $_G[fid] == '191' || $_G[fid] == '192' || $_G[fid] == '193' || $_G[fid] == '194' || $_G[fid] == '195' || $_G[fid] == '196' || $_G[fid] == '197' || $_G[fid] == '198' || $_G[fid] == '199' || $_G[fid] == '200' || $_G[fid] == '201' || $_G[fid] == '202' || $_G[fid] == '203' || $_G[fid] == '204' || $_G[fid] == '175' || $_G[fid] == '176' || $_G[fid] == '177' || $_G[fid] == '178' || $_G[fid] == '179' || $_G[fid] == '180' || $_G[fid] == '181' || $_G[fid] == '182' || $_G[fid] == '183' || $_G[fid] == '184' || $_G[fid] == '185' || $_G[fid] == '186' || $_G[fid] == '187' || $_G[fid] == '213' || $_G[fid] == '214' || $_G[fid] == '215' || $_G[fid] == '216' || $_G[fid] == '217' || $_G[fid] == '218' || $_G[fid] == '219' || $_G[fid] == '220' || $_G[fid] == '221' || $_G[fid] == '222' || $_G[fid] == '223' || $_G[fid] == '224' || $_G[fid] == '225' || $_G[fid] == '205' || $_G[fid] == '206' || $_G[fid] == '259' || $_G[fid] == '260' || $_G[fid] == '261' || $_G[fid] == '262' || $_G[fid] == '263' || $_G[fid] == '264' || $_G[fid] == '265' || $_G[fid] == '266' || $_G[fid] == '267' || $_G[fid] == '268' || $_G[fid] == '269' || $_G[fid] == '270' || $_G[fid] == '271' || $_G[fid] == '272' || $_G[fid] == '226' || $_G[fid] == '227' || $_G[fid] == '228' || $_G[fid] == '229' || $_G[fid] == '230' || $_G[fid] == '231' || $_G[fid] == '232' || $_G[fid] == '233' || $_G[fid] == '234' || $_G[fid] == '235' || $_G[fid] == '236' || $_G[fid] == '237' || $_G[fid] == '238' || $_G[fid] == '239' || $_G[fid] == '240' || $_G[fid] == '241' || $_G[fid] == '242' || $_G[fid] == '243' || $_G[fid] == '244' || $_G[fid] == '245' || $_G[fid] == '246' || $_G[fid] == '247' || $_G[fid] == '248' || $_G[fid] == '249' || $_G[fid] == '250' || $_G[fid] == '251' || $_G[fid] == '252' || $_G[fid] == '253' || $_G[fid] == '254' || $_G[fid] == '255' || $_G[fid] == '256' || $_G[fid] == '257' || $_G[fid] == '136' || $_G[fid] == '137' || $_G[fid] == '138' || $_G[fid] == '139' || $_G[fid] == '140' || $_G[fid] == '141' || $_G[fid] == '142' || $_G[fid] == '143' || $_G[fid] == '144' || $_G[fid] == '145' || $_G[fid] == '146' || $_G[fid] == '147' || $_G[fid] == '148' || $_G[fid] == '149' || $_G[fid] == '150' || $_G[fid] == '151' || $_G[fid] == '152' || $_G[fid] == '153' || $_G[fid] == '154' || $_G[fid] == '155' || $_G[fid] == '156' || $_G[fid] == '157' || $_G[fid] == '158' || $_G[fid] == '159' || $_G[fid] == '160' || $_G[fid] == '161' || $_G[fid] == '162' || $_G[fid] == '163' || $_G[fid] == '164' || $_G[fid] == '165' || $_G[fid] == '166' || $_G[fid] == '167' || $_G[fid] == '168' || $_G[fid] == '169' || $_G[fid] == '170' || $_G[fid] == '171' || $_G[fid] == '172' || $_G[fid] == '173' || $_G[fid] == '174' || $_G[fid] == '125' || $_G[fid] == '126' || $_G[fid] == '127' || $_G[fid] == '128' || $_G[fid] == '129' || $_G[fid] == '130' || $_G[fid] == '131' || $_G[fid] == '132' || $_G[fid] == '133' || $_G[fid] == '134' || $_G[fid] == '135' || $_G[fid] == '273' || $_G[fid] == '274' || $_G[fid] == '275' || $_G[fid] == '276' || $_G[fid] == '277' || $_G[fid] == '278' || $_G[fid] == '279' || $_G[fid] == '280' || $_G[fid] == '281' || $_G[fid] == '282' || $_G[fid] == '283' || $_G[fid] == '284' || $_G[fid] == '285' || $_G[fid] == '286' || $_G[fid] == '287' || $_G[fid] == '288' || $_G[fid] == '289' || $_G[fid] == '290' || $_G[fid] == '291' || $_G[fid] == '292' || $_G[fid] == '293' || $_G[fid] == '294' || $_G[fid] == '295' || $_G[fid] == '296' || $_G[fid] == '297' || $_G[fid] == '298' || $_G[fid] == '299' || $_G[fid] == '300' || $_G[fid] == '301' || $_G[fid] == '302' || $_G[fid] == '303' || $_G[fid] == '304' || $_G[fid] == '305' || $_G[fid] == '306' || $_G[fid] == '307' || $_G[fid] == '308' || $_G[fid] == '309' || $_G[fid] == '310' || $_G[fid] == '311' || $_G[fid] == '312' || $_G[fid] == '313' || $_G[fid] == '314' || $_G[fid] == '315' || $_G[fid] == '316' || $_G[fid] == '317' || $_G[fid] == '318' || $_G[fid] == '319' || $_G[fid] == '320' || $_G[fid] == '321' || $_G[fid] == '322' || $_G[fid] == '323' || $_G[fid] == '324' || $_G[fid] == '325' || $_G[fid] == '326' || $_G[fid] == '327' || $_G[fid] == '329' || $_G[fid] == '330' || $_G[fid] == '331' || $_G[fid] == '332' || $_G[fid] == '333' || $_G[fid] == '334' || $_G[fid] == '335' || $_G[fid] == '2664' || $_G[fid] == '2665' || $_G[fid] == '2666' || $_G[fid] == '2667' || $_G[fid] == '336' || $_G[fid] == '337' || $_G[fid] == '338' || $_G[fid] == '339' || $_G[fid] == '340' || $_G[fid] == '341' || $_G[fid] == '342' || $_G[fid] == '343' || $_G[fid] == '344' || $_G[fid] == '345' || $_G[fid] == '346' || $_G[fid] == '347' || $_G[fid] == '348' || $_G[fid] == '349' || $_G[fid] == '350' || $_G[fid] == '351' || $_G[fid] == '352' || $_G[fid] == '353' || $_G[fid] == '354' || $_G[fid] == '355' || $_G[fid] == '356' || $_G[fid] == '357' || $_G[fid] == '358' || $_G[fid] == '359' || $_G[fid] == '360' || $_G[fid] == '361' || $_G[fid] == '362' || $_G[fid] == '363' || $_G[fid] == '364' || $_G[fid] == '365' || $_G[fid] == '366' || $_G[fid] == '367' || $_G[fid] == '368' || $_G[fid] == '369' || $_G[fid] == '370' || $_G[fid] == '371' || $_G[fid] == '372' || $_G[fid] == '374' || $_G[fid] == '375' || $_G[fid] == '376' || $_G[fid] == '377' || $_G[fid] == '378' || $_G[fid] == '383' || $_G[fid] == '384' || $_G[fid] == '385' || $_G[fid] == '386' || $_G[fid] == '387' || $_G[fid] == '388' || $_G[fid] == '389' || $_G[fid] == '390' || $_G[fid] == '391' || $_G[fid] == '392' || $_G[fid] == '393' || $_G[fid] == '394' || $_G[fid] == '395' || $_G[fid] == '396' || $_G[fid] == '397' || $_G[fid] == '398' || $_G[fid] == '399' || $_G[fid] == '400' || $_G[fid] == '401' || $_G[fid] == '402' || $_G[fid] == '403' || $_G[fid] == '404' || $_G[fid] == '405' || $_G[fid] == '406' || $_G[fid] == '407' || $_G[fid] == '408' || $_G[fid] == '409' || $_G[fid] == '410' || $_G[fid] == '411' || $_G[fid] == '412' || $_G[fid] == '413' || $_G[fid] == '414' || $_G[fid] == '415' || $_G[fid] == '416' || $_G[fid] == '417' || $_G[fid] == '418' || $_G[fid] == '419' || $_G[fid] == '420' || $_G[fid] == '421' || $_G[fid] == '422' || $_G[fid] == '423' || $_G[fid] == '424' || $_G[fid] == '425' || $_G[fid] == '426'}-->
+			<a href="{if !$_G[uid] && IN_WECHAT}/area/newlist.html{else}/area/newlist.html{/if}"><i class="fa fa-pencil-square-o pr5"></i><span>免费发布培训</span></a>
+		<!--{else}-->
+		
+        <a href="{if !$_G[uid] && IN_WECHAT}forum.php?mod=post&action=newthread&fid=$_G[fid]&authorization=true{else}forum.php?mod=post&action=newthread&fid=$_G[fid]{/if}"><i class="fa fa-pencil-square-o pr5"></i><span>{if $_G[fid] == '2313'}发布新闻{elseif $_G[fid] == '2' || $_G[fid] == '4000' || $_G[fid] == '37' || $_G[fid] == '38' || $_G[fid] == '39' || $_G[fid] == '40' || $_G[fid] == '41' || $_G[fid] == '42' || $_G[fid] == '53' || $_G[fid] == '50' || $_G[fid] == '51' || $_G[fid] == '52' || $_G[fid] == '44' || $_G[fid] == '43' || $_G[fid] == '46' || $_G[fid] == '45' || $_G[fid] == '48' || $_G[fid] == '49' || $_G[fid] == '47' || $_G[fid] == '54' || $_G[fid] == '55' || $_G[fid] == '56' || $_G[fid] == '57' || $_G[fid] == '58' || $_G[fid] == '59' || $_G[fid] == '60' || $_G[fid] == '61' || $_G[fid] == '62' || $_G[fid] == '63' || $_G[fid] == '64' || $_G[fid] == '65' || $_G[fid] == '74' || $_G[fid] == '75' || $_G[fid] == '76' || $_G[fid] == '77' || $_G[fid] == '78' || $_G[fid] == '79' || $_G[fid] == '80' || $_G[fid] == '81' || $_G[fid] == '82' || $_G[fid] == '83' || $_G[fid] == '84' || $_G[fid] == '72' || $_G[fid] == '73' || $_G[fid] == '85' || $_G[fid] == '86' || $_G[fid] == '87' || $_G[fid] == '88' || $_G[fid] == '89' || $_G[fid] == '90' || $_G[fid] == '91' || $_G[fid] == '92' || $_G[fid] == '93' || $_G[fid] == '94' || $_G[fid] == '95' || $_G[fid] == '96' || $_G[fid] == '97' || $_G[fid] == '98' || $_G[fid] == '99' || $_G[fid] == '100' || $_G[fid] == '101' || $_G[fid] == '102' || $_G[fid] == '103' || $_G[fid] == '104' || $_G[fid] == '105' || $_G[fid] == '106' || $_G[fid] == '107' || $_G[fid] == '108' || $_G[fid] == '109' || $_G[fid] == '110' || $_G[fid] == '111' || $_G[fid] == '112' || $_G[fid] == '113' || $_G[fid] == '114' || $_G[fid] == '115' || $_G[fid] == '116' || $_G[fid] == '117' || $_G[fid] == '118' || $_G[fid] == '119' || $_G[fid] == '120' || $_G[fid] == '121' || $_G[fid] == '122' || $_G[fid] == '123' || $_G[fid] == '124' || $_G[fid] == '191' || $_G[fid] == '192' || $_G[fid] == '193' || $_G[fid] == '194' || $_G[fid] == '195' || $_G[fid] == '196' || $_G[fid] == '197' || $_G[fid] == '198' || $_G[fid] == '199' || $_G[fid] == '200' || $_G[fid] == '201' || $_G[fid] == '202' || $_G[fid] == '203' || $_G[fid] == '204' || $_G[fid] == '175' || $_G[fid] == '176' || $_G[fid] == '177' || $_G[fid] == '178' || $_G[fid] == '179' || $_G[fid] == '180' || $_G[fid] == '181' || $_G[fid] == '182' || $_G[fid] == '183' || $_G[fid] == '184' || $_G[fid] == '185' || $_G[fid] == '186' || $_G[fid] == '187' || $_G[fid] == '213' || $_G[fid] == '214' || $_G[fid] == '215' || $_G[fid] == '216' || $_G[fid] == '217' || $_G[fid] == '218' || $_G[fid] == '219' || $_G[fid] == '220' || $_G[fid] == '221' || $_G[fid] == '222' || $_G[fid] == '223' || $_G[fid] == '224' || $_G[fid] == '225' || $_G[fid] == '205' || $_G[fid] == '206' || $_G[fid] == '259' || $_G[fid] == '260' || $_G[fid] == '261' || $_G[fid] == '262' || $_G[fid] == '263' || $_G[fid] == '264' || $_G[fid] == '265' || $_G[fid] == '266' || $_G[fid] == '267' || $_G[fid] == '268' || $_G[fid] == '269' || $_G[fid] == '270' || $_G[fid] == '271' || $_G[fid] == '272' || $_G[fid] == '226' || $_G[fid] == '227' || $_G[fid] == '228' || $_G[fid] == '229' || $_G[fid] == '230' || $_G[fid] == '231' || $_G[fid] == '232' || $_G[fid] == '233' || $_G[fid] == '234' || $_G[fid] == '235' || $_G[fid] == '236' || $_G[fid] == '237' || $_G[fid] == '238' || $_G[fid] == '239' || $_G[fid] == '240' || $_G[fid] == '241' || $_G[fid] == '242' || $_G[fid] == '243' || $_G[fid] == '244' || $_G[fid] == '245' || $_G[fid] == '246' || $_G[fid] == '247' || $_G[fid] == '248' || $_G[fid] == '249' || $_G[fid] == '250' || $_G[fid] == '251' || $_G[fid] == '252' || $_G[fid] == '253' || $_G[fid] == '254' || $_G[fid] == '255' || $_G[fid] == '256' || $_G[fid] == '257' || $_G[fid] == '136' || $_G[fid] == '137' || $_G[fid] == '138' || $_G[fid] == '139' || $_G[fid] == '140' || $_G[fid] == '141' || $_G[fid] == '142' || $_G[fid] == '143' || $_G[fid] == '144' || $_G[fid] == '145' || $_G[fid] == '146' || $_G[fid] == '147' || $_G[fid] == '148' || $_G[fid] == '149' || $_G[fid] == '150' || $_G[fid] == '151' || $_G[fid] == '152' || $_G[fid] == '153' || $_G[fid] == '154' || $_G[fid] == '155' || $_G[fid] == '156' || $_G[fid] == '157' || $_G[fid] == '158' || $_G[fid] == '159' || $_G[fid] == '160' || $_G[fid] == '161' || $_G[fid] == '162' || $_G[fid] == '163' || $_G[fid] == '164' || $_G[fid] == '165' || $_G[fid] == '166' || $_G[fid] == '167' || $_G[fid] == '168' || $_G[fid] == '169' || $_G[fid] == '170' || $_G[fid] == '171' || $_G[fid] == '172' || $_G[fid] == '173' || $_G[fid] == '174' || $_G[fid] == '125' || $_G[fid] == '126' || $_G[fid] == '127' || $_G[fid] == '128' || $_G[fid] == '129' || $_G[fid] == '130' || $_G[fid] == '131' || $_G[fid] == '132' || $_G[fid] == '133' || $_G[fid] == '134' || $_G[fid] == '135' || $_G[fid] == '273' || $_G[fid] == '274' || $_G[fid] == '275' || $_G[fid] == '276' || $_G[fid] == '277' || $_G[fid] == '278' || $_G[fid] == '279' || $_G[fid] == '280' || $_G[fid] == '281' || $_G[fid] == '282' || $_G[fid] == '283' || $_G[fid] == '284' || $_G[fid] == '285' || $_G[fid] == '286' || $_G[fid] == '287' || $_G[fid] == '288' || $_G[fid] == '289' || $_G[fid] == '290' || $_G[fid] == '291' || $_G[fid] == '292' || $_G[fid] == '293' || $_G[fid] == '294' || $_G[fid] == '295' || $_G[fid] == '296' || $_G[fid] == '297' || $_G[fid] == '298' || $_G[fid] == '299' || $_G[fid] == '300' || $_G[fid] == '301' || $_G[fid] == '302' || $_G[fid] == '303' || $_G[fid] == '304' || $_G[fid] == '305' || $_G[fid] == '306' || $_G[fid] == '307' || $_G[fid] == '308' || $_G[fid] == '309' || $_G[fid] == '310' || $_G[fid] == '311' || $_G[fid] == '312' || $_G[fid] == '313' || $_G[fid] == '314' || $_G[fid] == '315' || $_G[fid] == '316' || $_G[fid] == '317' || $_G[fid] == '318' || $_G[fid] == '319' || $_G[fid] == '320' || $_G[fid] == '321' || $_G[fid] == '322' || $_G[fid] == '323' || $_G[fid] == '324' || $_G[fid] == '325' || $_G[fid] == '326' || $_G[fid] == '327' || $_G[fid] == '329' || $_G[fid] == '330' || $_G[fid] == '331' || $_G[fid] == '332' || $_G[fid] == '333' || $_G[fid] == '334' || $_G[fid] == '335' || $_G[fid] == '2664' || $_G[fid] == '2665' || $_G[fid] == '2666' || $_G[fid] == '2667' || $_G[fid] == '336' || $_G[fid] == '337' || $_G[fid] == '338' || $_G[fid] == '339' || $_G[fid] == '340' || $_G[fid] == '341' || $_G[fid] == '342' || $_G[fid] == '343' || $_G[fid] == '344' || $_G[fid] == '345' || $_G[fid] == '346' || $_G[fid] == '347' || $_G[fid] == '348' || $_G[fid] == '349' || $_G[fid] == '350' || $_G[fid] == '351' || $_G[fid] == '352' || $_G[fid] == '353' || $_G[fid] == '354' || $_G[fid] == '355' || $_G[fid] == '356' || $_G[fid] == '357' || $_G[fid] == '358' || $_G[fid] == '359' || $_G[fid] == '360' || $_G[fid] == '361' || $_G[fid] == '362' || $_G[fid] == '363' || $_G[fid] == '364' || $_G[fid] == '365' || $_G[fid] == '366' || $_G[fid] == '367' || $_G[fid] == '368' || $_G[fid] == '369' || $_G[fid] == '370' || $_G[fid] == '371' || $_G[fid] == '372' || $_G[fid] == '374' || $_G[fid] == '375' || $_G[fid] == '376' || $_G[fid] == '377' || $_G[fid] == '378' || $_G[fid] == '383' || $_G[fid] == '384' || $_G[fid] == '385' || $_G[fid] == '386' || $_G[fid] == '387' || $_G[fid] == '388' || $_G[fid] == '389' || $_G[fid] == '390' || $_G[fid] == '391' || $_G[fid] == '392' || $_G[fid] == '393' || $_G[fid] == '394' || $_G[fid] == '395' || $_G[fid] == '396' || $_G[fid] == '397' || $_G[fid] == '398' || $_G[fid] == '399' || $_G[fid] == '400' || $_G[fid] == '401' || $_G[fid] == '402' || $_G[fid] == '403' || $_G[fid] == '404' || $_G[fid] == '405' || $_G[fid] == '406' || $_G[fid] == '407' || $_G[fid] == '408' || $_G[fid] == '409' || $_G[fid] == '410' || $_G[fid] == '411' || $_G[fid] == '412' || $_G[fid] == '413' || $_G[fid] == '414' || $_G[fid] == '415' || $_G[fid] == '416' || $_G[fid] == '417' || $_G[fid] == '418' || $_G[fid] == '419' || $_G[fid] == '420' || $_G[fid] == '421' || $_G[fid] == '422' || $_G[fid] == '423' || $_G[fid] == '424' || $_G[fid] == '425' || $_G[fid] == '426'}免费发布培训{elseif $_G[fid] == '47'}发布琐事{elseif $_G[fid] == '251'}发布交友{elseif $_G[fid] == '86'}发布亲子{elseif $thread['typeid'] == '13644'}发布合影{else}发布信息{/if}</span></a>
+        <!--{/if}-->
+    </div>
+</div>
+<!--{/if}-->
+
+<!--{hook/forumdisplay_bottom_mobile}-->
+<div class="overlay none"></div>
+<script>
+orientationChange = function () {
+    $('.threadpreview_thumb').css('height', (document.body.clientWidth - 50)/4);
+} 
+window.addEventListener("resize", orientationChange, !1); 
+window.addEventListener("load", orientationChange, !1); 
+$(function() {
+    TC.load(TMPLPATH + 'src/tmpl/forumdisplay.html', "20160218");  
+    JC.load(TMPLPATH + 'src/js/forum.js', '20150619', {fid:$_G['fid'], page:1, locked:false});
+    spadebug = false;
+    });
+
+var hidefocus = false;
+$(window).bind('scroll orientationchange', function(e) {
+    if($(this).scrollTop() > 210) {
+        $(".forum-nav").addClass('fixed');
+        $(".content").addClass('fixed');
+    } else {
+        $(".forum-nav").removeClass('fixed');
+        $(".content").removeClass('fixed');
+    }
+});
+</script>
+<!--{subtemplate common/footer}
