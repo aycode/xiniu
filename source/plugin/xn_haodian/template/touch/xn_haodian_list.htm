@@ -1,0 +1,241 @@
+<!--{template common/header}-->
+<!--{template xn_haodian:xn_haodian_head}-->
+<script type="text/javascript" src="template/singcere_faith/src/js/iscroll.js"></script>
+
+
+<nav class="list-nav" style="display: none;">
+	<div class="cat clear">
+		<a href="javascript:void(0);" class="item showsubmenu" data-menu="submenu-diqu">
+			地区 <i class="drop"></i>
+		</a>
+		<a href="javascript:void(0);" class="item showsubmenu" data-menu="submenu-pindao">
+			{$category[catname]} <i class="drop"></i>
+		</a>
+		<a href="javascript:void(0);" class="item showsubmenu" data-menu="submenu-paixu">
+			排序 <i class="drop"></i>
+		</a>
+	</div>
+	<div>
+
+		<section id="submenu-pindao" class="selector Hide">
+			<div class="menu main">
+				<div class="scroller">
+					<!--{loop $_G[cache][xn_haodian_category] $cat}-->
+					<!--{if !$cat[level] && ($_G['cache']['xn_haodian_category'][$cat[catid]]['status'] & SC_H_CATEGORY_ENABLE || $_G['cache']['xn_haodian']['ismoderator'])}-->
+						<a class="item showsubmenu {if $category[topid] == $cat[catid]}on{/if} clear" href="javascript:void(0);" data-menu="submenu-c{$cat[catid]}">$cat[catname]</a>
+					<!--{/if}-->
+					<!--{/loop}-->
+				</div>
+			</div>
+			<div>
+			<!--{loop $_G[cache][xn_haodian_category] $cat}-->
+			<!--{if !$cat[level] && ($_G['cache']['xn_haodian_category'][$cat[catid]]['status'] & SC_H_CATEGORY_ENABLE || $_G['cache']['xn_haodian']['ismoderator'])}-->
+			<div id="submenu-c{$cat[catid]}" class="{if $category[topid] != $cat[catid]}Hide{/if}">
+				<div class="menu sub" style="left: 45%; width: 55%;">
+				<div class="scroller">
+					<a class="item Fix" href="haodian.php?mod=list&catid=$cat[catid]{$disturl}{$urladd}">全部$cat[catname]</a>
+					<!--{loop $cat[children] $subcid}-->
+					<a class="item Fix {if $subcid == $catid}on{/if}" href="haodian.php?mod=list&catid=$subcid{$disturl}{$urladd}">$_G[cache][xn_haodian_category][$subcid][catname]</a>
+					<!--{/loop}-->
+				</div>
+				</div>
+			</div>
+			<!--{/if}-->
+			<!--{/loop}-->
+			</div>
+		</section>
+
+		<section id="submenu-diqu" class="selector Hide">
+			<div class="menu main full">
+				<div class="scroller">
+					<!--{loop $_G[cache][xn_haodian_district] $dist}-->
+					<!--{if !$dist['upid']}-->
+					<a class="item {if $did == $dist[did]}on{/if} clear" href="haodian.php?mod=list{$caturl}&did=$dist[did]{$urladd}">$dist[name]</a>
+					<!--{/if}-->
+					<!--{/loop}-->
+				</div>
+			</div>
+		</section>
+
+		<section id="submenu-paixu" class="selector Hide" style="height: 174px;">
+			<div class="menu main full">
+				<div class="scroller">
+					<a href="{if $_GET[order]}haodian.php?mod=list{$caturl}{$disturl}{$srchurl}{else}javascript:void(0){/if}" class="item">{echo lang('plugin/xn_haodian', 'pageorder_default')}</a>
+					<a href="haodian.php?mod=list{$caturl}{$disturl}{$srchurl}&order=reviewnum" class="item">{echo lang('plugin/xn_haodian', 'pageorder_reviewnum')}</a>
+					<a href="haodian.php?mod=list{$caturl}{$disturl}{$srchurl}&order=rank" class="item">{echo lang('plugin/xn_haodian', 'pageorder_rank')}</a>
+					<!--{loop $category['ranksetting'] $key $rs}-->
+						<!--{if $rs[available]}-->
+						<a href="haodian.php?mod=list{$caturl}{$disturl}{$srchurl}&order=rank{$key}" class="item">{echo lang('plugin/xn_haodian', 'pageorder_rank'.$key, array('sortname' => $rs[title]))}</a>
+						<!--{/if}-->
+					<!--{/loop}-->
+					<!-- //@fatfish 隐藏按费用排序
+					<a href="haodian.php?mod=list{$caturl}{$disturl}{$srchurl}&order=avg_asc" class="item">{echo lang('plugin/xn_haodian', 'pageorder_avg_asc')}</a>
+					<a href="haodian.php?mod=list{$caturl}{$disturl}{$srchurl}&order=avg_desc" class="item">{echo lang('plugin/xn_haodian', 'pageorder_avg_desc')}</a>
+					-->
+				</div>
+			</div>
+		</section>
+
+	</div>
+</nav>
+
+<!--<div class="renling">
+	<img src="/source/plugin/xn_haodian/template/touch/renling.jpg" width="100%" height="" alt="" />
+</div>-->
+<!--block/106514 幻灯先走开-->
+<!--{block/106548}-->
+
+
+<style>
+	.hdsmenu li{width:33.33%;float:left;border-right:0;border-bottom: 1px solid #FF6A22;line-height:30px;padding-bottom: 10px;padding-bottom: 6px;}
+	.hdsmenu li i{ color:#FF6A22;display:none1}
+	.hdsmenu li a{color:#FF6A22; /*border: 1px solid #FF6A22; margin: 0 10px; border-radius: 15px;*/}
+</style>
+<div class="channels channelstoggle s-menu hdsmenu">
+	<ul class="right-channel-s clear">
+		<li class=""><a href="http://form.mikecrm.com/LEtzGv">免费申请<i>>></i></a></li>
+		<li class=""><a href="http://form.mikecrm.com/K8XkfP">琴行评选<i>>></i></a></li>
+		<li class=""><a href="/area/zsip.php">招生促销<i>>></i></a></li>
+	</ul>
+</div>
+
+
+
+<div class="shop_list">
+	<ul>
+		<!--{loop $shoplist $shop}-->
+		<li> 
+			<a  href="haodian.php?mod=shop&shopid=$shop[shopid]" style="padding-right:90px" >
+				<h6>
+				
+				<div class="icons" style="display:none1;float: left!important;"> 
+					<div >
+						<!--{if $shop[ext_status] & SC_H_EXT_BD}--> <i class="icon-ka-b"></i> <!--{/if}-->
+						<!--{if $shop[sticky] || ($shop[displayorder] && $shop[catid] == $catid)}-->
+						<i class="icon-stick-x" title="{echo lang('plugin/xn_haodian', 'diy_stick_'.$shop[displayorder]);}" style="background: #70AD49;">置顶</i>                  
+		        		<!--{/if}-->
+		        		<!--{if $shop['groupid'] == 2}-->
+		        			<i class="fa fa-vimeo" style="color:#70AD49;display:none;margin-right:5px;"></i>
+		        		<!--{/if}-->
+		        	</div>
+		    	</div>$shop[name]
+		    	</h6>
+				<div class="comment-rst"><span class="item-rank-rst irr-star{echo floor($shop[rank]/$shop[reviewnum]*2)/2*10}"></span><span style="display:none">人均:&yen;$shop[cusavg]</span> </div>
+				<div class="desc">$shop[add]</div>
+
+				<div class="icon-tel y" style="width: 80px;position: absolute;right: 0;top: 0;height: 83%;border-left: 1px solid #F4F4F4;margin: 10px 0px;"> 
+					<svg width="32" height="32" viewBox="0 0 32 32" style="display: table-cell;position: relative;top: 30%;    left: 24px;">
+				    	<g class="transform-group">
+				     	 <g transform="translate(0, 28.0) scale(1, -1) scale(0.03125, 0.03125)">
+				        	<path d="M539.105882 143.058824c48.188235-27.105882 114.447059-45.176471 168.658824-45.176471 15.058824 0 30.117647 6.023529 39.152941 18.070588l36.141176 33.129412c9.035294 6.023529 9.035294 18.070588 3.011765 27.105882-30.117647 42.164706-63.247059 75.294118-102.4 105.411765-9.035294 6.023529-18.070588 6.023529-27.105882 0l-51.2-51.2c-6.023529-6.023529-15.058824-9.035294-21.082353-3.011765-84.329412 48.188235-180.705882 144.564706-222.870588 228.894118-3.011765 9.035294-3.011765 18.070588 3.011765 24.094118l51.2 51.2c9.035294 6.023529 9.035294 18.070588 3.011765 27.105882-30.117647 42.164706-63.247059 75.294118-102.4 105.411765-9.035294 6.023529-18.070588 6.023529-27.105882 0L252.988235 627.952941C240.941176 615.905882 234.917647 603.858824 234.917647 585.788235c0-51.2 15.058824-123.482353 39.152941-171.670588C319.247059 317.741176 442.729412 191.247059 539.105882 143.058824zM512 862.870588C246.964706 862.870588 33.129412 649.035294 33.129412 384S246.964706-94.870588 512-94.870588 990.870588 118.964706 990.870588 384C990.870588 649.035294 777.035294 862.870588 512 862.870588zM512-128C228.894118-128 0 100.894118 0 384 0 667.105882 228.894118 896 512 896s512-228.894118 512-512C1024 100.894118 795.105882-128 512-128z" fill="#FA7E46"></path></g></g>
+					</svg>
+				</div>
+			</a>
+			
+		</li>
+		<!--{/loop}-->
+	</ul>  
+</div>
+<style>
+.sf_bo,.sf_bo .search{background-color:#eee!important;}
+.sf_bo input.input_keys{border: 1px solid #ddd;height: 33px;}
+.sf_bo #qixc{border: 1px solid #ddd;height: 35px;}
+.sf_bo #qixc .fa-search{position:absolute;top:5px;color:#F5793D!important}
+</style>
+<div class="clear" style="margin-bottom: 50px;">$multipage</div>
+<div id="bottombar">
+	<div class="select-cat cl sf_bo">
+    <!-- search/S -->
+	    <!--{subtemplate common/search}-->
+	<!-- search/E -->
+	</div>
+</div>
+<div class="overlay Hide"></div>
+
+<script>
+
+(function() {
+
+
+	$('.overlay').click(function () {
+	    $(this).addClass('Hide');
+	    $('.showsubmenu').removeClass('on');
+	    $('.selector').addClass('Hide');
+	});
+
+
+	$.extend({
+		iscroll: function(selector, param) {
+			var _i = this;
+			$(selector).each(function(ix, ele) {
+
+				$(ele).on('click', function(t) {
+					t.preventDefault();
+					var subsel = '#' + $(this).attr('data-menu');
+					$(this).toggleClass('on').siblings().removeClass('on');
+					$(subsel).toggleClass('Hide').siblings().addClass('Hide');
+				    if ($(this).hasClass('on')) {
+				        $('.overlay').removeClass("Hide");
+				    } else {
+				        $('.overlay').addClass("Hide");
+				    }
+
+
+
+
+				    _i.showmenu(subsel, param);
+
+				    var subitem = $(subsel).find('.showsubmenu');
+
+				    subitem.each(function(ix, ele) {
+				    	var subsubsel = '#' + $(ele).attr('data-menu');
+				    	if($(ele).hasClass('on')) {
+				    		_i.showmenu(subsubsel, param);
+				    	}
+
+				    	$(ele).on('click', function(t) {
+				    		
+				    		
+				    		$(ele).addClass('on').siblings().removeClass("on");
+				    		$(subsubsel).removeClass('Hide').siblings().addClass('Hide');
+				    		_i.showmenu(subsubsel, param);
+				    	});
+				    });
+				});
+			}); 
+
+			_i.showmenu = function(menusel, param) {
+				var menu = $(menusel).get(0);
+
+				if(menu.length == 0) return ;
+				if(!menu.iscroll) {
+					 
+
+					menu.iscroll = new IScroll(menusel + ' .menu', param);
+					
+				} else {
+					menu.iscroll.refresh(); 
+					
+				}
+
+				var o = $(menusel).find(".scroller .on");
+				o.length &&  menu.iscroll.scrollToElement(o.get(0), 0)
+			}
+		},
+ 
+
+	});
+
+	jQuery.iscroll('.cat .showsubmenu', {
+		scrollbars: true,
+		mouseWheel: true,
+		interactiveScrollbars: true,
+		shrinkScrollbars: 'scale',
+		fadeScrollbars: true});
+
+})();
+
+</script>
+
+<!--{subtemplate xn_haodian:xn_haodian_foot}-->
+<!--{template common/footer}--> 
