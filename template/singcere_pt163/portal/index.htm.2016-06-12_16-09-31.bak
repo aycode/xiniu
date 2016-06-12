@@ -41,8 +41,8 @@
 								<i></i>
 								<!--<em style="background: #ff6600;margin-right: 2px;font-style:italic;padding-left: 26px; padding-right: 27px; "><a  href="forum.php?mod=viewthread&tid=283767" title="网上音乐会参加流程">简介</a></em> 
 								<em style="font-style:italic;padding-left: 26px; padding-right: 27px;" ><a  href="forum.php?mod=post&action=newthread&sortid=14&fid=3517&cedit=yes&extra=" title="快速发布网上音乐会视频">报名</a></em>-->
-								<a style="*display:inline-block;"  href="http://mp.weixin.qq.com/s?__biz=MzAwOTQ4NDY0Ng==&mid=503580142&idx=1&sn=74cd1ade5a9fc8dbef3d5c6ed509bec3#rd" title="简介"  target="_blank"><img height="29" width="84" src="/ayfile/v5/images/jianjie.png" alt="城市音乐会简介"></a>
-								<a style="*display:inline-block;" href="http://form.mikecrm.com/XGoRYT" title="报名"  target="_blank"><img height="29" width="84" src="/ayfile/v5/images/baoming.png" alt="城市音乐会报名"></a>
+								<a style="*display:inline-block;"  href="http://mp.weixin.qq.com/s?__biz=MzAwOTQ4NDY0Ng==&mid=503580142&idx=1&sn=74cd1ade5a9fc8dbef3d5c6ed509bec3#rd" title="简介"><img height="29" width="84" src="/ayfile/v5/images/jianjie.png" alt="城市音乐会简介"></a>
+								<a style="*display:inline-block;" href="http://form.mikecrm.com/XGoRYT" title="报名"><img height="29" width="84" src="/ayfile/v5/images/baoming.png" alt="城市音乐会报名"></a>
 								</li>
 								<!--{block/106553}-->
 						</ul>
