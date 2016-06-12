@@ -527,12 +527,11 @@
 
 <div class="channels channelstoggle s-menu">
 	<ul class="right-channel-s clear">
-		<li style="margin:0;background-color: #DCDCDC;"><a href="http://form.mikecrm.com/LEtzGv">申请店铺</a></li>
-		<li style="margin:0 10px 0 20px;background-color: #DCDCDC;"><a href="http://form.mikecrm.com/K8XkfP">琴行投票</a></li>
-		<li style="margin:0 0 0 10px;background-color: #DCDCDC;"><a href="/area/shopip.php">我的店铺</a></li>
+		<li style="margin:0;background-color: #DCDCDC;"><a href="http://form.mikecrm.com/nobIQQ">协办申请</a></li>
+		<li style="margin:0 10px 0 20px;background-color: #DCDCDC;"><a href="http://form.mikecrm.com/K8XkfP">琴行评选</a></li>
+		<li style="margin:0 0 0 10px;background-color: #DCDCDC;"><a href="http://form.mikecrm.com/XGoRYT">学员报名</a></li>
 	</ul>
 </div>
-
 <!--{/if}-->
 <!--培训帖子列表城市站/-->
 
