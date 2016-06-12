@@ -86,7 +86,7 @@
 <!--{block/106548}-->
 
 
-<!--<style>
+<style>
 	.hdsmenu li{width:33.33%;float:left;border-right:0;border-bottom: 1px solid #FF6A22;line-height:30px;padding-bottom: 10px;padding-bottom: 6px;}
 	.hdsmenu li i{ color:#FF6A22;display:none1}
 	.hdsmenu li a{color:#FF6A22; /*border: 1px solid #FF6A22; margin: 0 10px; border-radius: 15px;*/}
@@ -96,36 +96,6 @@
 		<li class=""><a href="http://form.mikecrm.com/LEtzGv">免费申请<i>>></i></a></li>
 		<li class=""><a href="http://form.mikecrm.com/K8XkfP">琴行评选<i>>></i></a></li>
 		<li class=""><a href="/area/zsip.php">招生促销<i>>></i></a></li>
-	</ul>
-</div>-->
-<style>
-.s-menu li {
-    border-radius: 5px;
-    font-size: 12px;
-    line-height: 26px;
-    border-right: 3px solid #FFFFFF;
-    background-color: #EDEDED;
-    border-bottom: 0;
-}
-.s-menu {
-    clear: both;
-    margin: 10px 0;
-    border-bottom: 1px solid #f4f4f4;
-    padding-bottom: 10px;
-    margin-bottom: 0;
-}
-.s-menu .right-channel-s {
-    padding: 0px;
-    display: -webkit-box;
-    margin-bottom: 0;
-}
-
-</style>
-<div class="channels channelstoggle s-menu">
-	<ul class="right-channel-s clear">
-		<li style="margin:0;background-color: #DCDCDC;"><a href="http://form.mikecrm.com/LEtzGv">申请店铺</a></li>
-		<li style="margin:0 10px 0 20px;background-color: #DCDCDC;"><a href="http://form.mikecrm.com/K8XkfP">琴行投票</a></li>
-		<li style="margin:0 0 0 10px;background-color: #DCDCDC;"><a href="/area/zsip.php">招生促销</a></li>
 	</ul>
 </div>
 
