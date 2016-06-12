@@ -1,0 +1,379 @@
+<!--{subtemplate common/header_common}-->
+	<meta name="application-name" content="$_G['setting']['bbname']" />
+	<meta name="msapplication-tooltip" content="$_G['setting']['bbname']" />
+	<!--{if $_G['setting']['portalstatus']}--><meta name="msapplication-task" content="name=$_G['setting']['navs'][1]['navname'];action-uri={echo !empty($_G['setting']['domain']['app']['portal']) ? 'http://'.$_G['setting']['domain']['app']['portal'] : $_G[siteurl].'portal.php'};icon-uri={$_G[siteurl]}{IMGDIR}/portal.ico" /><!--{/if}-->
+	<meta name="msapplication-task" content="name=$_G['setting']['navs'][2]['navname'];action-uri={echo !empty($_G['setting']['domain']['app']['forum']) ? 'http://'.$_G['setting']['domain']['app']['forum'] : $_G[siteurl].'forum.php'};icon-uri={$_G[siteurl]}{IMGDIR}/bbs.ico" />
+	<!--{if $_G['setting']['groupstatus']}--><meta name="msapplication-task" content="name=$_G['setting']['navs'][3]['navname'];action-uri={echo !empty($_G['setting']['domain']['app']['group']) ? 'http://'.$_G['setting']['domain']['app']['group'] : $_G[siteurl].'group.php'};icon-uri={$_G[siteurl]}{IMGDIR}/group.ico" /><!--{/if}-->
+	<!--{if helper_access::check_module('feed')}--><meta name="msapplication-task" content="name=$_G['setting']['navs'][4]['navname'];action-uri={echo !empty($_G['setting']['domain']['app']['home']) ? 'http://'.$_G['setting']['domain']['app']['home'] : $_G[siteurl].'home.php'};icon-uri={$_G[siteurl]}{IMGDIR}/home.ico" /><!--{/if}-->
+	<!--{if $_G['basescript'] == 'forum' && $_G['setting']['archiver']}-->
+		<link rel="archives" title="$_G['setting']['bbname']" href="{$_G[siteurl]}archiver/" />
+	<!--{/if}-->
+	<!--{if !empty($rsshead)}-->$rsshead<!--{/if}-->
+	<!--{if widthauto()}-->
+		<link rel="stylesheet" id="css_widthauto" href="data/cache/style_{STYLEID}_widthauto.css?{VERHASH}" />
+		<script type="text/javascript">HTMLNODE.className += ' widthauto'</script>
+	<!--{/if}-->
+	<!--{if $_G['basescript'] == 'forum' || $_G['basescript'] == 'group'}-->
+		<script type="text/javascript" src="{$_G[setting][jspath]}forum.js?{VERHASH}"></script>
+	<!--{elseif $_G['basescript'] == 'home' || $_G['basescript'] == 'userapp'}-->
+		<script type="text/javascript" src="{$_G[setting][jspath]}home.js?{VERHASH}"></script>
+	<!--{elseif $_G['basescript'] == 'portal'}-->
+		<script type="text/javascript" src="{$_G[setting][jspath]}portal.js?{VERHASH}"></script>
+	<!--{/if}-->
+	<!--{if $_G['basescript'] != 'portal' && $_GET['diy'] == 'yes' && check_diy_perm($topic)}-->
+		<script type="text/javascript" src="{$_G[setting][jspath]}portal.js?{VERHASH}"></script>
+	<!--{/if}-->
+	<!--{if $_GET['diy'] == 'yes' && check_diy_perm($topic)}-->
+	<link rel="stylesheet" id="diy_common" href="data/cache/style_{STYLEID}_css_diy.css?{VERHASH}" />
+	<!--{/if}-->
+	<!-- Append -->
+	<!--{if $_G['basescript'] === 'portal' && CURMODULE == 'view'}-->
+	<link rel="canonical" href="{$_G[siteurl]}pt/news/$cat[catid]/$article[aid].html"/>
+	<!--{/if}-->
+	<!--{if CURMODULE == 'xn_job' || $_G['forum']['fup'] == '3955'}-->
+	<link rel="stylesheet" href="template/singcere_pt163/src/css/job/job.css" />
+	<!--{elseif CURMODULE == 'xn_sort' || $_G['forum']['fup'] == '3966'}-->
+	<link rel="stylesheet" href="source/plugin/xn_sort/template/src/css/global.css">
+	<!--{elseif CURMODULE == 'xn_mall'}-->
+	<link rel="stylesheet" href="source/plugin/xn_mall/template/src/css/global.css">
+	<!--{elseif (CURMODULE == 'xn' && $module == 'xn_food') || $_G['forum']['fup'] == '3957'}-->
+	<link rel="stylesheet" href="template/singcere_pt163/src/css/food/food.css" />
+	<!--{elseif (CURMODULE == 'xn' && $module == 'xn_fun') || $_G['forum']['fup'] == '3956'}-->
+	<link rel="stylesheet" href="template/singcere_pt163/src/css/fun/fun.css" />
+	<!--{elseif (CURMODULE == 'xn' && $module == 'xn_emotion') || $_G['forum']['fup'] == '3958'}-->
+	<link rel="stylesheet" href="template/singcere_pt163/src/css/emotion/emotion.css" />
+	<!--{elseif (CURMODULE == 'xn' && $module == 'xn_marry') || $_G['forum']['fup'] == '3967'}-->
+	<link rel="stylesheet" href="template/singcere_pt163/src/css/marry/marry.css" />
+	<!--{elseif (CURMODULE == 'xn' && $module == 'xn_home') || $_G['forum']['fup'] == '3959'}-->
+	<link rel="stylesheet" href="template/singcere_pt163/src/css/home/home.css" />
+	<!--{elseif (CURMODULE == 'xn' && $module == 'xn_money') || (CURMODULE == 'xn' && $module == 'calculator') || $_G['forum']['fup'] == '3961'}-->
+	<link rel="stylesheet" href="template/singcere_pt163/src/css/money/money.css" />
+	<!--{elseif (CURMODULE == 'xn' && $module == 'xn_baby') || $_G['forum']['fup'] == '3960'}-->
+	<link rel="stylesheet" href="template/singcere_pt163/src/css/baby/baby.css" />
+	<!--{elseif CURMODULE == 'xn_promo' || CURMODULE == 'xn_haodian' || CURMODULE == 'xn_bd'}-->
+	<link rel="stylesheet" href="template/singcere_pt163/src/css/haodian/haodian.css" />
+	<!--{elseif $_G['forum']['fup'] == '152'}-->
+	<link rel="stylesheet" href="template/singcere_pt163/src/css/sport/sport.css" />
+	<!--{elseif $_G['forum']['fup'] == '3963'}-->
+	<link rel="stylesheet" href="template/singcere_pt163/src/css/car/car.css" />
+	<!--{elseif $_G['forum']['fup'] == '3965'}-->
+	<link rel="stylesheet" href="template/singcere_pt163/src/css/pet/pet.css" />
+	<!--{elseif $_G['forum']['fup'] == '3954' || CURMODULE == 'xn_topic' || CURMODULE == 'xn_interview' || CURMODULE == 'xn_project'}-->
+	<link rel="stylesheet" href="template/singcere_pt163/src/css/pt/pt.css" />
+	<!--{elseif $_G['forum']['fup'] == '3964'}-->
+	<link rel="stylesheet" href="template/singcere_pt163/src/css/zw/zw.css" />
+	<!--{elseif CURMODULE == xn_activity}-->
+	<link rel="stylesheet" href="template/singcere_pt163/src/css/activity/activity.css" />
+	<!--{elseif CURMODULE == 'viewthread'}-->
+	<link rel="stylesheet" href="template/singcere_pt163/src/css/basic.css" />
+	<!--{/if}-->
+	<link rel="stylesheet" href="http://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css" />
+	<script type="text/javascript" src="http://cdn.staticfile.org/jquery/1.8.3/jquery.min.js"></script>
+	<script type="text/javascript">var jq163 = jQuery.noConflict();</script>
+	<script type="text/javascript" src="template/singcere_pt163/src/js/common/slide.js"></script>
+	<!--[if IE 6]>
+	<script type="text/javascript" src="template/singcere_pt163/src/js/common/iepngfix_tilebg.js"></script>
+	<![endif]-->
+	<!-- Append -->
+	<!--{if $_G['setting']['statcode']}-->$_G['setting']['statcode']<!--{/if}--> 
+	<link rel="stylesheet" href="template/singcere_pt163/src/css/nav.css" />
+	<link rel="stylesheet" href="template/singcere_pt163/src/css/qt-list.css" />
+	
+</head>
+<body id="nv_{$_G[basescript]}" class="11 pg_{CURMODULE}{if $_G['basescript'] === 'portal' && CURMODULE === 'list' && !empty($cat)} {$cat['bodycss']}{/if} $space['theme'] {if $_GET['diy'] == 'yes' && check_diy_perm($topic)}diy-mode{/if}" onkeydown="if(event.keyCode==27) return false;">
+	<div id="append_parent"></div><div id="ajaxwaitid"></div>
+	<!--{if $_GET['diy'] == 'yes' && check_diy_perm($topic)}-->
+		<!--{template common/header_diy}-->
+	<!--{/if}-->
+	<!--{if check_diy_perm($topic)}-->
+		<!--{block diynav}-->
+			<a href="javascript:saveUserdata('diy_advance_mode', '');openDiy();">DIY</a>
+		<!--{/block}-->
+	<!--{/if}-->
+	<!--{subtemplate common/header_top}--> 
+	<!--{if empty($topic) || $topic['useheader']}-->
+		<!--{if $_G['setting']['mobile']['allowmobile'] && (!$_G['setting']['cacheindexlife'] && !$_G['setting']['cachethreadon'] || $_G['uid']) && ($_GET['diy'] != 'yes' || !$_GET['inajax']) && ($_G['mobile'] != '' && $_G['cookie']['mobile'] == '' && $_GET['mobile'] != 'no')}-->
+			<div class="xi1 bm bm_c">
+			    {lang your_mobile_browser}<a href="{$_G['siteurl']}forum.php?mobile=yes">{lang go_to_mobile}</a> <span class="xg1">|</span> <a href="$_G['setting']['mobile']['nomobileurl']">{lang to_be_continue}</a>
+			</div>
+		<!--{/if}-->
+		<!--{if $_G['setting']['shortcut'] && $_G['member'][credits] >= $_G['setting']['shortcut']}-->
+			<div id="shortcut">
+				<span><a href="javascript:;" id="shortcutcloseid" title="{lang close}">{lang close}</a></span>
+				{lang shortcut_notice}
+				<a href="javascript:;" id="shortcuttip">{lang shortcut_add}</a>
+			</div>
+			<script type="text/javascript">setTimeout(setShortcut, 2000);</script>
+		<!--{/if}-->
+	<div class="page-all">
+	<!--{if $_G['basescript'] != 'member' && $_G['basescript'] != 'home' && CURMODULE != 'singcere_poll' && CURMODULE != 'xn_sign' && CURMODULE != 'xn_auction'  && CURMODULE != 'xn_tuan' && !defined('IN_SPACE')}-->
+	<!--{eval $mnid = getcurrentnav();}-->
+	<div class="head cl">
+		<div class="head-bd layout">
+
+
+
+			<!--{if CURMODULE == 'xn_sort' || $_G['forum']['fup'] == '3966'}-->
+			<div class="head-hd layout cl">
+			    <div id="logo" class="z">
+			    	<a href="sort.php" title="搜北京"><img src="template/singcere_pt163/src/img/header/logo_sort.png" alt="搜北京"></a>
+				</div>
+				<div class="top_search">
+                    <form autocomplete="off"  action="sort.php?mod=search&searchsubmit=true" method="post">
+                    <input type="hidden" name="formhash" value="{FORMHASH}" />
+				    <input type="text" name="keyword" class="s_txt">
+                    <select name="type"  style="float:left;">
+                        <option value="flea">二手市场</option>
+                        <option value="life">便民电话</option>
+                        <!-- <option value="car">二手车</option> -->
+                    </select>
+				    <input type="submit" value="搜索" class="button s_submit">
+				  </form>
+				</div>
+				<div class="post_manage">
+					<a href="sort.php?mod=post&step=1" class="button post_btn" rel="nofollow">免费发布信息</a>
+					<a href="sort.php?mod=my" class="button modify_btn" rel="nofollow">管理我的信息</a>
+				</div>
+			</div>
+			<div class="menu">
+				<a {if $_GET[mod] == 'flea' || $_GET[type] == 'flea'}class="cur"{/if} href="sort.php?mod=flea">二手市场</a> 
+                <a {if $_GET[mod] == 'car' || $_GET[type] == 'car'}class="cur"{/if} href="sort.php?mod=car">二手车</a>
+                <a {if $_GET[mod] == 'pet' || $_GET[type] == 'pet'}class="cur"{/if} href="sort.php?mod=pet">宠物</a>
+				<a {if $_GET[mod] == 'life' || $_GET[type] == 'life'}class="cur"{/if}  href="sort.php?mod=life">便民电话</a>
+				<a {if $_G[fid] == 3998}class="cur"{/if} href="f-3998-1.html">便民社区</a>
+			</div>
+
+			<!--{elseif CURMODULE == xn_job || $_G['forum']['fup'] == '3955'}-->
+			<div class="head-hd layout cl">
+			    <div id="logo" class="z">
+			    	<a href="job.php" title="北京人才"><img src="template/singcere_pt163/src/img/header/logo_job.png" alt="北京人才"></a>
+				</div>
+				<!--{if  $_G['forum']['fup'] != '3955'}-->
+				<!--{subtemplate xn_job:xn_job_search}-->
+				<!--{/if}--> 
+			</div>
+			<div class="menu">
+				<a href="job.php" {if CURMODULE == 'xn_job' && $mod == 'index'}class="cur"{/if}>人才首页</a>
+				<a href="job.php?mod=post" {if $mod == 'post' || $_GET[type] == 'enterprise'}class="cur"{/if}>北京招聘</a>
+				<a href="job.php?mod=resume" {if $mod == 'resume'}class="cur"{/if}>求职简历</a>
+				<a href="job.php?mod=quick" {if $mod == 'quick'}class="cur"{/if}>一句话招聘</a>
+			</div>
+			<!--{elseif CURMODULE == 'xn_activity'}-->
+			<div class="head-hd layout cl">
+			    <div id="logo" class="z">
+			    	<a href="activity.php" title="北京活动"><img src="template/singcere_pt163/src/img/header/logo_activity.png" alt="北京活动"></a>
+				</div>
+			</div>
+			<div class="menu">
+				<a href="activity.php"  <!--{if $opr == 'index'}-->class="cur"<!--{/if}--> >活动首页</a>
+				<a href="activity.php?opr=underline" {if $opr == "underline"} class="cur"{/if} >线下活动</a>
+				<a href="activity.php?opr=online" {if $opr == 'online' } class="cur"{/if} >线上活动</a>
+				<a href="haodian/promo/" target="_blank">商家活动</a> 
+			</div>
+
+			<!--{elseif CURMODULE == 'xn_haodian' || CURMODULE == 'xn_bd' || CURMODULE == 'xn_promo'}-->
+
+<style>
+.s-hd-search {background: #D9D9D9!important; padding: 1px!important; margin-top: 12px!important; width: 500px!important; margin-left:114px!important;}
+.s-hd-search-text {border: none; _border: #fff; height: 21px!important; line-height: 21px!important; padding: 10px;
+    width: 380px!important; float: left; border-right: 1px solid #D9D9D9!important;}
+.s-hd-search button {background: url('/ayfile/v5/images/search.png') no-repeat 2px -1px!important; height: 41px!important; width: 80px!important; border: none; text-indent: -9999px; cursor: pointer; margin-top: 0px!important;}
+.head{background-color: #fff!important;}
+.shop-comment .comm-per{display:none!important;} /*隐藏人均消费*/
+.s-hd-search form{background-color:#fff;}
+</style>
+			<div class="head-hd cl">
+				<div id="logo" class="z">
+					<a href="haodian.php?mod=list&catid" title="家有琴童·推荐机构"><img src="ayfile/public/images/logo_shop.png" alt="家有琴童·推荐机构"></a>
+					<i class="city">培训</i>
+				</div>
+				<div class="s-hd-search z">
+			        <form action="plugin.php" method="get" class="cl">
+			            <input type="hidden" name="id" value="xn_haodian" />
+			            <input type="hidden" name="mod" value="list" />
+			            <input type="text" name="srchtxt" class="s-hd-search-text" placeholder="输入关键字查找">
+			            <button>{lang search}</button>
+			        </form>
+			    </div>
+				<style>
+					.sub-icon{margin-top: 11px;}
+					.sub-icon a{margin-left:15px;display:block;float:left;font-size:12px;line-height: 23px;
+    							color: #848D92;  text-align: center;}
+				</style>
+				<div class="sub-icon fr">
+					<a href="http://www.123aiyue.com" >
+				        <i class="fa" style="background: url(/ayfile/v5/images/icon_news.png) no-repeat center;display: block;height: 24px;"></i>
+				        <p>新闻</p>
+				    </a>
+				    <a href="forum.php?mod=forumdisplay&fid=3521" >
+				        <i class="fa" style="background: url(/ayfile/v5/images/icon_fangtan.png) no-repeat center;display: block;height: 24px;"></i>
+				        <p>访谈</p>
+				    </a>
+				    <a href="forum.php?mod=forumdisplay&fid=3517" >
+				        <i class="fa" style="background: url(/ayfile/v5/images/icon_show.png) no-repeat center;display: block;height: 24px;"></i>
+				        <p>秀场</p>
+				    </a>
+				</div>
+			</div>
+		</div>
+		<div style= "width:100%;height:40px;line-height:40px;background-color:#F4592C;" >
+			<div class="head-bd layout">
+				<div class="menu"> 
+					<a style="padding-left: 0;" href="http://www.123aiyue.cn" title="家有琴童网首页">首页</a>
+					<a href="/area/shopip.php">琴行培训</a>
+					<a {if $_G[fid] == 3517}class="cur"{/if} href="forum.php?mod=forumdisplay&fid=3517&filter=typeid&typeid=13413">琴童秀场</a>
+					<!--<a {if $_GET['catid'] == 132} class="cur"{/if} href="haodian.php?mod=list&catid=132&did=1">推荐培训 </a>
+					<a {if $_GET['catid'] == 133} class="cur"{/if} href="plugin.php?id=xn_haodian&mod=list&catid=133&style=list">品牌琴行</a>-->
+					<a {if $thread['typeid'] == 13444} class="cur"{/if} href="/forum.php?mod=forumdisplay&fid=3521&filter=typeid&typeid=13444" title="名家访谈">名家访谈</a>
+					<a {if $_G[fid] == 2313}class="cur"{/if} href="forum.php?mod=forumdisplay&fid=2313">活动新闻</a>
+					<a  href="http://www.123aiyue.com">新闻频道</a>
+				</div>
+				<div  class="menu fr">
+					<!--<i style="color:#fff">热线：400-044-9188</i>-->
+					<a class="wx-x z" style="padding-right: 0;color:yellow!important;padding-left: 7px;" href="javascript:void(0)" onclick="document.getElementById('weichat_light').style.display='block';document.getElementById('weichat_fade').style.display='block'">点击关注</a> <!--onmouseover="鼠标滑过模式"-->
+					<div class="wxicon fr" style="width:24px;height:24px;">
+					  <svg style="margin-top: 0px;display:block" width="24" height="24" viewBox="0 0 32 32">
+					    <g class="transform-group">
+					      <g transform="translate(0, 28.0) scale(1, -1) scale(0.03125, 0.03125)">
+					        <path d="M498.816 466.944c26.336 0 43.936 17.632 43.936 43.904 0 26.56-17.568 43.744-43.936 43.744s-52.832-17.184-52.832-43.744C446.016 484.576 472.48 466.944 498.816 466.944zM253.088 554.592c-26.336 0-52.96-17.184-52.96-43.744 0-26.272 26.624-43.904 52.96-43.904 26.24 0 43.808 17.632 43.808 43.904C296.864 537.408 279.328 554.592 253.088 554.592zM1024 185.888c0 138.88-128.832 257.216-286.976 269.536 0.224 1.728 0.32 3.52-0.064 5.312-31.712 147.84-190.688 259.296-369.824 259.296C164.704 720.032 0 578.88 0 405.376c0-93.088 47.52-176.96 137.568-243.104l-31.392-94.368c-2.016-6.144-0.192-12.896 4.704-17.152 2.976-2.56 6.72-3.904 10.496-3.904 2.432 0 4.896 0.576 7.168 1.696L246.4 107.52l14.528-2.944c36.288-7.456 67.616-13.92 106.208-13.92 11.36 0 22.88 0.512 34.176 1.472 4.576 0.384 8.448 2.688 11.072 6.016 42.496-106.336 159.616-183.104 297.44-183.104 35.296 0 71.04 8.512 103.104 16.544l90.848-49.664c2.4-1.312 5.056-1.984 7.68-1.984 3.584 0 7.168 1.216 10.048 3.552 5.056 4.096 7.136 10.848 5.248 17.024l-23.2 77.152C981.344 39.136 1024 112.672 1024 185.888zM398.592 124.032c-10.4-0.896-20.96-1.344-31.424-1.344-35.328 0-65.216 6.112-99.776 13.248L247.296 140c-3.456 0.736-7.104 0.256-10.272-1.376l-88.288-44.192 22.944 68.928c2.24 6.752-0.224 14.112-6.016 18.176C76.96 243.36 32 318.688 32 405.376c0 155.84 150.336 282.656 335.136 282.656 163.36 0 308-99.392 337.856-231.584-171.296-2.24-309.888-122.656-309.888-270.56 0-21.504 3.264-42.336 8.768-62.432C402.208 123.872 400.448 124.192 398.592 124.032zM875.456-3.552c-5.344-4.032-7.616-10.976-5.696-17.376l15.136-50.336-62.112 33.984c-2.368 1.312-5.024 1.984-7.68 1.984-1.312 0-2.624-0.16-3.904-0.512-33.312-8.416-67.776-17.088-101.344-17.088-155.904 0-282.72 107.136-282.72 238.816 0 131.68 126.816 238.784 282.72 238.784 152.928 0 282.144-109.344 282.144-238.784C992 120.256 950.624 52.96 875.456-3.552zM612.992 300.032c-17.568 0-35.136-17.696-35.136-35.232 0-17.664 17.568-35.104 35.136-35.104 26.4 0 43.84 17.44 43.84 35.104C656.832 282.368 639.392 300.032 612.992 300.032zM806.016 300.032c-17.312 0-34.88-17.696-34.88-35.232 0-17.664 17.568-35.104 34.88-35.104 26.304 0 44.064 17.44 44.064 35.104C850.08 282.368 832.352 300.032 806.016 300.032z" fill="yellow"></path>
+					      </g>
+					    </g>
+					  </svg>
+					</div>
+					<div id="weichat_light" class="weichat_share">
+						<img width="200" height="200" src="/ayfile/v5/images/weichat_jyqtw.jpg" />
+						<p>打开微信“扫一扫”<a href = "javascript:void(0)" onclick = "document.getElementById('weichat_light').style.display='none';document.getElementById('weichat_fade').style.display='none'">关闭</a></p>
+					</div>
+					<div id="weichat_fade" class="black_overlay"></div> <!--半透明遮罩层-->
+				</div>	
+			</div>
+		</div>
+		<div class="head-bd layout noindex">
+			<!--{else}-->
+
+			<div class="head-hd cl">
+				<!--{if $_G[fid] == 2313}-->
+				<div id="logo" class="z">
+					<a href="http://www.123aiyue.com" title="中国爱乐网"><img style="margin-top: -3px;" src="/static/image/common/logo.png" alt="中国爱乐网"></a>
+					<img style="position: absolute;top: 28px; left: 178px; display:none" src="/ayfile/v5/images/fubiaoti.gif" />
+				</div>
+				<!--{else}-->
+
+				<script>
+				function getQueryString(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+				var r = window.location.search.substr(1).match(reg);
+				if (r != null) return unescape(r[2]); return null;
+				}
+
+				$(document).ready(function(){
+					var c=getQueryString("city");
+					if (d=="city"){
+						$(".xcity").html("上海");
+					}
+				})  
+				</script>
+				<div id="logo" class="z">
+					<a href="/" title="家有琴童"><img src="ayfile/public/images/logo_jia.png" alt="家有琴童"></a>
+					<!--{if $_G[fid] == 3517 || $_G[fid] == 4001 || $_G[fid] == 4002 || $_G[fid] == 4003 || $_G[fid] == 4004 || $_G[fid] == 4005 || $_G[fid] == 4006 || $_G[fid] == 4007 || $_G[fid] == 4008 || $_G[fid] == 4009 || $_G[fid] == 4010 || $_G[fid] == 4011 || $_G[fid] == 4012 || $_G[fid] == 4013 || $_G[fid] == 4014 || $_G[fid] == 4015 || $_G[fid] == 4016 || $_G[fid] == 4017 || $_G[fid] == 4018 || $_G[fid] == 4019 || $_G[fid] == 4020 || $_G[fid] == 4021 || $_G[fid] == 4022 || $_G[fid] == 4023 || $_G[fid] == 4024 || $_G[fid] == 4025 || $_G[fid] == 4026 || $_G[fid] == 4027 || $_G[fid] == 4028 || $_G[fid] == 4029 || $_G[fid] == 4030 || $_G[fid] == 4031 || $_G[fid] == 4032 || $_G[fid] == 4033 || $_G[fid] == 4034 || $_G[fid] == 4035 || $_G[fid] == 4036}-->
+					<i class="city">秀场</i>
+					<!--{elseif $_G[fid] == 3521}-->
+					<i class="city">访谈</i>
+					<!--{elseif $_G[fid] == 2 || $_G[fid] == 4000 || $_G[fid] == 37 || $_G[fid] == 38 || $_G[fid] == 39 || $_G[fid] == 40 || $_G[fid] == 41 || $_G[fid] == 42 || $_G[fid] == 53 || $_G[fid] == 50 || $_G[fid] == 51 || $_G[fid] == 52 || $_G[fid] == 44 || $_G[fid] == 43 || $_G[fid] == 46 || $_G[fid] == 45 || $_G[fid] == 48 || $_G[fid] == 49 || $_G[fid] == 47 || $_G[fid] == 54 || $_G[fid] == 55 || $_G[fid] == 56 || $_G[fid] == 57 || $_G[fid] == 58 || $_G[fid] == 59 || $_G[fid] == 60 || $_G[fid] == 61 || $_G[fid] == 62 || $_G[fid] == 63 || $_G[fid] == 64 || $_G[fid] == 65 || $_G[fid] == 74 || $_G[fid] == 75 || $_G[fid] == 76 || $_G[fid] == 77 || $_G[fid] == 78 || $_G[fid] == 79 || $_G[fid] == 80 || $_G[fid] == 81 || $_G[fid] == 82 || $_G[fid] == 83 || $_G[fid] == 84 || $_G[fid] == 72 || $_G[fid] == 73 || $_G[fid] == 85 || $_G[fid] == 86 || $_G[fid] == 87 || $_G[fid] == 88 || $_G[fid] == 89 || $_G[fid] == 90 || $_G[fid] == 91 || $_G[fid] == 92 || $_G[fid] == 93 || $_G[fid] == 94 || $_G[fid] == 95 || $_G[fid] == 96 || $_G[fid] == 97 || $_G[fid] == 98 || $_G[fid] == 99 || $_G[fid] == 100 || $_G[fid] == 101 || $_G[fid] == 102 || $_G[fid] == 103 || $_G[fid] == 104 || $_G[fid] == 105 || $_G[fid] == 106 || $_G[fid] == 107 || $_G[fid] == 108 || $_G[fid] == 109 || $_G[fid] == 110 || $_G[fid] == 111 || $_G[fid] == 112 || $_G[fid] == 113 || $_G[fid] == 114 || $_G[fid] == 115 || $_G[fid] == 116 || $_G[fid] == 117 || $_G[fid] == 118 || $_G[fid] == 119 || $_G[fid] == 120 || $_G[fid] == 121 || $_G[fid] == 122 || $_G[fid] == 123 || $_G[fid] == 124 || $_G[fid] == 191 || $_G[fid] == 192 || $_G[fid] == 193 || $_G[fid] == 194 || $_G[fid] == 195 || $_G[fid] == 196 || $_G[fid] == 197 || $_G[fid] == 198 || $_G[fid] == 199 || $_G[fid] == 200 || $_G[fid] == 201 || $_G[fid] == 202 || $_G[fid] == 203 || $_G[fid] == 204 || $_G[fid] == 175 || $_G[fid] == 176 || $_G[fid] == 177 || $_G[fid] == 178 || $_G[fid] == 179 || $_G[fid] == 180 || $_G[fid] == 181 || $_G[fid] == 182 || $_G[fid] == 183 || $_G[fid] == 184 || $_G[fid] == 185 || $_G[fid] == 186 || $_G[fid] == 187 || $_G[fid] == 213 || $_G[fid] == 214 || $_G[fid] == 215 || $_G[fid] == 216 || $_G[fid] == 217 || $_G[fid] == 218 || $_G[fid] == 219 || $_G[fid] == 220 || $_G[fid] == 221 || $_G[fid] == 222 || $_G[fid] == 223 || $_G[fid] == 224 || $_G[fid] == 225 || $_G[fid] == 205 || $_G[fid] == 206 || $_G[fid] == 259 || $_G[fid] == 260 || $_G[fid] == 261 || $_G[fid] == 262 || $_G[fid] == 263 || $_G[fid] == 264 || $_G[fid] == 265 || $_G[fid] == 266 || $_G[fid] == 267 || $_G[fid] == 268 || $_G[fid] == 269 || $_G[fid] == 270 || $_G[fid] == 271 || $_G[fid] == 272 || $_G[fid] == 226 || $_G[fid] == 227 || $_G[fid] == 228 || $_G[fid] == 229 || $_G[fid] == 230 || $_G[fid] == 231 || $_G[fid] == 232 || $_G[fid] == 233 || $_G[fid] == 234 || $_G[fid] == 235 || $_G[fid] == 236 || $_G[fid] == 237 || $_G[fid] == 238 || $_G[fid] == 239 || $_G[fid] == 240 || $_G[fid] == 241 || $_G[fid] == 242 || $_G[fid] == 243 || $_G[fid] == 244 || $_G[fid] == 245 || $_G[fid] == 246 || $_G[fid] == 247 || $_G[fid] == 248 || $_G[fid] == 249 || $_G[fid] == 250 || $_G[fid] == 251 || $_G[fid] == 252 || $_G[fid] == 253 || $_G[fid] == 254 || $_G[fid] == 255 || $_G[fid] == 256 || $_G[fid] == 257 || $_G[fid] == 136 || $_G[fid] == 137 || $_G[fid] == 138 || $_G[fid] == 139 || $_G[fid] == 140 || $_G[fid] == 141 || $_G[fid] == 142 || $_G[fid] == 143 || $_G[fid] == 144 || $_G[fid] == 145 || $_G[fid] == 146 || $_G[fid] == 147 || $_G[fid] == 148 || $_G[fid] == 149 || $_G[fid] == 150 || $_G[fid] == 151 || $_G[fid] == 152 || $_G[fid] == 153 || $_G[fid] == 154 || $_G[fid] == 155 || $_G[fid] == 156 || $_G[fid] == 157 || $_G[fid] == 158 || $_G[fid] == 159 || $_G[fid] == 160 || $_G[fid] == 161 || $_G[fid] == 162 || $_G[fid] == 163 || $_G[fid] == 164 || $_G[fid] == 165 || $_G[fid] == 166 || $_G[fid] == 167 || $_G[fid] == 168 || $_G[fid] == 169 || $_G[fid] == 170 || $_G[fid] == 171 || $_G[fid] == 172 || $_G[fid] == 173 || $_G[fid] == 174 || $_G[fid] == 125 || $_G[fid] == 126 || $_G[fid] == 127 || $_G[fid] == 128 || $_G[fid] == 129 || $_G[fid] == 130 || $_G[fid] == 131 || $_G[fid] == 132 || $_G[fid] == 133 || $_G[fid] == 134 || $_G[fid] == 135 || $_G[fid] == 273 || $_G[fid] == 274 || $_G[fid] == 275 || $_G[fid] == 276 || $_G[fid] == 277 || $_G[fid] == 278 || $_G[fid] == 279 || $_G[fid] == 280 || $_G[fid] == 281 || $_G[fid] == 282 || $_G[fid] == 283 || $_G[fid] == 284 || $_G[fid] == 285 || $_G[fid] == 286 || $_G[fid] == 287 || $_G[fid] == 288 || $_G[fid] == 289 || $_G[fid] == 290 || $_G[fid] == 291 || $_G[fid] == 292 || $_G[fid] == 293 || $_G[fid] == 294 || $_G[fid] == 295 || $_G[fid] == 296 || $_G[fid] == 297 || $_G[fid] == 298 || $_G[fid] == 299 || $_G[fid] == 300 || $_G[fid] == 301 || $_G[fid] == 302 || $_G[fid] == 303 || $_G[fid] == 304 || $_G[fid] == 305 || $_G[fid] == 306 || $_G[fid] == 307 || $_G[fid] == 308 || $_G[fid] == 309 || $_G[fid] == 310 || $_G[fid] == 311 || $_G[fid] == 312 || $_G[fid] == 313 || $_G[fid] == 314 || $_G[fid] == 315 || $_G[fid] == 316 || $_G[fid] == 317 || $_G[fid] == 318 || $_G[fid] == 319 || $_G[fid] == 320 || $_G[fid] == 321 || $_G[fid] == 322 || $_G[fid] == 323 || $_G[fid] == 324 || $_G[fid] == 325 || $_G[fid] == 326 || $_G[fid] == 327 || $_G[fid] == 329 || $_G[fid] == 330 || $_G[fid] == 331 || $_G[fid] == 332 || $_G[fid] == 333 || $_G[fid] == 334 || $_G[fid] == 335 || $_G[fid] == 2664 || $_G[fid] == 2665 || $_G[fid] == 2666 || $_G[fid] == 2667 || $_G[fid] == 336 || $_G[fid] == 337 || $_G[fid] == 338 || $_G[fid] == 339 || $_G[fid] == 340 || $_G[fid] == 341 || $_G[fid] == 342 || $_G[fid] == 343 || $_G[fid] == 344 || $_G[fid] == 345 || $_G[fid] == 346 || $_G[fid] == 347 || $_G[fid] == 348 || $_G[fid] == 349 || $_G[fid] == 350 || $_G[fid] == 351 || $_G[fid] == 352 || $_G[fid] == 353 || $_G[fid] == 354 || $_G[fid] == 355 || $_G[fid] == 356 || $_G[fid] == 357 || $_G[fid] == 358 || $_G[fid] == 359 || $_G[fid] == 360 || $_G[fid] == 361 || $_G[fid] == 362 || $_G[fid] == 363 || $_G[fid] == 364 || $_G[fid] == 365 || $_G[fid] == 366 || $_G[fid] == 367 || $_G[fid] == 368 || $_G[fid] == 369 || $_G[fid] == 370 || $_G[fid] == 371 || $_G[fid] == 372 || $_G[fid] == 374 || $_G[fid] == 375 || $_G[fid] == 376 || $_G[fid] == 377 || $_G[fid] == 378 || $_G[fid] == 383 || $_G[fid] == 384 || $_G[fid] == 385 || $_G[fid] == 386 || $_G[fid] == 387 || $_G[fid] == 388 || $_G[fid] == 389 || $_G[fid] == 390 || $_G[fid] == 391 || $_G[fid] == 392 || $_G[fid] == 393 || $_G[fid] == 394 || $_G[fid] == 395 || $_G[fid] == 396 || $_G[fid] == 397 || $_G[fid] == 398 || $_G[fid] == 399 || $_G[fid] == 400 || $_G[fid] == 401 || $_G[fid] == 402 || $_G[fid] == 403 || $_G[fid] == 404 || $_G[fid] == 405 || $_G[fid] == 406 || $_G[fid] == 407 || $_G[fid] == 408 || $_G[fid] == 409 || $_G[fid] == 410 || $_G[fid] == 411 || $_G[fid] == 412 || $_G[fid] == 413 || $_G[fid] == 414 || $_G[fid] == 415 || $_G[fid] == 416 || $_G[fid] == 417 || $_G[fid] == 418 || $_G[fid] == 419 || $_G[fid] == 420 || $_G[fid] == 421 || $_G[fid] == 422 || $_G[fid] == 423 || $_G[fid] == 424 || $_G[fid] == 425 || $_G[fid] == 426}-->
+					<i class="city">培训</i>
+					<!--{elseif $_G[fid] == 3999}-->
+					<i class="city">活动</i>
+					<!--{else}-->
+					<i class="city">城市站</i>
+					<!--{/if}-->
+				</div>
+				<!--{/if}-->
+				
+				<!--{subtemplate common/header_search}-->
+				<style>
+					.sub-icon{margin-top: 11px;}
+					.sub-icon a{margin-left:15px;display:block;float:left;font-size:12px;line-height: 23px;
+    							color: #848D92;  text-align: center;}
+				</style>
+				<div class="sub-icon fr">
+					<a href="http://www.123aiyue.com" >
+				        <i class="fa" style="background: url(/ayfile/v5/images/icon_news.png) no-repeat center;display: block;height: 24px;"></i>
+				        <p>新闻</p>
+				    </a>
+				    <a href="forum.php?mod=forumdisplay&fid=3521" >
+				        <i class="fa" style="background: url(/ayfile/v5/images/icon_fangtan.png) no-repeat center;display: block;height: 24px;"></i>
+				        <p>访谈</p>
+				    </a>
+				    <a href="forum.php?mod=forumdisplay&fid=3517" >
+				        <i class="fa" style="background: url(/ayfile/v5/images/icon_show.png) no-repeat center;display: block;height: 24px;"></i>
+				        <p>秀场</p>
+				    </a>
+				</div>
+			</div>
+		</div>
+		<div style= "width:100%;height:40px;line-height:40px;background-color:#F4592C;" >
+			<div class="head-bd layout">
+				<div class="menu">
+					<!--{if $_G[fid] == 2313}-->
+					<a style="padding-left: 0;" href="http://www.123aiyue.com"  title="中国爱乐网首页">首页</a>
+					<a {if $thread['typeid'] == 13520} class="cur"{/if} href="forum.php?mod=forumdisplay&fid=2313&filter=typeid&typeid=13520"  title="中国爱乐网比赛频道">比赛</a>
+					<a {if $thread['typeid'] == 13518}class="cur"{/if} href="forum.php?mod=forumdisplay&fid=2313&filter=typeid&typeid=13518"  title="中国爱乐网音乐会新闻">音乐会</a>
+					<a {if $thread['typeid'] == 13723}class="cur"{/if} href="forum.php?mod=forumdisplay&fid=2313&filter=typeid&typeid=13723"  title="中国爱乐网大师班">大师班</a>
+					
+					<!--<a {if $thread['typeid'] == 13722} class="cur"{/if} href="/forum.php?mod=forumdisplay&fid=2313&filter=typeid&typeid=13722" title="中国爱乐网考级频道">考级频道</a>
+					<a {if $thread['typeid'] == 13549}class="cur"{/if} href="forum.php?mod=forumdisplay&fid=2313&filter=typeid&typeid=13549"  title="中国爱乐网合作活动">合作活动</a>
+					<a {if $thread['typeid'] == 13724}class="cur"{/if} href="forum.php?mod=forumdisplay&fid=2313&filter=typeid&typeid=13724"  title="中国爱乐网音乐招聘">音乐招聘</a>-->
+					<a href="/area/shopip.php"  title="招生培训">琴行培训</a>
+					<a href="forum.php?mod=forumdisplay&fid=3517&filter=typeid&typeid=13413" title="家有琴童">琴童秀场</a>
+					<!--{else}-->
+					<a style="padding-left: 0;" href="/" title="家有琴童网首页">首页</a>
+					<!--
+					<a {if $_G[fid] == 2 || $_G[fid] == 4000 || $_G[fid] == 37 || $_G[fid] == 38 || $_G[fid] == 39 || $_G[fid] == 40 || $_G[fid] == 41 || $_G[fid] == 42 || $_G[fid] == 53 || $_G[fid] == 50 || $_G[fid] == 51 || $_G[fid] == 52 || $_G[fid] == 44 || $_G[fid] == 43 || $_G[fid] == 46 || $_G[fid] == 45 || $_G[fid] == 48 || $_G[fid] == 49 || $_G[fid] == 47 || $_G[fid] == 54 || $_G[fid] == 55 || $_G[fid] == 56 || $_G[fid] == 57 || $_G[fid] == 58 || $_G[fid] == 59 || $_G[fid] == 60 || $_G[fid] == 61 || $_G[fid] == 62 || $_G[fid] == 63 || $_G[fid] == 64 || $_G[fid] == 65 || $_G[fid] == 74 || $_G[fid] == 75 || $_G[fid] == 76 || $_G[fid] == 77 || $_G[fid] == 78 || $_G[fid] == 79 || $_G[fid] == 80 || $_G[fid] == 81 || $_G[fid] == 82 || $_G[fid] == 83 || $_G[fid] == 84 || $_G[fid] == 72 || $_G[fid] == 73 || $_G[fid] == 85 || $_G[fid] == 86 || $_G[fid] == 87 || $_G[fid] == 88 || $_G[fid] == 89 || $_G[fid] == 90 || $_G[fid] == 91 || $_G[fid] == 92 || $_G[fid] == 93 || $_G[fid] == 94 || $_G[fid] == 95 || $_G[fid] == 96 || $_G[fid] == 97 || $_G[fid] == 98 || $_G[fid] == 99 || $_G[fid] == 100 || $_G[fid] == 101 || $_G[fid] == 102 || $_G[fid] == 103 || $_G[fid] == 104 || $_G[fid] == 105 || $_G[fid] == 106 || $_G[fid] == 107 || $_G[fid] == 108 || $_G[fid] == 109 || $_G[fid] == 110 || $_G[fid] == 111 || $_G[fid] == 112 || $_G[fid] == 113 || $_G[fid] == 114 || $_G[fid] == 115 || $_G[fid] == 116 || $_G[fid] == 117 || $_G[fid] == 118 || $_G[fid] == 119 || $_G[fid] == 120 || $_G[fid] == 121 || $_G[fid] == 122 || $_G[fid] == 123 || $_G[fid] == 124 || $_G[fid] == 191 || $_G[fid] == 192 || $_G[fid] == 193 || $_G[fid] == 194 || $_G[fid] == 195 || $_G[fid] == 196 || $_G[fid] == 197 || $_G[fid] == 198 || $_G[fid] == 199 || $_G[fid] == 200 || $_G[fid] == 201 || $_G[fid] == 202 || $_G[fid] == 203 || $_G[fid] == 204 || $_G[fid] == 175 || $_G[fid] == 176 || $_G[fid] == 177 || $_G[fid] == 178 || $_G[fid] == 179 || $_G[fid] == 180 || $_G[fid] == 181 || $_G[fid] == 182 || $_G[fid] == 183 || $_G[fid] == 184 || $_G[fid] == 185 || $_G[fid] == 186 || $_G[fid] == 187 || $_G[fid] == 213 || $_G[fid] == 214 || $_G[fid] == 215 || $_G[fid] == 216 || $_G[fid] == 217 || $_G[fid] == 218 || $_G[fid] == 219 || $_G[fid] == 220 || $_G[fid] == 221 || $_G[fid] == 222 || $_G[fid] == 223 || $_G[fid] == 224 || $_G[fid] == 225 || $_G[fid] == 205 || $_G[fid] == 206 || $_G[fid] == 259 || $_G[fid] == 260 || $_G[fid] == 261 || $_G[fid] == 262 || $_G[fid] == 263 || $_G[fid] == 264 || $_G[fid] == 265 || $_G[fid] == 266 || $_G[fid] == 267 || $_G[fid] == 268 || $_G[fid] == 269 || $_G[fid] == 270 || $_G[fid] == 271 || $_G[fid] == 272 || $_G[fid] == 226 || $_G[fid] == 227 || $_G[fid] == 228 || $_G[fid] == 229 || $_G[fid] == 230 || $_G[fid] == 231 || $_G[fid] == 232 || $_G[fid] == 233 || $_G[fid] == 234 || $_G[fid] == 235 || $_G[fid] == 236 || $_G[fid] == 237 || $_G[fid] == 238 || $_G[fid] == 239 || $_G[fid] == 240 || $_G[fid] == 241 || $_G[fid] == 242 || $_G[fid] == 243 || $_G[fid] == 244 || $_G[fid] == 245 || $_G[fid] == 246 || $_G[fid] == 247 || $_G[fid] == 248 || $_G[fid] == 249 || $_G[fid] == 250 || $_G[fid] == 251 || $_G[fid] == 252 || $_G[fid] == 253 || $_G[fid] == 254 || $_G[fid] == 255 || $_G[fid] == 256 || $_G[fid] == 257 || $_G[fid] == 136 || $_G[fid] == 137 || $_G[fid] == 138 || $_G[fid] == 139 || $_G[fid] == 140 || $_G[fid] == 141 || $_G[fid] == 142 || $_G[fid] == 143 || $_G[fid] == 144 || $_G[fid] == 145 || $_G[fid] == 146 || $_G[fid] == 147 || $_G[fid] == 148 || $_G[fid] == 149 || $_G[fid] == 150 || $_G[fid] == 151 || $_G[fid] == 152 || $_G[fid] == 153 || $_G[fid] == 154 || $_G[fid] == 155 || $_G[fid] == 156 || $_G[fid] == 157 || $_G[fid] == 158 || $_G[fid] == 159 || $_G[fid] == 160 || $_G[fid] == 161 || $_G[fid] == 162 || $_G[fid] == 163 || $_G[fid] == 164 || $_G[fid] == 165 || $_G[fid] == 166 || $_G[fid] == 167 || $_G[fid] == 168 || $_G[fid] == 169 || $_G[fid] == 170 || $_G[fid] == 171 || $_G[fid] == 172 || $_G[fid] == 173 || $_G[fid] == 174 || $_G[fid] == 125 || $_G[fid] == 126 || $_G[fid] == 127 || $_G[fid] == 128 || $_G[fid] == 129 || $_G[fid] == 130 || $_G[fid] == 131 || $_G[fid] == 132 || $_G[fid] == 133 || $_G[fid] == 134 || $_G[fid] == 135 || $_G[fid] == 273 || $_G[fid] == 274 || $_G[fid] == 275 || $_G[fid] == 276 || $_G[fid] == 277 || $_G[fid] == 278 || $_G[fid] == 279 || $_G[fid] == 280 || $_G[fid] == 281 || $_G[fid] == 282 || $_G[fid] == 283 || $_G[fid] == 284 || $_G[fid] == 285 || $_G[fid] == 286 || $_G[fid] == 287 || $_G[fid] == 288 || $_G[fid] == 289 || $_G[fid] == 290 || $_G[fid] == 291 || $_G[fid] == 292 || $_G[fid] == 293 || $_G[fid] == 294 || $_G[fid] == 295 || $_G[fid] == 296 || $_G[fid] == 297 || $_G[fid] == 298 || $_G[fid] == 299 || $_G[fid] == 300 || $_G[fid] == 301 || $_G[fid] == 302 || $_G[fid] == 303 || $_G[fid] == 304 || $_G[fid] == 305 || $_G[fid] == 306 || $_G[fid] == 307 || $_G[fid] == 308 || $_G[fid] == 309 || $_G[fid] == 310 || $_G[fid] == 311 || $_G[fid] == 312 || $_G[fid] == 313 || $_G[fid] == 314 || $_G[fid] == 315 || $_G[fid] == 316 || $_G[fid] == 317 || $_G[fid] == 318 || $_G[fid] == 319 || $_G[fid] == 320 || $_G[fid] == 321 || $_G[fid] == 322 || $_G[fid] == 323 || $_G[fid] == 324 || $_G[fid] == 325 || $_G[fid] == 326 || $_G[fid] == 327 || $_G[fid] == 329 || $_G[fid] == 330 || $_G[fid] == 331 || $_G[fid] == 332 || $_G[fid] == 333 || $_G[fid] == 334 || $_G[fid] == 335 || $_G[fid] == 2664 || $_G[fid] == 2665 || $_G[fid] == 2666 || $_G[fid] == 2667 || $_G[fid] == 336 || $_G[fid] == 337 || $_G[fid] == 338 || $_G[fid] == 339 || $_G[fid] == 340 || $_G[fid] == 341 || $_G[fid] == 342 || $_G[fid] == 343 || $_G[fid] == 344 || $_G[fid] == 345 || $_G[fid] == 346 || $_G[fid] == 347 || $_G[fid] == 348 || $_G[fid] == 349 || $_G[fid] == 350 || $_G[fid] == 351 || $_G[fid] == 352 || $_G[fid] == 353 || $_G[fid] == 354 || $_G[fid] == 355 || $_G[fid] == 356 || $_G[fid] == 357 || $_G[fid] == 358 || $_G[fid] == 359 || $_G[fid] == 360 || $_G[fid] == 361 || $_G[fid] == 362 || $_G[fid] == 363 || $_G[fid] == 364 || $_G[fid] == 365 || $_G[fid] == 366 || $_G[fid] == 367 || $_G[fid] == 368 || $_G[fid] == 369 || $_G[fid] == 370 || $_G[fid] == 371 || $_G[fid] == 372 || $_G[fid] == 374 || $_G[fid] == 375 || $_G[fid] == 376 || $_G[fid] == 377 || $_G[fid] == 378 || $_G[fid] == 383 || $_G[fid] == 384 || $_G[fid] == 385 || $_G[fid] == 386 || $_G[fid] == 387 || $_G[fid] == 388 || $_G[fid] == 389 || $_G[fid] == 390 || $_G[fid] == 391 || $_G[fid] == 392 || $_G[fid] == 393 || $_G[fid] == 394 || $_G[fid] == 395 || $_G[fid] == 396 || $_G[fid] == 397 || $_G[fid] == 398 || $_G[fid] == 399 || $_G[fid] == 400 || $_G[fid] == 401 || $_G[fid] == 402 || $_G[fid] == 403 || $_G[fid] == 404 || $_G[fid] == 405 || $_G[fid] == 406 || $_G[fid] == 407 || $_G[fid] == 408 || $_G[fid] == 409 || $_G[fid] == 410 || $_G[fid] == 411 || $_G[fid] == 412 || $_G[fid] == 413 || $_G[fid] == 414 || $_G[fid] == 415 || $_G[fid] == 416 || $_G[fid] == 417 || $_G[fid] == 418 || $_G[fid] == 419 || $_G[fid] == 420 || $_G[fid] == 421 || $_G[fid] == 422 || $_G[fid] == 423 || $_G[fid] == 424 || $_G[fid] == 425 || $_G[fid] == 426}class="cur"{/if} href="/area/zsip.php">推荐培训</a>
+					-->
+					<a  href="/area/shopip.php">琴行培训</a>
+					<a {if $_G[fid] == 3517}class="cur"{/if} href="forum.php?mod=forumdisplay&fid=3517&filter=typeid&typeid=13413">琴童秀场</a>
+					<a {if $thread['typeid'] == 13444} class="cur"{/if} href="/forum.php?mod=forumdisplay&fid=3521&filter=typeid&typeid=13444" title="名家访谈">名家访谈</a>
+					<!--<a href="haodian.php?mod=list&catid=132&did=1">推荐培训</a>-->
+					<a {if $_G[fid] == 2313}class="cur"{/if} href="forum.php?mod=forumdisplay&fid=2313">活动新闻</a>
+					
+					<a  href="http://www.123aiyue.com">新闻频道</a>
+					<!--{/if}-->
+				</div>
+				<div  class="menu fr">
+					<!--<i style="color:#fff">热线：400-044-9188</i>-->
+					  <a class="wx-x z" style="padding-right: 0;color:yellow!important;padding-left: 7px;" href="javascript:void(0)" onclick="document.getElementById('weichat_light').style.display='block';document.getElementById('weichat_fade').style.display='block'">点击关注</a> <!--onmouseover="鼠标滑过模式"-->
+					<div class="wxicon fr" style="width:24px;height:24px;">
+					  <svg style="margin-top: 0px;display:block" width="24" height="24" viewBox="0 0 32 32">
+					    <g class="transform-group">
+					      <g transform="translate(0, 28.0) scale(1, -1) scale(0.03125, 0.03125)">
+					        <path d="M498.816 466.944c26.336 0 43.936 17.632 43.936 43.904 0 26.56-17.568 43.744-43.936 43.744s-52.832-17.184-52.832-43.744C446.016 484.576 472.48 466.944 498.816 466.944zM253.088 554.592c-26.336 0-52.96-17.184-52.96-43.744 0-26.272 26.624-43.904 52.96-43.904 26.24 0 43.808 17.632 43.808 43.904C296.864 537.408 279.328 554.592 253.088 554.592zM1024 185.888c0 138.88-128.832 257.216-286.976 269.536 0.224 1.728 0.32 3.52-0.064 5.312-31.712 147.84-190.688 259.296-369.824 259.296C164.704 720.032 0 578.88 0 405.376c0-93.088 47.52-176.96 137.568-243.104l-31.392-94.368c-2.016-6.144-0.192-12.896 4.704-17.152 2.976-2.56 6.72-3.904 10.496-3.904 2.432 0 4.896 0.576 7.168 1.696L246.4 107.52l14.528-2.944c36.288-7.456 67.616-13.92 106.208-13.92 11.36 0 22.88 0.512 34.176 1.472 4.576 0.384 8.448 2.688 11.072 6.016 42.496-106.336 159.616-183.104 297.44-183.104 35.296 0 71.04 8.512 103.104 16.544l90.848-49.664c2.4-1.312 5.056-1.984 7.68-1.984 3.584 0 7.168 1.216 10.048 3.552 5.056 4.096 7.136 10.848 5.248 17.024l-23.2 77.152C981.344 39.136 1024 112.672 1024 185.888zM398.592 124.032c-10.4-0.896-20.96-1.344-31.424-1.344-35.328 0-65.216 6.112-99.776 13.248L247.296 140c-3.456 0.736-7.104 0.256-10.272-1.376l-88.288-44.192 22.944 68.928c2.24 6.752-0.224 14.112-6.016 18.176C76.96 243.36 32 318.688 32 405.376c0 155.84 150.336 282.656 335.136 282.656 163.36 0 308-99.392 337.856-231.584-171.296-2.24-309.888-122.656-309.888-270.56 0-21.504 3.264-42.336 8.768-62.432C402.208 123.872 400.448 124.192 398.592 124.032zM875.456-3.552c-5.344-4.032-7.616-10.976-5.696-17.376l15.136-50.336-62.112 33.984c-2.368 1.312-5.024 1.984-7.68 1.984-1.312 0-2.624-0.16-3.904-0.512-33.312-8.416-67.776-17.088-101.344-17.088-155.904 0-282.72 107.136-282.72 238.816 0 131.68 126.816 238.784 282.72 238.784 152.928 0 282.144-109.344 282.144-238.784C992 120.256 950.624 52.96 875.456-3.552zM612.992 300.032c-17.568 0-35.136-17.696-35.136-35.232 0-17.664 17.568-35.104 35.136-35.104 26.4 0 43.84 17.44 43.84 35.104C656.832 282.368 639.392 300.032 612.992 300.032zM806.016 300.032c-17.312 0-34.88-17.696-34.88-35.232 0-17.664 17.568-35.104 34.88-35.104 26.304 0 44.064 17.44 44.064 35.104C850.08 282.368 832.352 300.032 806.016 300.032z" fill="yellow"></path>
+					      </g>
+					    </g>
+					  </svg>
+					</div>
+					<div id="weichat_light" class="weichat_share">
+						<!--{if $_G[fid] == 2313 || $_G[fid] == 3521}-->
+						<img width="200" height="200" src="/ayfile/v5/images/cnaiyue.jpg" />
+						<!--{else}-->
+						<img width="200" height="200" src="/ayfile/v5/images/weichat_jyqtw.jpg" />
+						<!--{/if}-->
+						<p>打开微信“扫一扫”<a href = "javascript:void(0)" onclick = "document.getElementById('weichat_light').style.display='none';document.getElementById('weichat_fade').style.display='none'">关闭</a></p>
+					</div>
+					<div id="weichat_fade" class="black_overlay"></div> <!--半透明遮罩层-->
+				</div>
+			</div>
+		</div>
+		<div class="head-bd layout noindex">
+			<!--{/if}-->
+			<!--{if CURMODULE != xn_sort && CURMODULE != xn_job && CURMODULE != xn_mall && $_G['forum']['fup'] != '3955' && CURMODULE != xn_promo && CURMODULE != xn_haodian}-->
+			<!--{subtemplate common/header_search_index}-->
+			<!--{/if}--> 
+		</div>
+	</div>
+	<!--{/if}-->
+		<!--{if CURMODULE == 'viewthread' }-->
+		<!--{ad/headerbanner/wp a_h}-->
+		<!--{/if}-->
+	<!--{/if}-->
+    <!--{hook/global_header}-->
+	<div id="wp" class="wp cl">
