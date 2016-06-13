@@ -29,7 +29,6 @@
 </script>
 <script src="template/singcere_faith/src/js/TouchSlide.1.1.js" charset="utf-8"></script>
 <!--{if $_G['setting']['statcode']}-->$_G['setting']['statcode']<!--{/if}-->
-<!--{if CURMODULE == 'xn_haodian' && $mod =='shop'}--><style>.channelsx,.channelstoggle,.header{display:none!important}</style><!--{/if}-->
 </head>
 <body class="style-es 
 {if CURMODULE == 'xn_activity' || $_G[forum_thread][special] == 4 ||  CURMODULE == 'singcere_poll'}
